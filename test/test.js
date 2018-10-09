@@ -147,4 +147,22 @@ describe('you can create words', () => {
             expect(noun).to.have.property('types');
         });
     });
+
+    describe('you can do stuff with interjections', () => {
+        it('should create an interjection', () => {
+            const { Interjection } = PartsOfSpeech;
+            const interjection = new Interjection('hey');
+
+            expect(interjection).to.have.ownProperty('word');
+            expect(interjection).to.have.ownProperty('word');
+        });
+
+        it('should have types and categories', () => {
+            const { Interjection } = PartsOfSpeech;
+            const interjection = new Interjection('hey');
+
+            expect(interjection).to.have.property('types');
+            expect(interjection).to.have.property('wordCategories');
+        });
+    });
 });
