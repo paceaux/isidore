@@ -131,4 +131,20 @@ describe('you can create words', () => {
             expect(verb).to.have.property('types');
         });
     });
+
+    describe('you can do stuff with nouns', () => {
+        it('should create a noun', () => {
+            const { Noun } = PartsOfSpeech;
+            const noun = new Noun('run');
+
+            expect(noun).to.have.ownProperty('word');
+        });
+
+        it('should have types', () => {
+            const { Noun } = PartsOfSpeech;
+            const noun = new Noun('run');
+
+            expect(noun).to.have.property('types');
+        });
+    });
 });
