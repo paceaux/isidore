@@ -83,4 +83,20 @@ describe('you can create words', () => {
             expect(conj).to.have.property('genders');
         });
     });
+
+    describe('you can do stuff with adverbs', () => {
+        it('should create an adverb', () => {
+            const { Adverb } = PartsOfSpeech;
+            const adv = new Adverb('happily');
+
+            expect(adv).to.have.ownProperty('word');
+        });
+
+        it('should have types', () => {
+            const { Adverb } = PartsOfSpeech;
+            const adv = new Adverb('happily');
+
+            expect(adv).to.have.property('types');
+        });
+    });
 });
