@@ -65,5 +65,22 @@ describe('you can create words', () => {
             expect(conj).to.have.property('types');
         });
     });
+    describe('you can do stuff with pronouns', () => {
+        it('should create a pronoun', () => {
+            const { Pronoun } = PartsOfSpeech;
+            const pronoun = new Pronoun('I');
 
+            expect(pronoun).to.have.ownProperty('word');
+        });
+
+        it('should have types, quantities, referents, and genders', () => {
+            const { Pronoun } = PartsOfSpeech;
+            const conj = new Pronoun('I');
+
+            expect(conj).to.have.property('types');
+            expect(conj).to.have.property('quantities');
+            expect(conj).to.have.property('referents');
+            expect(conj).to.have.property('genders');
+        });
+    });
 });
