@@ -2,10 +2,18 @@
   "name": "grammarjs",
   "version": "0.0.1",
   "description": "A grammar utility",
-  "main": "index.js",
+  "main": "dist/grammar.cjs.js",
+  "module": "dist/grammar.esm.js",
+  "browser": "dist/grammar.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "mocha test/test.js",
+    "pretest": "npm run build"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "grammar",
     "nlp",
@@ -13,5 +21,12 @@
     "linguistics"
   ],
   "author": "Frank M. Taylor",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "rollup": "^0.66.5",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  }
 }
