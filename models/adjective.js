@@ -51,7 +51,6 @@ function Adjective(word, type, degree) {
     this.type = type;
     this.degree = degree;
 
-
     return this.word;
 }
 

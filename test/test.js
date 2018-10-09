@@ -3,6 +3,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const should = chai.should();
 const grammar = require('..');
+const { PartsOfSpeech } = grammar;
 
 
 
@@ -28,4 +29,25 @@ describe('you have some grammar', ()=> {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
     });
+});
+
+describe('you can create words', () => {
+
+    describe('you can do stuff with adjectives', () => {
+        it('should create an adjective',  ()=> {
+            const { Adjective } = PartsOfSpeech;
+            const adj = new Adjective('tall', 'Descriptive');
+
+            expect(adj).to.haveOwnProperty('word');
+        });
+
+        it ('should have types and degrees',  () => {
+            const { Adjective } = PartsOfSpeech;
+            const adj = new Adjective('tall', 'Descriptive');
+
+            expect(adj).to.have.property('types');
+            expect(adj).to.have.property('degrees');
+        })
+    });
+
 });
