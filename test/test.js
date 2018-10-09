@@ -86,15 +86,15 @@ describe('you can create words', () => {
 
     describe('you can do stuff with adverbs', () => {
         it('should create an adverb', () => {
-            const { Preposition } = PartsOfSpeech;
-            const adv = new Preposition('happily');
+            const { Verb } = PartsOfSpeech;
+            const adv = new Verb('happily');
 
             expect(adv).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
-            const { Preposition } = PartsOfSpeech;
-            const adv = new Preposition('happily');
+            const { Verb } = PartsOfSpeech;
+            const adv = new Verb('happily');
 
             expect(adv).to.have.property('types');
         });
@@ -102,17 +102,33 @@ describe('you can create words', () => {
 
     describe('you can do stuff with prepositions', () => {
         it('should create a preposition', () => {
-            const { Preposition } = PartsOfSpeech;
-            const prep = new Preposition('to');
+            const { Verb } = PartsOfSpeech;
+            const prep = new Verb('to');
 
             expect(prep).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
-            const { Preposition } = PartsOfSpeech;
-            const prep = new Preposition('to');
+            const { Verb } = PartsOfSpeech;
+            const prep = new Verb('to');
 
             expect(prep).to.have.property('types');
+        });
+    });
+
+    describe('you can do stuff with verbs', () => {
+        it('should create a verb', () => {
+            const { Verb } = PartsOfSpeech;
+            const verb = new Verb('run');
+
+            expect(verb).to.have.ownProperty('word');
+        });
+
+        it('should have types', () => {
+            const { Verb } = PartsOfSpeech;
+            const verb = new Verb('run');
+
+            expect(verb).to.have.property('types');
         });
     });
 });
