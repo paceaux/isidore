@@ -50,4 +50,20 @@ describe('you can create words', () => {
         })
     });
 
+    describe('you can do stuff with conjunctions', () => {
+        it('should create a conjunction', () => {
+            const { Conjunction } = PartsOfSpeech;
+            const conj = new Conjunction('and');
+
+            expect(conj).to.have.ownProperty('word');
+        });
+
+        it('should have types', () => {
+            const { Conjunction } = PartsOfSpeech;
+            const conj = new Conjunction('and');
+
+            expect(conj).to.have.property('types');
+        });
+    });
+
 });

@@ -16,6 +16,7 @@
 
 function Conjunction(word, type) {
     this.type = type;
+    this.word = word;
 
     return this.word;
 }
