@@ -86,17 +86,33 @@ describe('you can create words', () => {
 
     describe('you can do stuff with adverbs', () => {
         it('should create an adverb', () => {
-            const { Adverb } = PartsOfSpeech;
-            const adv = new Adverb('happily');
+            const { Preposition } = PartsOfSpeech;
+            const adv = new Preposition('happily');
 
             expect(adv).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
-            const { Adverb } = PartsOfSpeech;
-            const adv = new Adverb('happily');
+            const { Preposition } = PartsOfSpeech;
+            const adv = new Preposition('happily');
 
             expect(adv).to.have.property('types');
+        });
+    });
+
+    describe('you can do stuff with prepositions', () => {
+        it('should create a preposition', () => {
+            const { Preposition } = PartsOfSpeech;
+            const prep = new Preposition('to');
+
+            expect(prep).to.have.ownProperty('word');
+        });
+
+        it('should have types', () => {
+            const { Preposition } = PartsOfSpeech;
+            const prep = new Preposition('to');
+
+            expect(prep).to.have.property('types');
         });
     });
 });
