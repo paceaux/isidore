@@ -1,18 +1,17 @@
-const mocha = require('mocha');
 const chai = require('chai');
-const expect = chai.expect;
-const should = chai.should();
+
+const { expect } = chai;
 const grammar = require('..');
+
 const { PartsOfSpeech, Sentence } = grammar;
 
 
-describe('you have some grammar', ()=> {
-    console.log(grammar);
-    it('should have a grammar object', ()=> {
+describe('you have some grammar', () => {
+    it('should have a grammar object', () => {
         expect(grammar).to.be.an('object');
     });
 
-    it('should have PartsOfSpeech', ()=> {
+    it('should have PartsOfSpeech', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
     });
 
@@ -35,22 +34,21 @@ describe('you have some grammar', ()=> {
 });
 
 describe('you can create words', () => {
-
     describe('you can do stuff with adjectives', () => {
-        it('should create an adjective',  ()=> {
+        it('should create an adjective', () => {
             const { Adjective } = PartsOfSpeech;
             const adj = new Adjective('tall', 'Descriptive');
 
             expect(adj).to.haveOwnProperty('word');
         });
 
-        it ('should have types and degrees',  () => {
+        it('should have types and degrees', () => {
             const { Adjective } = PartsOfSpeech;
             const adj = new Adjective('tall', 'Descriptive');
 
             expect(adj).to.have.property('types');
             expect(adj).to.have.property('degrees');
-        })
+        });
     });
 
     describe('you can do stuff with conjunctions', () => {
