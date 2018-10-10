@@ -29,4 +29,8 @@ describe('you have some grammar', () => {
     it('should have a sentence', () => {
         expect(grammar).to.haveOwnProperty('Sentence');
     });
+
+    it('should have dictionaries', () =>{
+        expect(grammar).to.haveOwnProperty('Dictionaries');
+    });
 });
