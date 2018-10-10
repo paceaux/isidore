@@ -3,7 +3,7 @@
 * https://www.english-grammar-revolution.com/list-of-conjunctions.html
  */
 
-module.exports = [
+export default [
     {
         conjunction: ['and'],
         type: 'coordinating',

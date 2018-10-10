@@ -3,7 +3,7 @@
 * https://www.ef.edu/english-resources/english-vocabulary/top-50-adjectives/
  */
 
-module.exports = [
+export default [
 	'able',
 	'bad',
 	'best',

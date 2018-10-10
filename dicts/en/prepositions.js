@@ -3,7 +3,7 @@
 * https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
  */
 
-module.exports = [
+export default [
 	'of',
 	'with',
 	'at',

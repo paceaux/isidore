@@ -13,7 +13,7 @@ they. they is used in informal speech to refer to a person of unknown gender.
 If you disagree, take it out. I'm a descriptive linguist.
  */
 
-module.exports = [
+export default [
 	{
 		metadata: {
 			person: 1,
