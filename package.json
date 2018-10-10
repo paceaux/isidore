@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "lint": "eslint models/** src/**",
     "test": "mocha test/test.js",
     "pretest": "npm run build"
   },
