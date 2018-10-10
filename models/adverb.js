@@ -1,5 +1,7 @@
 /**
  * http://www.studyandexam.com/adverb2.html
+ * http://www.grammar.cl/Basic/Adverbs_Frequency.htm
+ * https://dictionary.cambridge.org/us/grammar/british-grammar/about-adjectives-and-adverbs/adverbs-types
  */
 
 const types = [
@@ -14,6 +16,15 @@ const types = [
     },
     {
         type: 'frequency',
+    },
+    {
+        type: 'focusing',
+    },
+    {
+        type: 'degree',
+    },
+    {
+        type: 'linking',
     },
 ];
 
