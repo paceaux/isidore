@@ -8,4 +8,6 @@ import Noun from './noun';
 import Interjection from './interjection';
 
 
-export default { Adjective, Conjunction, Pronoun, Preposition, Adverb, Verb, Noun, Interjection };
+export default {
+    Adjective, Conjunction, Pronoun, Preposition, Adverb, Verb, Noun, Interjection,
+};

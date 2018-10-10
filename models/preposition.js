@@ -2,7 +2,7 @@
  * https://www.thefreedictionary.com/Categories-of-Prepositions.htm
  */
 
- const types = [
+const types = [
     {
         type: 'time',
     },
@@ -26,17 +26,16 @@
     },
     {
         type: 'origin',
-    }
- ];
+    },
+];
 
- function Preposition(word, type) {
-     this.word = word;
-     this.type = type;
+function Preposition(word, type) {
+    this.word = word;
+    this.type = type;
 
-     return this.word;
- };
+    return this.word;
+}
 
- Preposition.prototype.types = types;
+Preposition.prototype.types = types;
 
- export default Preposition;
- 
+export default Preposition;

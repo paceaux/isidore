@@ -1,3 +1,3 @@
-import PartsOfSpeech from '../models/index.js';
+import PartsOfSpeech from '../models/index';
 
 export default { PartsOfSpeech };

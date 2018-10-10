@@ -12,12 +12,12 @@ const degrees = [
     },
     {
         degree: 'superlative',
-    }
+    },
 ];
 
 const types = [
     {
-        type : 'descriptive',
+        type: 'descriptive',
     },
     {
         type: 'quantitative',
@@ -41,9 +41,9 @@ const types = [
         type: 'article',
         subTypes: [
             'defininite',
-            'indefinite'
-        ]
-    }
+            'indefinite',
+        ],
+    },
 ];
 
 function Adjective(word, type, degree) {

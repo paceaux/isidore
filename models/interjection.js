@@ -2,7 +2,7 @@
  * https://en.wikipedia.org/wiki/Interjection
  */
 
- const types = [
+const types = [
     {
         type: 'volitive',
     },
@@ -11,27 +11,27 @@
     },
     {
         type: 'cognitive',
-    }
- ];
+    },
+];
 
- const wordCategories = [
-     {
-         wordCategory: 'primary',
-     },
-     {
-         wordCategory: 'secondary',
-     }
- ];
+const wordCategories = [
+    {
+        wordCategory: 'primary',
+    },
+    {
+        wordCategory: 'secondary',
+    },
+];
 
- function Interjection(word, type, wordCategory) {
-     this.word = word;
-     this.type = type;
-     this.wordCategory = wordCategory;
+function Interjection(word, type, wordCategory) {
+    this.word = word;
+    this.type = type;
+    this.wordCategory = wordCategory;
 
-     return this.word;
- }
+    return this.word;
+}
 
- Interjection.prototype.types = types;
- Interjection.prototype.wordCategories = wordCategories;
+Interjection.prototype.types = types;
+Interjection.prototype.wordCategories = wordCategories;
 
- export default Interjection;
+export default Interjection;

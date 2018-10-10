@@ -2,7 +2,7 @@
  * Classifications of a conjunction
  */
 
- const types = [
+const types = [
     {
         type: 'coordinating',
     },
@@ -11,7 +11,7 @@
     },
     {
         type: 'correlating',
-    }
+    },
 ];
 
 function Conjunction(word, type) {

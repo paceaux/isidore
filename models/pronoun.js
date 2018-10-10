@@ -16,8 +16,8 @@ const referents = [
         referent: 'animate',
     },
     {
-        referent: 'inanimate'
-    }
+        referent: 'inanimate',
+    },
 ];
 
 const genders = [
@@ -29,7 +29,7 @@ const genders = [
     },
     {
         gender: 'neuter',
-    }
+    },
 ];
 
 const types = [
@@ -47,7 +47,7 @@ const types = [
     },
     {
         type: 'reflexive',
-    }
+    },
 ];
 
 function Pronoun(word, referent, gender, type) {

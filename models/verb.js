@@ -3,19 +3,19 @@
  * https://en.wikipedia.org/wiki/Verb
  */
 
- const types = [
-     {
-         type: 'transitive',
-     },
-     {
-         type: 'intransitive',
-     },
-     {
-         type: 'ditransitive',
-     }
- ];
+const types = [
+    {
+        type: 'transitive',
+    },
+    {
+        type: 'intransitive',
+    },
+    {
+        type: 'ditransitive',
+    },
+];
 
- const valencies = [
+const valencies = [
     {
         valence: 'avalent',
         arguments: 0,
@@ -30,20 +30,18 @@
     },
     {
         valence: 'ditransitive',
-        arguments: 3
-    }
- ];
+        arguments: 3,
+    },
+];
 
+function Verb(word, type) {
+    this.word = word;
+    this.type = type;
 
+    return this.word;
+}
 
- function Verb(word, type) {
-     this.word = word;
-     this.type = type;
+Verb.prototype.types = types;
+Verb.prototype.valencies = valencies;
 
-     return this.word;
- }
-
- Verb.prototype.types = types;
- Verb.prototype.valencies = valencies;
-
- export default Verb;
+export default Verb;
