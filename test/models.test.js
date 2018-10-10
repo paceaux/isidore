@@ -3,35 +3,7 @@ const chai = require('chai');
 const { expect } = chai;
 const grammar = require('..');
 
-const { PartsOfSpeech, Sentence } = grammar;
-
-
-describe('you have some grammar', () => {
-    it('should have a grammar object', () => {
-        expect(grammar).to.be.an('object');
-    });
-
-    it('should have PartsOfSpeech', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-    });
-
-    it('should have an adjective', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
-    });
-    it('should have a conjunction', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
-    });
-    it('should have a pronoun', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
-    });
-
-    it('should have a sentence', () => {
-        expect(grammar).to.haveOwnProperty('Sentence');
-    });
-});
+const { PartsOfSpeech } = grammar;
 
 describe('you can create words', () => {
     describe('you can do stuff with adjectives', () => {
@@ -165,28 +137,5 @@ describe('you can create words', () => {
             expect(interjection).to.have.property('types');
             expect(interjection).to.have.property('wordCategories');
         });
-    });
-});
-
-describe('you can create sentences', () => {
-    it('should have text, type, and language', () => {
-        const sentence = new Sentence('This is a sentence.');
-
-        expect(sentence).to.haveOwnProperty('type');
-        expect(sentence).to.haveOwnProperty('text');
-        expect(sentence).to.haveOwnProperty('language');
-    });
-
-    it('should have types', () => {
-        const sentence = new Sentence('This is a sentence.');
-
-        expect(sentence).to.have.property('types');
-    });
-
-    it('should split words into an array', () => {
-        const sentence = new Sentence('This is a sentence.');
-
-        expect(sentence).to.have.property('wordList');
-        expect(sentence.wordList).to.be.an('array');
     });
 });
