@@ -1,3 +1,4 @@
 import PartsOfSpeech from '../models/index';
+import Sentence from '../models/sentence';
 
-export default { PartsOfSpeech };
+export default { PartsOfSpeech, Sentence };

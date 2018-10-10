@@ -3,8 +3,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const should = chai.should();
 const grammar = require('..');
-const { PartsOfSpeech } = grammar;
-
+const { PartsOfSpeech, Sentence } = grammar;
 
 
 describe('you have some grammar', ()=> {
@@ -28,6 +27,10 @@ describe('you have some grammar', ()=> {
     it('should have a pronoun', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
+    });
+
+    it('should have a sentence', () => {
+        expect(grammar).to.haveOwnProperty('Sentence');
     });
 });
 
@@ -164,5 +167,28 @@ describe('you can create words', () => {
             expect(interjection).to.have.property('types');
             expect(interjection).to.have.property('wordCategories');
         });
+    });
+});
+
+describe('you can create sentences', () => {
+    it('should have text, type, and language', () => {
+        const sentence = new Sentence('This is a sentence.');
+
+        expect(sentence).to.haveOwnProperty('type');
+        expect(sentence).to.haveOwnProperty('text');
+        expect(sentence).to.haveOwnProperty('language');
+    });
+
+    it('should have types', () => {
+        const sentence = new Sentence('This is a sentence.');
+
+        expect(sentence).to.have.property('types');
+    });
+
+    it('should split words into an array', () => {
+        const sentence = new Sentence('This is a sentence.');
+
+        expect(sentence).to.have.property('wordList');
+        expect(sentence.wordList).to.be.an('array');
     });
 });
