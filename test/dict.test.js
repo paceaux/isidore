@@ -89,4 +89,20 @@ describe('you have stuff in the English dictionary', () => {
             expect(countableNouns).to.have.have.length.at.least(10);
         });
     });
+
+    describe('you have details on verbs', () => {
+        expect(Dictionaries).to.have.property('En');
+
+        const { En } = Dictionaries;
+        const { Verbs } = En;
+        const transitiveVerbs = Verbs.filter(verb => verb.type === 'transitive');
+        const intransitiveVerbs = Verbs.filter(verb => verb.type === 'intransitive');
+
+        it('should have transitive verbs', () => {
+            expect(transitiveVerbs).to.have.have.length.at.least(10);
+        });
+        it('should have intransitive verbs', () => {
+            expect(intransitiveVerbs).to.have.have.length.at.least(10);
+        });
+    });
 });

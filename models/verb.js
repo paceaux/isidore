@@ -5,6 +5,9 @@
 
 const types = [
     {
+        type: 'avalent',
+    },
+    {
         type: 'transitive',
     },
     {
@@ -17,26 +20,23 @@ const types = [
 
 const valencies = [
     {
-        valence: 'avalent',
-        arguments: 0,
+        valence: 0, // avalent
     },
     {
-        valence: 'intransitive',
-        arguments: 1,
+        valence: 1, // intransitive
     },
     {
-        valence: 'transitive',
-        arguments: 2,
+        valence: 2, // transitive
     },
     {
-        valence: 'ditransitive',
-        arguments: 3,
+        valence: 3, // ditransitive
     },
 ];
 
 function Verb(word, type) {
     this.word = word;
     this.type = type;
+    this.valence = this.valencies[this.types.indexOf(type)];
 
     return this.word;
 }
