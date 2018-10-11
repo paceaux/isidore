@@ -17,10 +17,12 @@ describe('you have some grammar', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
     });
+
     it('should have a conjunction', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
     });
+
     it('should have a pronoun', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
@@ -30,7 +32,7 @@ describe('you have some grammar', () => {
         expect(grammar).to.haveOwnProperty('Sentence');
     });
 
-    it('should have dictionaries', () =>{
+    it('should have dictionaries', () => {
         expect(grammar).to.haveOwnProperty('Dictionaries');
     });
 });
