@@ -12,7 +12,6 @@ describe('you have dictionaries', () => {
 });
 
 describe('you have stuff in the English dictionary', () => {
-
     it('should have some descriptive adjectives', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
@@ -67,5 +66,27 @@ describe('you have stuff in the English dictionary', () => {
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Verbs');
+    });
+
+    describe('you should have details on nouns', () => {
+        expect(Dictionaries).to.have.property('En');
+
+        const { En } = Dictionaries;
+        const { Nouns } = En;
+        const commonNouns = Nouns.filter(noun => noun.subType === 'common');
+        const uncountableNouns = Nouns.filter(noun => noun.subType === 'uncountable');
+        const countableNouns = Nouns.filter(noun => noun.subType === 'countable');
+        expect(En).to.have.property('Nouns');
+        expect(Nouns).to.be.an('array');
+
+        it('should have common nouns', () => {
+            expect(commonNouns).to.have.have.length.at.least(10);
+        });
+        it('should have uncountable nouns', () => {
+            expect(uncountableNouns).to.have.have.length.at.least(10);
+        });
+        it('should have countable nouns', () => {
+            expect(countableNouns).to.have.have.length.at.least(10);
+        });
     });
 });
