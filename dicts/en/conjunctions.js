@@ -157,23 +157,23 @@ export default [
         type: 'subordinating',
     },
     {
-        conjunction: ['both','and'],
+        conjunction: ['both', 'and'],
         type: 'correlating',
     },
     {
-        conjunction: ['either','or'],
+        conjunction: ['either', 'or'],
         type: 'correlating',
     },
     {
-        conjunction: ['neither','nor'],
+        conjunction: ['neither', 'nor'],
         type: 'correlating',
     },
     {
-        conjunction: ['but only','but also'],
+        conjunction: ['but only', 'but also'],
         type: 'correlating',
     },
     {
-        conjunction: ['whether','or'],
+        conjunction: ['whether', 'or'],
         type: 'correlating',
-    }
+    },
 ];
