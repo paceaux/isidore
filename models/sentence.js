@@ -36,15 +36,20 @@ function guessSentenceTypeByPunctuation(text) {
     return typeList[typeList.length - 1].type;
 }
 
-function Sentence(text, type, language) {
+function Sentence(text, language, type) {
     this.text = text;
     this.type = type;
     this.language = language;
-    this.wordList = this.text.split(' ');
+    this.wordList = this.text.split(/\s/);
 
     if (!type) {
         this.type = guessSentenceTypeByPunctuation(text);
     }
+
+    if (!language) {
+        this.language = 'En';
+    }
+
     return this.text;
 }
 
