@@ -22,7 +22,7 @@ const types = [
     },
 ];
 
-function getSentenceType(text) {
+function guessSentenceTypeByPunctuation(text) {
     let typeList = types[0];
 
     typeList = types.filter((type) => {
@@ -43,12 +43,12 @@ function Sentence(text, type, language) {
     this.wordList = this.text.split(' ');
 
     if (!type) {
-        this.type = getSentenceType(text);
+        this.type = guessSentenceTypeByPunctuation(text);
     }
     return this.text;
 }
 
-Sentence.prototype.getSentenceType = getSentenceType;
+Sentence.prototype.getSentenceType = guessSentenceTypeByPunctuation;
 Sentence.prototype.types = types;
 
 export default Sentence;
