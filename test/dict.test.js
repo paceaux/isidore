@@ -148,4 +148,20 @@ describe('I can search words in the dictionaries', () => {
 
         expect(word).to.be.an('object');
     });
+
+    it('I can find a conjunction in the conjunction dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Conjunctions } = En;
+        const word = Conjunctions.findWord('and');
+
+        expect(word).to.be.an('object');
+    });
+
+    it('I can find a correlating conjunction in the conjunction dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Conjunctions } = En;
+        const word = Conjunctions.findWord('nor');
+
+        expect(word).to.be.an('object');
+    });
 });

@@ -2,8 +2,9 @@
 * Conjunctions
 * https://www.english-grammar-revolution.com/list-of-conjunctions.html
  */
+import ConjunctionDictionary from '../../models/dictionaries/conjunction.dictionary';
 
-export default [
+export default new ConjunctionDictionary([
     {
         conjunction: ['and'],
         type: 'coordinating',
@@ -176,4 +177,4 @@ export default [
         conjunction: ['whether', 'or'],
         type: 'correlating',
     },
-];
+], 'En');

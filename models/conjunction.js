@@ -18,6 +18,12 @@ function Conjunction(word, type) {
     this.type = type;
     this.word = word;
 
+    if (Array.isArray(word)) {
+        const [firstWord, nextWord] = word;
+        this.word = firstWord;
+        this.nextWord = nextWord;
+    }
+
     return this.word;
 }
 
