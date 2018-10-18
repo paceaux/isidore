@@ -31,7 +31,11 @@ const types = [
 
 function Preposition(word, type) {
     this.word = word;
-    this.type = type;
+    this.partOfSpeech = 'preposition';
+
+    if (type) {
+        this.type = type;
+    }
 
     return this.word;
 }

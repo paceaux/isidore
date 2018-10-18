@@ -132,4 +132,12 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
+
+    it('I can find a preposition in the preposition dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Prepositions } = En;
+        const word = Prepositions.findWord('to');
+
+        expect(word).to.be.an('object');
+    });
 });
