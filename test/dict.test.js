@@ -5,70 +5,72 @@ const grammar = require('..');
 
 const { Dictionaries } = grammar;
 
-describe('you have dictionaries', () => {
-    it('should have at least english', () => {
+describe('There are dictionaries', () => {
+    it('There is an english dictionary', () => {
         expect(Dictionaries).to.have.property('En');
     });
 });
 
-describe('you have stuff in the English dictionary', () => {
-    it('should have some descriptive adjectives', () => {
+describe('The English dictionary...', () => {
+    it('has an adjective dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Adjectives');
     });
 
-    it('should have some adverbs', () => {
+    it('has an adverb dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Adverbs');
     });
 
-    it('should have some conjunctions', () => {
+    it('has a conjunction dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Conjunctions');
     });
 
-    it('should have some interjections', () => {
+    it('has an interjection dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Interjections');
     });
 
-    it('should have some nouns', () => {
+    it('has a noun dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Nouns');
     });
 
-    it('should have some prepositions', () => {
+    it('has a preposition dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Prepositions');
     });
 
-    it('should have some pronouns', () => {
+    it('has a pronoun dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Pronouns');
     });
 
-    it('should have some verbs', () => {
+    it('has a verb dictionary', () => {
         expect(Dictionaries).to.have.property('En');
         const { En } = Dictionaries;
 
         expect(En).to.have.property('Verbs');
     });
+});
 
-    describe('you should have details on nouns', () => {
+describe('The dictionaries return many kinds of things: ', () => {
+    describe('the noun dictionary ', () => {
         expect(Dictionaries).to.have.property('En');
 
         const { En } = Dictionaries;
@@ -79,18 +81,18 @@ describe('you have stuff in the English dictionary', () => {
         expect(En).to.have.property('Nouns');
         expect(Nouns).to.be.an('object');
 
-        it('should have common nouns', () => {
+        it('has common nouns', () => {
             expect(commonNouns).to.have.have.length.at.least(10);
         });
-        it('should have uncountable nouns', () => {
+        it('has uncountable nouns', () => {
             expect(uncountableNouns).to.have.have.length.at.least(10);
         });
-        it('should have countable nouns', () => {
+        it('has countable nouns', () => {
             expect(countableNouns).to.have.have.length.at.least(10);
         });
     });
 
-    describe('you have details on verbs', () => {
+    describe('the verb dictionary...', () => {
         expect(Dictionaries).to.have.property('En');
 
         const { En } = Dictionaries;
@@ -98,17 +100,17 @@ describe('you have stuff in the English dictionary', () => {
         const transitiveVerbs = Verbs.list.filter(verb => verb.type === 'transitive');
         const intransitiveVerbs = Verbs.list.filter(verb => verb.type === 'intransitive');
 
-        it('should have transitive verbs', () => {
+        it('has transitive verbs', () => {
             expect(transitiveVerbs).to.have.have.length.at.least(10);
         });
-        it('should have intransitive verbs', () => {
+        it('has intransitive verbs', () => {
             expect(intransitiveVerbs).to.have.have.length.at.least(10);
         });
     });
 });
 
-describe('I can search words in the dictionaries', () => {
-    it('I can find a noun in the noun dictionary', () => {
+describe('Searching in the English dictionary...', () => {
+    it('can find a noun in the noun dictionary', () => {
         const { En } = Dictionaries;
         const { Nouns } = En;
         const word = Nouns.findWord('accident');
@@ -116,7 +118,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
-    it('I can find a noun in the noun dictionary even if it\'s plural', () => {
+    it('can find a noun in the noun dictionary even if it\'s plural', () => {
         const { En } = Dictionaries;
         const { Nouns } = En;
         const word = Nouns.findWord('accidents');
@@ -124,7 +126,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
-    it('I can find a verb in the verb dictionary', () => {
+    it('can find a verb in the verb dictionary', () => {
         const { En } = Dictionaries;
         const { Verbs } = En;
         const word = Verbs.findWord('give');
@@ -133,7 +135,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.have.property('type');
     });
 
-    it('I can find a preposition in the preposition dictionary', () => {
+    it('can find a preposition in the preposition dictionary', () => {
         const { En } = Dictionaries;
         const { Prepositions } = En;
         const word = Prepositions.findWord('to');
@@ -141,7 +143,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find an adverb in the adverb dictionary', () => {
+    it('can find an adverb in the adverb dictionary', () => {
         const { En } = Dictionaries;
         const { Adverbs } = En;
         const word = Adverbs.findWord('very');
@@ -149,7 +151,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find a conjunction in the conjunction dictionary', () => {
+    it('can find a conjunction in the conjunction dictionary', () => {
         const { En } = Dictionaries;
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('and');
@@ -157,7 +159,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find a correlating conjunction in the conjunction dictionary', () => {
+    it('can find a correlating conjunction in the conjunction dictionary', () => {
         const { En } = Dictionaries;
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('nor');
