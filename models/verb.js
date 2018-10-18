@@ -34,6 +34,7 @@ const valencies = [
 ];
 
 function Verb(word, type) {
+    this.partOfSpeech = 'verb';
     this.word = word;
     this.type = type;
     this.valence = this.valencies[this.types.indexOf(type)];

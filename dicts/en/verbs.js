@@ -1,6 +1,8 @@
 /**
  * https://en.oxforddictionaries.com/grammar/transitive-and-intransitive-verbs
  */
+import VerbDictionary from '../../models/dictionaries/verb.dictionary';
+
 const transitiveVerbsList = [
     'give', 'bring', 'buy', 'cost', 'give', 'get', 'leave', 'lend', 'make',
     'offer', 'owe', 'pass', 'pay', 'promise', 'read', 'refuse', 'send', 'show',
@@ -12,7 +14,7 @@ const intransitiveVerbsList = [
 ];
 
 const transitiveVerbs = transitiveVerbsList.map(commonNoun => ({
-    noun: commonNoun,
+    verb: commonNoun,
     type: 'transitive',
     valence: {
         arguments: 2,
@@ -20,14 +22,14 @@ const transitiveVerbs = transitiveVerbsList.map(commonNoun => ({
 }));
 
 const intransitiveVerbs = intransitiveVerbsList.map(commonNoun => ({
-    noun: commonNoun,
+    verb: commonNoun,
     type: 'intransitive',
     valence: {
         arguments: 1,
     },
 }));
 
-export default [
+export default new VerbDictionary([
     ...transitiveVerbs,
     ...intransitiveVerbs,
-];
+], 'En');

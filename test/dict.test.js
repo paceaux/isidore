@@ -95,8 +95,8 @@ describe('you have stuff in the English dictionary', () => {
 
         const { En } = Dictionaries;
         const { Verbs } = En;
-        const transitiveVerbs = Verbs.filter(verb => verb.type === 'transitive');
-        const intransitiveVerbs = Verbs.filter(verb => verb.type === 'intransitive');
+        const transitiveVerbs = Verbs.list.filter(verb => verb.type === 'transitive');
+        const intransitiveVerbs = Verbs.list.filter(verb => verb.type === 'intransitive');
 
         it('should have transitive verbs', () => {
             expect(transitiveVerbs).to.have.have.length.at.least(10);
@@ -120,6 +120,17 @@ describe('I can search words in the dictionaries', () => {
         const { En } = Dictionaries;
         const { Nouns } = En;
         const word = Nouns.findWord('accidents');
+
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('type');
+    });
+    it('I can find a verb in the verb dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Verbs } = En;
+        const word = Verbs.findWord('give');
+
+        console.log(word);
+        console.log(Verbs);
 
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
