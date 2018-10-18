@@ -166,4 +166,12 @@ describe('Searching in the English dictionary...', () => {
 
         expect(word).to.be.an('object');
     });
+
+    it('can find an interjection in the interjection dictionary', () => {
+        const { En } = Dictionaries;
+        const { Interjections } = En;
+        const word = Interjections.findWord('nope');
+
+        expect(word).to.be.an('object');
+    });
 });

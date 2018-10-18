@@ -1,7 +1,9 @@
 /**
  * http://www.yourdictionary.com/index.php/pdf/articles/156.listof-interjections.pdf
  */
-export default [
+import InterjectionDictionary from '../../models/dictionaries/interjection.dictionary';
+
+export default new InterjectionDictionary([
     {
         interjection: 'absolutely',
         type: 'cognitive',
@@ -187,4 +189,4 @@ export default [
         type: 'emotive',
         wordCategory: 'primary',
     },
-];
+], 'En');
