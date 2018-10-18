@@ -59,15 +59,15 @@ describe('you can create words', () => {
 
     describe('you can do stuff with adverbs', () => {
         it('should create an adverb', () => {
-            const { Verb } = PartsOfSpeech;
-            const adv = new Verb('happily');
+            const { Adverb } = PartsOfSpeech;
+            const adv = new Adverb('happily');
 
             expect(adv).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
-            const { Verb } = PartsOfSpeech;
-            const adv = new Verb('happily');
+            const { Adverb } = PartsOfSpeech;
+            const adv = new Adverb('happily');
 
             expect(adv).to.have.property('types');
         });
@@ -75,15 +75,15 @@ describe('you can create words', () => {
 
     describe('you can do stuff with prepositions', () => {
         it('should create a preposition', () => {
-            const { Verb } = PartsOfSpeech;
-            const prep = new Verb('to');
+            const { Preposition } = PartsOfSpeech;
+            const prep = new Preposition('to');
 
             expect(prep).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
-            const { Verb } = PartsOfSpeech;
-            const prep = new Verb('to');
+            const { Preposition } = PartsOfSpeech;
+            const prep = new Preposition('to');
 
             expect(prep).to.have.property('types');
         });
@@ -108,14 +108,14 @@ describe('you can create words', () => {
     describe('you can do stuff with nouns', () => {
         it('should create a noun', () => {
             const { Noun } = PartsOfSpeech;
-            const noun = new Noun('run');
+            const noun = new Noun('life');
 
             expect(noun).to.have.ownProperty('word');
         });
 
         it('should have types', () => {
             const { Noun } = PartsOfSpeech;
-            const noun = new Noun('run');
+            const noun = new Noun('life');
 
             expect(noun).to.have.property('types');
         });

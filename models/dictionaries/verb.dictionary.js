@@ -3,7 +3,7 @@ import Verb from '../verb';
 function findVerb(word) {
     const list = this.list.filter(obj => word.indexOf(obj.verb) !== -1);
 
-    const typedList = list.map(verbObj => new Verb(verbObj.verb, verbObj.type, verbObj.subType));
+    const typedList = list.map(verbObj => new Verb(verbObj.verb, verbObj.type));
 
     return typedList.length === 0 ? undefined : typedList[0];
 }

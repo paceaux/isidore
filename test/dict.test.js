@@ -129,9 +129,6 @@ describe('I can search words in the dictionaries', () => {
         const { Verbs } = En;
         const word = Verbs.findWord('give');
 
-        console.log(word);
-        console.log(Verbs);
-
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
