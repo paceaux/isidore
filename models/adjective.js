@@ -17,13 +17,17 @@ const degrees = [
 
 const types = [
     {
-        type: 'descriptive',
+        type: 'qualitative',
     },
     {
         type: 'quantitative',
     },
     {
         type: 'demonstrative',
+        subTypes: [
+            'proximity',
+            'sequence',
+        ],
     },
     {
         type: 'possessive',

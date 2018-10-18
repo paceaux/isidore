@@ -174,4 +174,12 @@ describe('Searching in the English dictionary...', () => {
 
         expect(word).to.be.an('object');
     });
+
+    it('can find an adjective in the adjective dictionary', () => {
+        const { En } = Dictionaries;
+        const { Adjectives } = En;
+        const word = Adjectives.findWord('new');
+
+        expect(word).to.be.an('object');
+    });
 });

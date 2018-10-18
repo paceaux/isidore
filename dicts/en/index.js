@@ -1,4 +1,4 @@
-import Adjectives from './adjectives.descriptive';
+import Adjectives from './adjectives';
 import Adverbs from './adverbs';
 import Conjunctions from './conjunctions';
 import Interjections from './interjections';
