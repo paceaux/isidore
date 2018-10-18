@@ -73,11 +73,11 @@ describe('you have stuff in the English dictionary', () => {
 
         const { En } = Dictionaries;
         const { Nouns } = En;
-        const commonNouns = Nouns.filter(noun => noun.subType === 'common');
-        const uncountableNouns = Nouns.filter(noun => noun.subType === 'uncountable');
-        const countableNouns = Nouns.filter(noun => noun.subType === 'countable');
+        const commonNouns = Nouns.list.filter(noun => noun.subType === 'common');
+        const uncountableNouns = Nouns.list.filter(noun => noun.subType === 'uncountable');
+        const countableNouns = Nouns.list.filter(noun => noun.subType === 'countable');
         expect(En).to.have.property('Nouns');
-        expect(Nouns).to.be.an('array');
+        expect(Nouns).to.be.an('object');
 
         it('should have common nouns', () => {
             expect(commonNouns).to.have.have.length.at.least(10);
@@ -104,5 +104,24 @@ describe('you have stuff in the English dictionary', () => {
         it('should have intransitive verbs', () => {
             expect(intransitiveVerbs).to.have.have.length.at.least(10);
         });
+    });
+});
+
+describe('I can search words in the dictionaries', () => {
+    it('I can find a noun in the noun dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Nouns } = En;
+        const word = Nouns.findWord('accident');
+
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('type');
+    });
+    it('I can find a noun in the noun dictionary even if it\'s plural', ()=> {
+        const { En } = Dictionaries;
+        const { Nouns } = En;
+        const word = Nouns.findWord('accidents');
+
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('type');
     });
 });

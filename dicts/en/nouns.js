@@ -2,6 +2,7 @@
  * https://www.espressoenglish.net/100-common-nouns-in-english/
  * http://www.englishbanana.com/worksheets/big-grammar-book-2-100-common-uncountable-nouns-in-english/
  */
+import NounDictionary from '../../models/dictionaries/noun.dictionary';
 
 const commonNounList = [
     'time', 'year', 'people', 'way', 'day', 'man', 'thing', 'woman', 'life',
@@ -80,8 +81,8 @@ const uncountableNouns = uncountableNounList.map(countableNoun => ({
     subType: 'uncountable',
 }));
 
-export default [
+export default new NounDictionary([
     ...commonNouns,
     ...countableNouns,
     ...uncountableNouns,
-];
+], 'En');

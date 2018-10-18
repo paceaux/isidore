@@ -35,9 +35,12 @@ const types = [
     },
 ];
 
-function Noun(word, type) {
+
+function Noun(word, type, subType) {
+    this.partOfSpeech = 'noun';
     this.word = word;
     this.type = type;
+    this.subType = subType;
 
     return this.word;
 }
