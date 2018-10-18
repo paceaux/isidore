@@ -30,7 +30,10 @@ const types = [
 
 function Adverb(word, type) {
     this.word = word;
-    this.type = type;
+
+    if (type) {
+        this.type = type;
+    }
 
     return this.word;
 }

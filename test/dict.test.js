@@ -140,4 +140,12 @@ describe('I can search words in the dictionaries', () => {
 
         expect(word).to.be.an('object');
     });
+
+    it('I can find an adverb in the adverb dictionary', ()=> {
+        const { En } = Dictionaries;
+        const { Adverbs } = En;
+        const word = Adverbs.findWord('very');
+
+        expect(word).to.be.an('object');
+    });
 });

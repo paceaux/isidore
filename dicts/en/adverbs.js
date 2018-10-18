@@ -3,7 +3,9 @@
  * http://www.grammar.cl/Basic/Adverbs_Frequency.htm
  * https://dictionary.cambridge.org/us/grammar/british-grammar/about-adjectives-and-adverbs/adverbs-types
  */
-export default [
+import AdverbDictionary from '../../models/dictionaries/adverb.dictionary';
+
+export default new AdverbDictionary([
     {
         adverb: 'accidentally',
         type: 'manner',
@@ -452,4 +454,4 @@ export default [
         adverb: 'yearly',
         type: 'frequency',
     },
-];
+], 'En');
