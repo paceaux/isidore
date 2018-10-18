@@ -108,7 +108,7 @@ describe('you have stuff in the English dictionary', () => {
 });
 
 describe('I can search words in the dictionaries', () => {
-    it('I can find a noun in the noun dictionary', ()=> {
+    it('I can find a noun in the noun dictionary', () => {
         const { En } = Dictionaries;
         const { Nouns } = En;
         const word = Nouns.findWord('accident');
@@ -116,7 +116,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
-    it('I can find a noun in the noun dictionary even if it\'s plural', ()=> {
+    it('I can find a noun in the noun dictionary even if it\'s plural', () => {
         const { En } = Dictionaries;
         const { Nouns } = En;
         const word = Nouns.findWord('accidents');
@@ -124,7 +124,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
         expect(word).to.have.property('type');
     });
-    it('I can find a verb in the verb dictionary', ()=> {
+    it('I can find a verb in the verb dictionary', () => {
         const { En } = Dictionaries;
         const { Verbs } = En;
         const word = Verbs.findWord('give');
@@ -133,7 +133,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.have.property('type');
     });
 
-    it('I can find a preposition in the preposition dictionary', ()=> {
+    it('I can find a preposition in the preposition dictionary', () => {
         const { En } = Dictionaries;
         const { Prepositions } = En;
         const word = Prepositions.findWord('to');
@@ -141,7 +141,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find an adverb in the adverb dictionary', ()=> {
+    it('I can find an adverb in the adverb dictionary', () => {
         const { En } = Dictionaries;
         const { Adverbs } = En;
         const word = Adverbs.findWord('very');
@@ -149,7 +149,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find a conjunction in the conjunction dictionary', ()=> {
+    it('I can find a conjunction in the conjunction dictionary', () => {
         const { En } = Dictionaries;
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('and');
@@ -157,7 +157,7 @@ describe('I can search words in the dictionaries', () => {
         expect(word).to.be.an('object');
     });
 
-    it('I can find a correlating conjunction in the conjunction dictionary', ()=> {
+    it('I can find a correlating conjunction in the conjunction dictionary', () => {
         const { En } = Dictionaries;
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('nor');
