@@ -4,35 +4,35 @@ const { expect } = chai;
 const grammar = require('..');
 
 
-describe('you have some grammar', () => {
-    it('should have a grammar object', () => {
+describe('Grammar...', () => {
+    it('has a grammar object', () => {
         expect(grammar).to.be.an('object');
     });
 
-    it('should have PartsOfSpeech', () => {
+    it('has PartsOfSpeech', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
     });
 
-    it('should have an adjective', () => {
+    it('has an adjective', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
     });
 
-    it('should have a conjunction', () => {
+    it('has a conjunction', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
     });
 
-    it('should have a pronoun', () => {
+    it('has a pronoun', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
         expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
     });
 
-    it('should have a sentence', () => {
+    it('has a sentence', () => {
         expect(grammar).to.haveOwnProperty('Sentence');
     });
 
-    it('should have dictionaries', () => {
+    it('has dictionaries', () => {
         expect(grammar).to.haveOwnProperty('Dictionaries');
     });
 });

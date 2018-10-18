@@ -5,16 +5,16 @@ const grammar = require('..');
 
 const { PartsOfSpeech } = grammar;
 
-describe('you can create words', () => {
-    describe('you can do stuff with adjectives', () => {
-        it('should create an adjective', () => {
+describe('PartsOfSpeech...', () => {
+    describe('includes adjectives and', () => {
+        it('can create an adjective', () => {
             const { Adjective } = PartsOfSpeech;
             const adj = new Adjective('tall', 'Descriptive');
 
             expect(adj).to.haveOwnProperty('word');
         });
 
-        it('should have types and degrees', () => {
+        it('adjectives can have types and degrees', () => {
             const { Adjective } = PartsOfSpeech;
             const adj = new Adjective('tall', 'Descriptive');
 
@@ -23,30 +23,30 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with conjunctions', () => {
-        it('should create a conjunction', () => {
+    describe('includes conjunctions and', () => {
+        it('can create a conjunction', () => {
             const { Conjunction } = PartsOfSpeech;
             const conj = new Conjunction('and');
 
             expect(conj).to.have.ownProperty('word');
         });
 
-        it('should have types', () => {
+        it('can have types', () => {
             const { Conjunction } = PartsOfSpeech;
             const conj = new Conjunction('and');
 
             expect(conj).to.have.property('types');
         });
     });
-    describe('you can do stuff with pronouns', () => {
-        it('should create a pronoun', () => {
+    describe('includes pronouns and', () => {
+        it('can create a pronoun', () => {
             const { Pronoun } = PartsOfSpeech;
             const pronoun = new Pronoun('I');
 
             expect(pronoun).to.have.ownProperty('word');
         });
 
-        it('should have types, quantities, referents, and genders', () => {
+        it('can have types, quantities, referents, and genders', () => {
             const { Pronoun } = PartsOfSpeech;
             const conj = new Pronoun('I');
 
@@ -57,15 +57,15 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with adverbs', () => {
-        it('should create an adverb', () => {
+    describe('includes adverbs and', () => {
+        it('can create an adverb', () => {
             const { Adverb } = PartsOfSpeech;
             const adv = new Adverb('happily');
 
             expect(adv).to.have.ownProperty('word');
         });
 
-        it('should have types', () => {
+        it('can have types', () => {
             const { Adverb } = PartsOfSpeech;
             const adv = new Adverb('happily');
 
@@ -73,15 +73,15 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with prepositions', () => {
-        it('should create a preposition', () => {
+    describe('include prepositions and', () => {
+        it('can create a preposition', () => {
             const { Preposition } = PartsOfSpeech;
             const prep = new Preposition('to');
 
             expect(prep).to.have.ownProperty('word');
         });
 
-        it('should have types', () => {
+        it('can have types', () => {
             const { Preposition } = PartsOfSpeech;
             const prep = new Preposition('to');
 
@@ -89,15 +89,15 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with verbs', () => {
-        it('should create a verb', () => {
+    describe('includes verbs and', () => {
+        it('can create a verb', () => {
             const { Verb } = PartsOfSpeech;
             const verb = new Verb('run');
 
             expect(verb).to.have.ownProperty('word');
         });
 
-        it('should have types', () => {
+        it('can have types', () => {
             const { Verb } = PartsOfSpeech;
             const verb = new Verb('run');
 
@@ -105,15 +105,15 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with nouns', () => {
-        it('should create a noun', () => {
+    describe('includes nouns and', () => {
+        it('can create a noun', () => {
             const { Noun } = PartsOfSpeech;
             const noun = new Noun('life');
 
             expect(noun).to.have.ownProperty('word');
         });
 
-        it('should have types', () => {
+        it('can have types', () => {
             const { Noun } = PartsOfSpeech;
             const noun = new Noun('life');
 
@@ -121,8 +121,8 @@ describe('you can create words', () => {
         });
     });
 
-    describe('you can do stuff with interjections', () => {
-        it('should create an interjection', () => {
+    describe('includes interjections and', () => {
+        it('can create an interjection', () => {
             const { Interjection } = PartsOfSpeech;
             const interjection = new Interjection('hey');
 
@@ -130,7 +130,7 @@ describe('you can create words', () => {
             expect(interjection).to.have.ownProperty('word');
         });
 
-        it('should have types and categories', () => {
+        it('can have types and categories', () => {
             const { Interjection } = PartsOfSpeech;
             const interjection = new Interjection('hey');
 
