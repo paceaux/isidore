@@ -1,17 +1,11 @@
 /*
 * English pronoun list
 * https://www.ef.edu/english-resources/english-grammar/pronouns/
-* person: 1,2,3 (first, second, third person)
-* gender: f == feminine, m == male, n == neutral
-* number: s == singular, p == plural
-* referent: i == inanimate, a == animate
+*
 */
 
-/*
-Possible controversy: added a third-person singular neutral not typically listed:
-they. they is used in informal speech to refer to a person of unknown gender.
-If you disagree, take it out. I'm a descriptive linguist.
- */
+import PronounDictionary from '../../models/dictionaries/pronoun.dictionary';
+
 const subjectPronounList = [
     {
         pronoun: 'I',
@@ -358,3 +352,9 @@ const reflexivePronounList = [
         type: 'reflexive',
     }];
 
+export default new PronounDictionary([
+    ...subjectPronounList,
+    ...objectPronounList,
+    ...determinerPronounList,
+    ...possessivePronounList,
+    ...reflexivePronounList], 'En');

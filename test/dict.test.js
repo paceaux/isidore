@@ -182,4 +182,14 @@ describe('Searching in the English dictionary...', () => {
 
         expect(word).to.be.an('object');
     });
+
+    it('can find a pronoun in the pronoun dictionary', () => {
+        const { En } = Dictionaries;
+        const { Pronouns } = En;
+        const word = Pronouns.findWord('I');
+        const word2 = Pronouns.findWord('myself');
+
+        expect(word).to.be.an('object');
+        expect(word2).to.be.an('object');
+    });
 });

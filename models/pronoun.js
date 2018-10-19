@@ -22,10 +22,10 @@ const referents = [
 
 const genders = [
     {
-        gender: 'male',
+        gender: 'masculine',
     },
     {
-        gender: 'female',
+        gender: 'feminine',
     },
     {
         gender: 'neuter',
@@ -50,11 +50,13 @@ const types = [
     },
 ];
 
-function Pronoun(word, referent, gender, type) {
+function Pronoun(word, type, referent, gender, person, quantity) {
     this.word = word;
     this.referent = referent;
     this.gender = gender;
     this.type = type;
+    this.person = person;
+    this.quantity = quantity;
 
     return this.word;
 }
