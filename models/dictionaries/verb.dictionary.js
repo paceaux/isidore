@@ -1,4 +1,4 @@
-import Verb from '../verb';
+import Verb from '../partsOfSpeech/verb';
 
 function findVerb(word) {
     const list = this.list.filter(obj => word.indexOf(obj.verb) !== -1);

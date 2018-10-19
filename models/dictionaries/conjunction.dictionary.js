@@ -1,4 +1,4 @@
-import Conjunction from '../conjunction';
+import Conjunction from '../partsOfSpeech/conjunction';
 
 function findConjunction(word) {
     const list = this.list.filter(obj => obj.conjunction.includes(word));

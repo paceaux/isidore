@@ -1,4 +1,4 @@
-import Pronoun from '../pronoun';
+import Pronoun from '../partsOfSpeech/pronoun';
 
 function findPronoun(word) {
     const list = this.list.filter(obj => word.indexOf(obj.pronoun) !== -1);

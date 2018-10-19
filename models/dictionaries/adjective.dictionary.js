@@ -1,4 +1,4 @@
-import Adjective from '../adjective';
+import Adjective from '../partsOfSpeech/adjective';
 
 function findAdjective(word) {
     const list = this.list.filter(obj => word.indexOf(obj.adjective) !== -1);

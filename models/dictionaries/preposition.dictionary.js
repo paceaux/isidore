@@ -1,4 +1,4 @@
-import Preposition from '../preposition';
+import Preposition from '../partsOfSpeech/preposition';
 
 function findPreposition(word) {
     const list = this.list.filter(obj => word.indexOf(obj.preposition) !== -1);

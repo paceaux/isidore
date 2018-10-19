@@ -1,4 +1,4 @@
-import Noun from '../noun';
+import Noun from '../partsOfSpeech/noun';
 
 function findNoun(word) {
     const list = this.list.filter(obj => word.indexOf(obj.noun) !== -1);

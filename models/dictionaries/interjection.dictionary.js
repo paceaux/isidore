@@ -1,4 +1,4 @@
-import Interjection from '../interjection';
+import Interjection from '../partsOfSpeech/interjection';
 
 function findInterjection(word) {
     const list = this.list.filter(obj => word.indexOf(obj.interjection) !== -1);

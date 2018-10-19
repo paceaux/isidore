@@ -1,4 +1,4 @@
-import PartsOfSpeech from '../models/index';
+import PartsOfSpeech from '../models/partsOfSpeech/index';
 import Sentence from '../models/sentence';
 import Dictionaries from '../dicts/index';
 

@@ -1,4 +1,4 @@
-import Adverb from '../adverb';
+import Adverb from '../partsOfSpeech/adverb';
 
 function findAdverb(word) {
     const list = this.list.filter(obj => word.indexOf(obj.adverb) !== -1);
