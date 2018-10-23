@@ -15,6 +15,7 @@ const types = [
 ];
 
 function Conjunction(word, type) {
+    this.partOfSpeech = 'conjunction';
     this.type = type;
     this.word = word;
 

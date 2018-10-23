@@ -51,6 +51,7 @@ const types = [
 ];
 
 function Pronoun(word, type, referent, gender, person, quantity) {
+    this.partOfSpeech = 'pronoun';
     this.word = word;
     this.referent = referent;
     this.gender = gender;

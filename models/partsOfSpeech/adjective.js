@@ -51,6 +51,7 @@ const types = [
 ];
 
 function Adjective(word, type, degree) {
+    this.partOfSpeech = 'adjective';
     this.word = word;
     this.type = type;
     this.degree = degree;

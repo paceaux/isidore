@@ -24,6 +24,7 @@ const wordCategories = [
 ];
 
 function Interjection(word, type, wordCategory) {
+    this.partOfSpeech = 'interjection';
     this.word = word;
     this.type = type;
     this.wordCategory = wordCategory;

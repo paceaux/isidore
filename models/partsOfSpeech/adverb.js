@@ -29,11 +29,9 @@ const types = [
 ];
 
 function Adverb(word, type) {
+    this.partOfSpeech = 'adverb';
     this.word = word;
-
-    if (type) {
-        this.type = type;
-    }
+    this.type = type;
 
     return this.word;
 }
