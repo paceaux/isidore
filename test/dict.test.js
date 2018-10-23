@@ -221,55 +221,71 @@ describe('Still searching in the English dictionary...', () => {
         const { Nouns } = En;
         const word = Nouns.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find a verb in the verb dict', () => {
         const { En } = Dictionaries;
         const { Verbs } = En;
         const word = Verbs.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find an adjective in the adjective dict', () => {
         const { En } = Dictionaries;
         const { Adjectives } = En;
         const word = Adjectives.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find an adverb in the adverb dict', () => {
         const { En } = Dictionaries;
         const { Adverbs } = En;
         const word = Adverbs.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find a conjunction in the conjunction dict', () => {
         const { En } = Dictionaries;
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find a preposition in the preposition dict', () => {
         const { En } = Dictionaries;
         const { Prepositions } = En;
         const word = Prepositions.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find a pronoun in the pronoun dict', () => {
         const { En } = Dictionaries;
         const { Pronouns } = En;
         const word = Pronouns.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
     it('returns a string if it cannot find an interjection in the interjection dict', () => {
         const { En } = Dictionaries;
         const { Interjections } = En;
         const word = Interjections.findWord('foo');
 
-        expect(word).to.be.a('string');
+        expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word.partOfSpeech).to.equal(undefined);
     });
 });

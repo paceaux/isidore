@@ -1,4 +1,5 @@
 import Pronoun from '../partsOfSpeech/pronoun';
+import Word from '../word';
 
 function findPronoun(word) {
     const list = this.list.filter(obj => word.indexOf(obj.pronoun) !== -1);
@@ -11,7 +12,7 @@ function findPronoun(word) {
         pronounObj.person,
         pronounObj.quantity));
 
-    return typedList.length === 0 ? undefined : typedList[0];
+    return typedList.length === 0 ? new Word(word) : typedList[0];
 }
 
 function PronounDictionary(list, language) {

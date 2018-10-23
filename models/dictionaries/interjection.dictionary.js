@@ -1,4 +1,5 @@
 import Interjection from '../partsOfSpeech/interjection';
+import Word from '../word';
 
 function findInterjection(word) {
     const list = this.list.filter(obj => word.indexOf(obj.interjection) !== -1);
@@ -8,7 +9,7 @@ function findInterjection(word) {
         intObj.type,
         intObj.wordCategory));
 
-    return typedList.length === 0 ? undefined : typedList[0];
+    return typedList.length === 0 ? new Word(word) : typedList[0];
 }
 
 function InterjectionDictionary(list, language) {
