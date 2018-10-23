@@ -124,7 +124,10 @@ describe('Searching in the English dictionary...', () => {
         const word = Nouns.findWord('accidents');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
         expect(word).to.have.property('type');
+        expect(word.type).to.equal('enumerative');
+        expect(word.subType).to.equal('countable');
     });
     it('can find a verb in the verb dictionary', () => {
         const { En } = Dictionaries;
@@ -132,7 +135,9 @@ describe('Searching in the English dictionary...', () => {
         const word = Verbs.findWord('give');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
         expect(word).to.have.property('type');
+        expect(word.type).to.equal('transitive');
     });
 
     it('can find a preposition in the preposition dictionary', () => {
@@ -141,6 +146,10 @@ describe('Searching in the English dictionary...', () => {
         const word = Prepositions.findWord('to');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
+        expect(word.type).to.equal('direction');
+
     });
 
     it('can find an adverb in the adverb dictionary', () => {
@@ -149,6 +158,8 @@ describe('Searching in the English dictionary...', () => {
         const word = Adverbs.findWord('very');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 
     it('can find a conjunction in the conjunction dictionary', () => {
@@ -156,7 +167,11 @@ describe('Searching in the English dictionary...', () => {
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('and');
 
+        console.log(word);
+
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 
     it('can find a correlating conjunction in the conjunction dictionary', () => {
@@ -165,6 +180,8 @@ describe('Searching in the English dictionary...', () => {
         const word = Conjunctions.findWord('nor');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 
     it('can find an interjection in the interjection dictionary', () => {
@@ -173,6 +190,8 @@ describe('Searching in the English dictionary...', () => {
         const word = Interjections.findWord('nope');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 
     it('can find an adjective in the adjective dictionary', () => {
@@ -181,6 +200,8 @@ describe('Searching in the English dictionary...', () => {
         const word = Adjectives.findWord('new');
 
         expect(word).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 
     it('can find a pronoun in the pronoun dictionary', () => {
@@ -191,5 +212,7 @@ describe('Searching in the English dictionary...', () => {
 
         expect(word).to.be.an('object');
         expect(word2).to.be.an('object');
+        expect(word).to.have.property('partOfSpeech');
+        expect(word).to.have.property('type');
     });
 });
