@@ -167,8 +167,6 @@ describe('Searching in the English dictionary...', () => {
         const { Conjunctions } = En;
         const word = Conjunctions.findWord('and');
 
-        console.log(word);
-
         expect(word).to.be.an('object');
         expect(word).to.have.property('partOfSpeech');
         expect(word).to.have.property('type');
