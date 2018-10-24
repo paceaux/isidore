@@ -13,12 +13,9 @@ describe('There are dictionaries', () => {
 
     it('the english dictionary has dictionaries of its own', () => {
         const { En } = Dictionaries;
-        
-        console.log(En);
         expect(En.constructor.name).to.equal('Language');
         expect(En).to.have.property('grammarDictionaries');
         expect(En.grammarDictionaries).to.be.an('object');
-        
     });
 });
 
@@ -78,6 +75,25 @@ describe('The English dictionary...', () => {
 
         expect(En.grammarDictionaries).to.have.property('Verbs');
     });
+    it('can search across all dictionaries and return a legit word', () => {
+        const { En } = Dictionaries;
+        const words = En.findWord('my');
+        const [word] = words;
+        expect(words).to.be.an('array');
+        expect(word).to.have.property('word');
+        expect(word.partOfSpeech).to.equal('adjective');
+        expect(word.type).to.equal('possessive');
+    });
+    it('can search across all dictionaries and return generic', () => {
+        const { En } = Dictionaries;
+        const words = En.findWord('foo');
+        const [word] = words;
+
+        expect(words).to.be.an('array');
+        expect(word).to.have.property('word');
+        expect(word.partOfSpeech).to.equal(undefined);
+        expect(word.type).to.equal(undefined);
+    });
 });
 
 describe('The dictionaries return many kinds of things: ', () => {
@@ -120,7 +136,7 @@ describe('The dictionaries return many kinds of things: ', () => {
     });
 });
 
-describe('Searching in the English dictionary...', () => {
+describe('Searching in the English dictionaries...', () => {
     it('can find a noun in the noun dictionary', () => {
         const { En } = Dictionaries;
         const { Nouns } = En.grammarDictionaries;
