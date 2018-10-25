@@ -36,6 +36,7 @@ function guessSentenceTypeByPunctuation(text) {
 
     return typeList[typeList.length - 1].type;
 }
+
 /**
  * @param  {array} typeList array of objects that are the different sentence types
  * @returns {array} array of strings that are the punctuations
@@ -51,7 +52,7 @@ function getSentencePunctuations(typeList) {
 }
 
 /** creates a regular expression from an array of punctuation
- * @param  {array} punctuationList strings that contain punctuation
+ * @param  {Array} punctuationList strings that contain punctuation
  * @returns {RegExp} regular expression that can be used to identify punctuation
  */
 function getPunctuationRegex(punctuationList) {
@@ -119,10 +120,6 @@ function Sentence(text, type, language = 'En') {
 
     if (!type) {
         this.type = guessSentenceTypeByPunctuation(text);
-    }
-
-    if (!language) {
-        this.language = 'En';
     }
 
     return this.text;
