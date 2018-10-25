@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Noun if successful, Word if unsuccessful
  */
 function findNoun(word) {
-    const list = this.list.filter(obj => word.indexOf(obj.noun) !== -1);
+    const list = this.list.filter(obj => word.startsWith(obj.noun));
 
     const typedList = list.map(nounObj => new Noun(nounObj.noun, nounObj.type, nounObj.subType));
 
