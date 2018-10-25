@@ -35,4 +35,15 @@ describe('Sentence parsing...', () => {
         expect(that.partOfSpeech).to.equal('adjective');
         expect(car.partOfSpeech).to.equal('noun');
     });
+    it('can split words into correct parts of speech', () => {
+        const sentence = new Sentence('Give me that car.');
+        const { wordList } = sentence;
+        const [give, me, that, car] = wordList;
+
+        expect(sentence).to.have.property('wordList');
+        expect(give.partOfSpeech).to.equal('verb');
+        expect(me.partOfSpeech).to.equal('pronoun');
+        expect(that.partOfSpeech).to.equal('adjective');
+        expect(car.partOfSpeech).to.equal('noun');
+    });
 });
