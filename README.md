@@ -20,6 +20,7 @@ All languages withing the utility.
 Right now we just have `En`, which is a `Language`;
 
 `Language` class
+
 | Member | Type | Description |
 |-------| -----| -------------|
 |`grammarDictionaries` | Object |  `NounDictionary`, `PronounDictionary`, `VerbDictionary`, `AdjectiveDictionary`, `AdverbDictionary`, `ConjunctionDictionary`, `InterjectionDictionary`, `PrepositionDictionary`
