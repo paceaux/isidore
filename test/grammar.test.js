@@ -13,26 +13,10 @@ describe('Grammar...', () => {
         expect(grammar).to.haveOwnProperty('PartsOfSpeech');
     });
 
-    it('has an adjective', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
-    });
-
-    it('has a conjunction', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
-    });
-
-    it('has a pronoun', () => {
-        expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-        expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
-    });
-
-    it('has a sentence', () => {
-        expect(grammar).to.haveOwnProperty('Sentence');
-    });
-
-    it('has languages', () => {
+    it('has Languages', () => {
         expect(grammar).to.haveOwnProperty('Languages');
+    });
+    it('has a Sentence', () => {
+        expect(grammar).to.haveOwnProperty('Sentence');
     });
 });

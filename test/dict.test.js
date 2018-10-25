@@ -42,7 +42,6 @@ describe('Searching individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word).to.have.property('type');
         expect(word.type).to.equal('direction');
-
     });
 
     it('can find an adverb in the adverb dictionary', () => {

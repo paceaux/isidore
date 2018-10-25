@@ -6,6 +6,26 @@ const grammar = require('..');
 const { PartsOfSpeech } = grammar;
 
 describe('PartsOfSpeech...', () => {
+    describe('has eight classes in it', () => {
+        it('has an adjective', () => {
+            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
+            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
+        });
+
+        it('has a conjunction', () => {
+            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
+            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
+        });
+
+        it('has a pronoun', () => {
+            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
+            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
+        });
+
+        it('has a sentence', () => {
+            expect(grammar).to.haveOwnProperty('Sentence');
+        });
+    });
     describe('includes adjectives and', () => {
         it('can create an adjective', () => {
             const { Adjective } = PartsOfSpeech;
@@ -54,7 +74,6 @@ describe('PartsOfSpeech...', () => {
             expect(word.word).to.equal('and');
             expect(word.type).to.equal('coordinating');
             expect(word.partOfSpeech).to.equal('conjunction');
-
         });
     });
     describe('includes pronouns and', () => {
