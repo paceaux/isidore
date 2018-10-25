@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Adjective if successful, Word if unsuccessful
  */
 function findAdjective(word) {
-    const list = this.list.filter(obj => word.indexOf(obj.adjective) !== -1);
+    const list = this.list.filter(obj => obj.adjective.startsWith(word));
 
     const typedList = list.map(intObj => new Adjective(
         intObj.adjective,
