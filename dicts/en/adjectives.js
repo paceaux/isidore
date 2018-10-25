@@ -31,7 +31,7 @@ const interrogativeAdjList = [
     'whose', 'which', 'what', 'how'];
 
 const interrogativeAdjectives = interrogativeAdjList.map(interrogativeAdjective => ({
-    adjective: interrogativeAdjective.adjective,
+    adjective: interrogativeAdjective,
     type: 'interrogative',
 }));
 
@@ -39,7 +39,7 @@ const distributiveAdjList = [
     'each', 'every', 'either', 'neither', 'any', 'one'];
 
 const distributiveAdjectives = distributiveAdjList.map(distributiveAdjective => ({
-    adjective: distributiveAdjective.adjective,
+    adjective: distributiveAdjective,
     type: 'distributive',
 }));
 
