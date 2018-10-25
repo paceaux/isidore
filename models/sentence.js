@@ -1,3 +1,4 @@
+import Dictionaries from '../dicts/index';
 
 const types = [
     {
@@ -36,11 +37,56 @@ function guessSentenceTypeByPunctuation(text) {
     return typeList[typeList.length - 1].type;
 }
 
-function Sentence(text, language, type) {
+function getSentencePunctuations(typeList) {
+    const results = [];
+
+    typeList.forEach((type) => {
+        results.push(...type.punctuationMarkers);
+    });
+
+    return results;
+}
+
+function getPunctuationRegex(punctuationList) {
+
+    const regexString = punctuationList.reduce((prev, cur, idx) => {
+        const separator = idx ? '|' : '';
+        const current = `(\\${cur})`;
+
+        return `${prev}${separator}${current}`;
+    }, '');
+
+    return new RegExp(`(${regexString})`, 'g');
+}
+
+function getStrippedPunctuation(text) {
+    const punctuationList = getSentencePunctuations(types);
+    const puncuationRegex = getPunctuationRegex(punctuationList);
+
+    return text.replace(puncuationRegex, '');
+}
+
+function getRawWordList(text) {
+    const uncasedText = text.toLowerCase();
+    const strippedPunctuation = getStrippedPunctuation(uncasedText);
+    const regex = /\w+/g;
+
+    return strippedPunctuation.match(regex);
+}
+
+function getWordList(textArray, language) {
+    const dictionary = Dictionaries[language];
+
+    return textArray.map((word) => dictionary.findWord(word)[0]);
+}
+
+function Sentence(text, language = 'En', type) {
     this.text = text;
     this.type = type;
     this.language = language;
-    this.wordList = this.text.split(/\s/);
+
+    this.rawWordList = getRawWordList(this.text);
+    this.wordList = getWordList(this.rawWordList, this.language);
 
     if (!type) {
         this.type = guessSentenceTypeByPunctuation(text);

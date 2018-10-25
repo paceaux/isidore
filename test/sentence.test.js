@@ -20,10 +20,22 @@ describe('The Sentence model', () => {
         expect(sentence).to.have.property('types');
     });
 
-    it('can split words into an array', () => {
+    it('can split words into an array of text strings', () => {
         const sentence = new Sentence('This is a sentence.');
 
+        expect(sentence).to.have.property('rawWordList');
+        expect(sentence.rawWordList).to.be.an('array');
+        expect(sentence.rawWordList[0]).to.be.a('string');
+    });
+
+    it('can split words into an array of Words', () => {
+        const sentence = new Sentence('Give me that car.');
+        const { wordList } = sentence;
+        const [firstWord] = wordList;
+
         expect(sentence).to.have.property('wordList');
-        expect(sentence.wordList).to.be.an('array');
+        expect(wordList).to.be.an('array');
+        expect(firstWord.partOfSpeech).to.not.equal(undefined);
+        expect(firstWord.type).to.not.equal(undefined);
     });
 });
