@@ -7,6 +7,11 @@ const { Languages } = grammar;
 const { En } = Languages;
 
 describe('The English language...', () => {
+    it('the english language has dictionaries', () => {
+        expect(En.constructor.name).to.equal('Language');
+        expect(En).to.have.property('grammarDictionaries');
+        expect(En.grammarDictionaries).to.be.an('object');
+    });
     describe('has eight parts of speech', () => {
         it('has an adjective dictionary', () => {
             expect(En.grammarDictionaries).to.have.property('Adjectives');
