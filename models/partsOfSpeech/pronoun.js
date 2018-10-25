@@ -49,7 +49,21 @@ const types = [
         type: 'reflexive',
     },
 ];
-
+/** Pronoun: takes the place of a noun
+ * @param  {string} word original word
+ * @param  {string} type subject, object, determiner, possessive, reflexive
+ * @param {string} referent animate, inanimate
+ * @param {string} gender masculine, feminine, neuter,
+ * @param {number} person 1,2,3
+ * @param {string} quantity singular,plural
+ * @member word string. raw word
+ * @member type string. subject, object, determiner, possessive, reflexive
+ * @member types array.
+ * @member referent string. animate, inanimate
+ * @member gender string masculine, feminine, neuter
+ * @member person number. 1, 2, 3
+ * @member quantity string. singular,plural
+ */
 function Pronoun(word, type, referent, gender, person, quantity) {
     this.partOfSpeech = 'pronoun';
     this.word = word;

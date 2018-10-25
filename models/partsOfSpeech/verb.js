@@ -22,6 +22,14 @@ const types = [
     },
 ];
 
+/** Verb: an action
+ * @param  {string} word original word
+ * @param  {string} type avalent, transitive, intransitive, ditransitive
+ * @member word word raw word
+ * @member type string. avalent, transitive, intransitive, ditransitive
+ * @member types array.
+ * @member valence number. the number of arguments this verb takes
+ */
 function Verb(word, type) {
     this.partOfSpeech = 'verb';
     this.word = word;

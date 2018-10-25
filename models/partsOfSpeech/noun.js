@@ -35,7 +35,14 @@ const types = [
     },
 ];
 
-
+/** Noun: person, place, thing, or idea
+ * @param  {string} word original word
+ * @param  {string} type entity-class, enumerative, sense, ownership
+ * @member word word raw word
+ * @member type string. entity-class, enumerative, sense, ownership
+ * @member types array.
+ * @member subType string. most nouns have a subType
+ */
 function Noun(word, type, subType) {
     this.partOfSpeech = 'noun';
     this.word = word;

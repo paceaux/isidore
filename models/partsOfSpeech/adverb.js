@@ -27,7 +27,13 @@ const types = [
         type: 'linking',
     },
 ];
-
+/** Adverb: Describes verbs, adjectives, or other adverbs
+ * @param  {string} word original word
+ * @param  {string} type manner, place, time, frequency, focusing, degree, linking
+ * @member word string. raw word
+ * @member type string. manner, place, time, frequency, focusing, degree, linking
+ * @member types array.
+ */
 function Adverb(word, type) {
     this.partOfSpeech = 'adverb';
     this.word = word;

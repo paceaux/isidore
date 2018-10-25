@@ -49,7 +49,18 @@ const types = [
         ],
     },
 ];
-
+/** Adjective: Describes person, place, thing, or idea
+ * @param  {string} word original word
+ * @param  {string} type qualitative, quantitative, demonstrative,
+ * possessive, interrogative, distributive, proper, article
+ * @param  {string} degree positive, comparative, superlative
+ * @member word string. raw word
+ * @member type string. qualitative || quantitative || demonstrative ||
+ * possessive || interrogative || distributive || proper || article
+ * @member degree string. positive, comparative, superlative
+ * @member types array.
+ * @member degrees array.
+ */
 function Adjective(word, type, degree) {
     this.partOfSpeech = 'adjective';
     this.word = word;
