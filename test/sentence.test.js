@@ -5,37 +5,47 @@ const grammar = require('..');
 
 const { Sentence } = grammar;
 
-describe('The Sentence model', () => {
-    it('has text, type, and language', () => {
-        const sentence = new Sentence('This is a sentence.');
+describe('The Sentence model...', () => {
+    describe('has basic model information', () => {
+        it('has text, type, and language', () => {
+            const sentence = new Sentence('This is a sentence.');
 
-        expect(sentence).to.haveOwnProperty('type');
-        expect(sentence).to.haveOwnProperty('text');
-        expect(sentence).to.haveOwnProperty('language');
+            expect(sentence).to.haveOwnProperty('type');
+            expect(sentence).to.haveOwnProperty('text');
+            expect(sentence).to.haveOwnProperty('language');
+        });
+
+        it('has types', () => {
+            const sentence = new Sentence('This is a sentence.');
+
+            expect(sentence).to.have.property('types');
+        });
     });
+    describe('detects types...', () => {
+        it('can recognize a declarative sentence', () => {
+            const sentence = new Sentence('We give food to them.');
 
-    it('has types', () => {
-        const sentence = new Sentence('This is a sentence.');
+            expect(sentence.type).to.equal('declarative');
+        });
+        it('can recognize an interrogative sentence', () => {
+            const sentence = new Sentence('We give food to them?');
 
-        expect(sentence).to.have.property('types');
-    });
+            expect(sentence.type).to.equal('interrogative');
+        });
+        it('can recognize an exclamatory sentence', () => {
+            const sentence = new Sentence('We give food to them!');
 
-    it('can split words into an array of text strings', () => {
-        const sentence = new Sentence('This is a sentence.');
+            expect(sentence.type).to.equal('exclamatory');
+        });
+        it('can recognize an interrobanged sentence', () => {
+            const sentence1 = new Sentence('We give food to them!?');
+            const sentence2 = new Sentence('We give food to them?!');
+            const sentence3 = new Sentence('We give food to them‽');
 
-        expect(sentence).to.have.property('rawWordList');
-        expect(sentence.rawWordList).to.be.an('array');
-        expect(sentence.rawWordList[0]).to.be.a('string');
-    });
 
-    it('can split words into an array of Words', () => {
-        const sentence = new Sentence('Give me that car.');
-        const { wordList } = sentence;
-        const [firstWord] = wordList;
-
-        expect(sentence).to.have.property('wordList');
-        expect(wordList).to.be.an('array');
-        expect(firstWord.partOfSpeech).to.not.equal(undefined);
-        expect(firstWord.type).to.not.equal(undefined);
+            expect(sentence1.type).to.equal('exclamatory+interrogative');
+            expect(sentence2.type).to.equal('exclamatory+interrogative');
+            expect(sentence3.type).to.equal('exclamatory+interrogative');
+        });
     });
 });
