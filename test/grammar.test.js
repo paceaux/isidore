@@ -32,7 +32,7 @@ describe('Grammar...', () => {
         expect(grammar).to.haveOwnProperty('Sentence');
     });
 
-    it('has dictionaries', () => {
-        expect(grammar).to.haveOwnProperty('Dictionaries');
+    it('has languages', () => {
+        expect(grammar).to.haveOwnProperty('Languages');
     });
 });
