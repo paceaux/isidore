@@ -2,7 +2,7 @@
   "name": "isidore",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paceaux/grammar-js.git"
+    "url": "git+https://github.com/paceaux/isidore.git"
   },
   "version": "0.0.1",
   "description": "Isidore.js: A grammar utility for the internet",
