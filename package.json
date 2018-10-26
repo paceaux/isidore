@@ -1,10 +1,14 @@
 {
-  "name": "grammarjs",
+  "name": "Isidore",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paceaux/grammar-js.git"
+  },
   "version": "0.0.1",
-  "description": "A grammar utility",
-  "main": "dist/grammar.cjs.js",
-  "module": "dist/grammar.esm.js",
-  "browser": "dist/grammar.umd.js",
+  "description": "Isidore.js: A grammar utility for the internet",
+  "main": "dist/isidore.cjs.js",
+  "module": "dist/isidore.esm.js",
+  "browser": "dist/isidore.umd.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
