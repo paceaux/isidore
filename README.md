@@ -1,6 +1,6 @@
-# Grammar-js (real name TBD)
-Takes text and identifies the grammatical elements within
-This is all _super_ experimental.
+# Isidore: A grammar utility for the internet
+Takes a sentence and identifies the grammatical elements within
+This is still in a super experiemental stage.
 
 ## API
 
@@ -42,7 +42,7 @@ The sentence is where the parsing magic starts.
 
 #### Example
 
-    const { Sentence } = grammar
+    const { Sentence } = isidore
     const mySentence = new Sentence('He gives her a car.');
     const { wordList } = mySentence;
 
