@@ -7,7 +7,7 @@ export default [
 	{
 		input: 'src/main.js',
 		output: {
-			name: 'grammar',
+			name: 'isidore',
 			file: pkg.browser,
 			format: 'umd'
 		},
@@ -19,8 +19,8 @@ export default [
 	{
 		input: 'src/main.js',
 		output: [
-			{ file: pkg.main, format: 'cjs', name:'grammar' },
-			{ file: pkg.module, format: 'es', name: 'grammar' }
+			{ file: pkg.main, format: 'cjs', name: 'isidore' },
+			{ file: pkg.module, format: 'es', name: 'isidore' }
 		]
 	}
 ];
