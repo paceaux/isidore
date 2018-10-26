@@ -1,29 +1,29 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const grammar = require('..');
+const isidore = require('..');
 
-const { PartsOfSpeech } = grammar;
+const { PartsOfSpeech } = isidore;
 
 describe('PartsOfSpeech...', () => {
     describe('has eight classes in it', () => {
         it('has an adjective', () => {
-            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Adjective');
+            expect(isidore).to.haveOwnProperty('PartsOfSpeech');
+            expect(isidore.PartsOfSpeech).to.haveOwnProperty('Adjective');
         });
 
         it('has a conjunction', () => {
-            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Conjunction');
+            expect(isidore).to.haveOwnProperty('PartsOfSpeech');
+            expect(isidore.PartsOfSpeech).to.haveOwnProperty('Conjunction');
         });
 
         it('has a pronoun', () => {
-            expect(grammar).to.haveOwnProperty('PartsOfSpeech');
-            expect(grammar.PartsOfSpeech).to.haveOwnProperty('Pronoun');
+            expect(isidore).to.haveOwnProperty('PartsOfSpeech');
+            expect(isidore.PartsOfSpeech).to.haveOwnProperty('Pronoun');
         });
 
         it('has a sentence', () => {
-            expect(grammar).to.haveOwnProperty('Sentence');
+            expect(isidore).to.haveOwnProperty('Sentence');
         });
     });
     describe('includes adjectives and', () => {

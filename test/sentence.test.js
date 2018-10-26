@@ -1,9 +1,9 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const grammar = require('..');
+const isidore = require('..');
 
-const { Sentence } = grammar;
+const { Sentence } = isidore;
 
 describe('The Sentence model...', () => {
     describe('has basic model information', () => {

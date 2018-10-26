@@ -1,9 +1,9 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const grammar = require('..');
+const isidore = require('..');
 
-const { Languages } = grammar;
+const { Languages } = isidore;
 const { En } = Languages;
 
 describe('The English language...', () => {

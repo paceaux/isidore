@@ -1,9 +1,9 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const grammar = require('..');
+const isidore = require('..');
 
-const { Sentence } = grammar;
+const { Sentence } = isidore;
 
 describe('Sentence parsing...', () => {
     it('can split words into an array of text strings', () => {
