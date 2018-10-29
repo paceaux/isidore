@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Conjunction if successful, Word if unsuccessful
  */
 function findConjunction(word) {
-    const list = this.list.filter(obj => obj.conjunction.includes(word));
+    const list = this.list.filter(obj => obj.conjunction.includes(word.toLowerCase()));
 
     const typedList = list.map(conjObj => new Conjunction(conjObj.conjunction, conjObj.type));
 

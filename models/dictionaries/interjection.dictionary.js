@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Interjection if successful, Word if unsuccessful
  */
 function findInterjection(word) {
-    const list = this.list.filter(obj => word.indexOf(obj.interjection) !== -1);
+    const list = this.list.filter(obj => word.indexOf(obj.interjection.toLowerCase()) !== -1);
 
     const typedList = list.map(intObj => new Interjection(
         intObj.interjection,
