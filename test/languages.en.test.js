@@ -82,6 +82,25 @@ describe('The English language...', () => {
             it('has countable nouns', () => {
                 expect(countableNouns).to.have.have.length.at.least(10);
             });
+
+            it('has some noun inflections', () => {
+                expect(Nouns).to.have.property('inflections');
+            });
+
+            it('has plural and possessive inflections', () => {
+                const { inflections } = Nouns;
+                expect(inflections).to.have.property('plural');
+                expect(inflections).to.have.property('possessive');
+            });
+            it('has has a fix, and mutations, for plural inflections', () => {
+                const { inflections } = Nouns;
+                const { plural } = inflections;
+
+                expect(plural).to.have.property('fix');
+                expect(plural).to.have.property('regularMutations');
+                expect(plural).to.have.property('irregularMutations');
+
+            });
         });
 
         describe('the verb dictionary...', () => {

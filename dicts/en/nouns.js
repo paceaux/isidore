@@ -81,8 +81,31 @@ const uncountableNouns = uncountableNounList.map(countableNoun => ({
     subType: 'uncountable',
 }));
 
+const inflections = {
+    plural: {
+        fix: 'suffix', // infix, prefix, suffix
+        regularMutations: [
+            's', 'es',
+        ],
+        irregularMutations: [
+            {
+                morpheme: 'ies',
+                transforms: 'y',
+            },
+        ],
+    },
+    possessive: {
+        fix: 'suffix', // infix, prefix, suffix
+        regulars: [
+            {
+                morpheme: '\'s',
+            },
+        ],
+    },
+};
+
 export default new NounDictionary([
     ...commonNouns,
     ...countableNouns,
     ...uncountableNouns,
-], 'En');
+], 'En', inflections);
