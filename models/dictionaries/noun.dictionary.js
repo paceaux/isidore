@@ -6,7 +6,9 @@ import Word from '../word';
  * @returns {Object} Noun if successful, Word if unsuccessful
  */
 function findNoun(word) {
-    const list = this.list.filter(obj => word.toLowerCase().startsWith(obj.noun.toLowerCase()));
+    const defaultFilter = obj => word.toLowerCase().startsWith(obj.noun.toLowerCase());
+
+    const list = this.list.filter(defaultFilter);
 
     const typedList = list.map(nounObj => new Noun(nounObj.noun, nounObj.type, nounObj.subType));
 
@@ -19,13 +21,14 @@ function findNoun(word) {
  * @member {language} String language for the dictionary
  * @method {findWord} searches for a word in the dictionary and returns a Noun or a Word
  */
-function NounDictionary(list, language) {
+function NounDictionary(list, language, inflections) {
     this.list = list.sort((a, b) => {
         if (a.noun < b.noun) return -1;
         if (a.noun > b.noun) return 1;
         return 0;
     });
     this.language = language;
+    this.inflections = inflections;
 
     this.findWord = findNoun;
 }
