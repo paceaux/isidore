@@ -96,10 +96,16 @@ describe('The English language...', () => {
                 const { inflections } = Nouns;
                 const { plural } = inflections;
 
-                console.log(plural);
                 expect(plural).to.have.property('fix');
                 expect(plural).to.have.property('regularMutations');
                 expect(plural).to.have.property('irregularMutations');
+            });
+
+            it('singular words do not show inflections', () => {
+                const inflections = Nouns.guessInflection('city');
+
+                console.log(inflections);
+                expect(inflections).to.equal(undefined);
             });
 
             it('can get existing infections of a noun', () => {
