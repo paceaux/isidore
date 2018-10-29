@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Verb if successful, Word if unsuccessful
  */
 function findVerb(word) {
-    const list = this.list.filter(obj => word.indexOf(obj.verb) !== -1);
+    const list = this.list.filter(obj => word.toLowerCase().indexOf(obj.verb.toLowerCase()) !== -1);
 
     const typedList = list.map(verbObj => new Verb(verbObj.verb, verbObj.type));
 

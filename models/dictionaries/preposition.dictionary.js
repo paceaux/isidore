@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Preposition if successful, Word if unsuccessful
  */
 function findPreposition(word) {
-    const list = this.list.filter(obj => word.toLowerCase() === obj.preposition);
+    const list = this.list.filter(obj => word.toLowerCase() === obj.preposition.toLowerCase());
 
     const typedList = list.map(prepObj => new Preposition(prepObj.preposition, prepObj.type));
 

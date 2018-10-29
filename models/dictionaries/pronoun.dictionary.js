@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Pronoun if successful, Word if unsuccessful
  */
 function findPronoun(word) {
-    const list = this.list.filter(obj => word === obj.pronoun.toLowerCase());
+    const list = this.list.filter(obj => word.toLowerCase() === obj.pronoun.toLowerCase());
 
     const typedList = list.map(pronounObj => new Pronoun(
         pronounObj.pronoun,

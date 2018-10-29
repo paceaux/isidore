@@ -6,7 +6,7 @@ import Word from '../word';
  * @returns {Object} Adverb if successful, Word if unsuccessful
  */
 function findAdverb(word) {
-    const list = this.list.filter(obj => word.toLowerCase() === obj.adverb);
+    const list = this.list.filter(obj => word.toLowerCase() === obj.adverb.toLowerCase());
 
     const typedList = list.map(adverbObj => new Adverb(adverbObj.adverb, adverbObj.type));
 
