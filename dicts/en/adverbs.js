@@ -335,6 +335,10 @@ export default new AdverbDictionary([
         type: 'degree',
     },
     {
+        adverb: 'really',
+        type: 'degree',
+    },
+    {
         adverb: 'regularly',
         type: 'frequency',
     },

@@ -6,7 +6,7 @@ import VerbDictionary from '../../models/dictionaries/verb.dictionary';
 const transitiveVerbsList = [
     'give', 'bring', 'buy', 'cost', 'give', 'get', 'leave', 'lend', 'make',
     'offer', 'owe', 'pass', 'pay', 'promise', 'read', 'refuse', 'send', 'show',
-    'make', 'sing', 'sell', 'take', 'take', 'show', 'wish',
+    'make', 'sing', 'sell', 'take', 'take', 'show', 'wish', 'help',
 ];
 
 const intransitiveVerbsList = [
