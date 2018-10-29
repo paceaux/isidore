@@ -104,21 +104,32 @@ describe('The English language...', () => {
             it('singular words do not show inflections', () => {
                 const inflections = Nouns.guessInflection('city');
 
-                console.log(inflections);
                 expect(inflections).to.equal(undefined);
             });
 
             it('can get existing infections of an irregular noun', () => {
                 const inflections = Nouns.guessInflection('cities');
 
-                console.log(inflections);
                 expect(inflections).to.be.an('object');
             });
             it('can get existing infections of a regular noun', () => {
                 const inflections = Nouns.guessInflection('years');
 
-                console.log(inflections);
                 expect(inflections).to.be.an('object');
+            });
+            it('can remove inflections of an irregular noun', () => {
+                const inflections = Nouns.guessInflection('cities');
+                const unInflected = Nouns.removeInflection('cities', inflections);
+
+                expect(inflections).to.be.an('object');
+                expect(unInflected).to.equal('city');
+            });
+            it('can remove inflections of regular noun', () => {
+                const inflections = Nouns.guessInflection('years');
+                const unInflected = Nouns.removeInflection('years', inflections);
+
+                expect(inflections).to.be.an('object');
+                expect(unInflected).to.equal('year');
             });
         });
 

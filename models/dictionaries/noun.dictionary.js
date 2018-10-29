@@ -3,7 +3,7 @@ import Word from '../word';
 
 /**
  * @param  {String} word word to search for
- * @returns {Object} inflection of a word: {inflectionName, fix, } Word if unsuccessful
+ * @returns {Object} inflection of a word: {inflectionName, fix, type, mutation}
  */
 function getInflection(word) {
     if (!this.inflections) return {};
@@ -28,7 +28,7 @@ function getInflection(word) {
                         inflectionName,
                         fix,
                         type: 'irregularMutation',
-                        mutation: m,
+                        ...m,
                     };
                     inflections.push(obj);
                 }
@@ -56,6 +56,12 @@ function getInflection(word) {
     });
 
     return inflections[0];
+}
+
+function removeInflection(word, inflection) {
+    const mutateOn = inflection.type === 'irregularMutation' ? inflection.mutateOn : '';
+
+    return word.replace(inflection.mutation, mutateOn);
 }
 
 /**
@@ -88,7 +94,7 @@ function NounDictionary(list, language, inflections) {
     this.language = language;
     this.inflections = inflections;
     this.guessInflection = getInflection;
-
+    this.removeInflection = removeInflection;
     this.findWord = findNoun;
 }
 
