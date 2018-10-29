@@ -108,8 +108,14 @@ describe('The English language...', () => {
                 expect(inflections).to.equal(undefined);
             });
 
-            it('can get existing infections of a noun', () => {
+            it('can get existing infections of an irregular noun', () => {
                 const inflections = Nouns.guessInflection('cities');
+
+                console.log(inflections);
+                expect(inflections).to.be.an('object');
+            });
+            it('can get existing infections of a regular noun', () => {
+                const inflections = Nouns.guessInflection('years');
 
                 console.log(inflections);
                 expect(inflections).to.be.an('object');
