@@ -20,7 +20,11 @@ function findAdverb(word) {
  * @method {findWord} searches for a word in the dictionary and returns either an Adverb or a Word
  */
 function AdverbDictionary(list, language) {
-    this.list = list;
+    this.list = list.sort((a, b) => {
+        if (a.adverb < b.adverb) return -1;
+        if (a.adverb > b.adverb) return 1;
+        return 0;
+    });
     this.language = language;
 
     this.findWord = findAdverb;

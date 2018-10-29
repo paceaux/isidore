@@ -21,7 +21,11 @@ function findPreposition(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Preposition or a Word
  */
 function PrepositionDictionary(list, language) {
-    this.list = list;
+    this.list = list.sort((a, b) => {
+        if (a.preposition < b.preposition) return -1;
+        if (a.preposition > b.preposition) return 1;
+        return 0;
+    });
     this.language = language;
 
     this.findWord = findPreposition;

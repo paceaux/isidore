@@ -20,7 +20,11 @@ function findNoun(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Noun or a Word
  */
 function NounDictionary(list, language) {
-    this.list = list;
+    this.list = list.sort((a, b) => {
+        if (a.noun < b.noun) return -1;
+        if (a.noun > b.noun) return 1;
+        return 0;
+    });
     this.language = language;
 
     this.findWord = findNoun;

@@ -23,7 +23,11 @@ function findInterjection(word) {
  * @method {findWord} searches for a word in the dictionary and returns an Interjection or a Word
  */
 function InterjectionDictionary(list, language) {
-    this.list = list;
+    this.list = list.sort((a, b) => {
+        if (a.interjection < b.interjection) return -1;
+        if (a.interjection > b.interjection) return 1;
+        return 0;
+    });
     this.language = language;
 
     this.findWord = findInterjection;
