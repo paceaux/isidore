@@ -96,10 +96,17 @@ describe('The English language...', () => {
                 const { inflections } = Nouns;
                 const { plural } = inflections;
 
+                console.log(plural);
                 expect(plural).to.have.property('fix');
                 expect(plural).to.have.property('regularMutations');
                 expect(plural).to.have.property('irregularMutations');
+            });
 
+            it('can get existing infections of a noun', () => {
+                const inflections = Nouns.guessInflection('cities');
+
+                console.log(inflections);
+                expect(inflections).to.be.an('object');
             });
         });
 
