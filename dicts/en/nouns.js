@@ -85,21 +85,23 @@ const inflections = {
     plural: {
         fix: 'suffix', // infix, prefix, suffix
         regularMutations: [
-            's', 'es',
+            's',
         ],
         irregularMutations: [
             {
-                morpheme: 'ies',
-                transforms: 'y',
+                mutation: 'ies',
+                mutateOn: 'y',
+            },
+            {
+                mutation: 'ves',
+                mutateOn: 'fe',
             },
         ],
     },
     possessive: {
         fix: 'suffix', // infix, prefix, suffix
-        regulars: [
-            {
-                morpheme: '\'s',
-            },
+        regularMutations: [
+            '\'s', 's\'',
         ],
     },
 };
