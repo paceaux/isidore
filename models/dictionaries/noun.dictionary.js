@@ -3,7 +3,7 @@ import Word from '../word';
 
 /**
  * @param  {String} word word to search for
- * @returns {Array} Noun if successful, Word if unsuccessful
+ * @returns {Object} inflection of a word: {inflectionName, fix, } Word if unsuccessful
  */
 function getInflection(word) {
     if (!this.inflections) return {};
@@ -13,6 +13,9 @@ function getInflection(word) {
     Object.keys(this.inflections).forEach(inflectionName => {
         const { fix, regularMutations, irregularMutations } = this.inflections[inflectionName];
 
+        /* irregular mutations first, if something is irregular may  also be regular
+         (at least in English, because most all english words end in s when possessive or plural)
+         */
         if (irregularMutations) {
             irregularMutations.forEach(m => {
                 let regexp = new RegExp('\\d');
@@ -21,7 +24,12 @@ function getInflection(word) {
                 if (fix === 'prefix') regexp = new RegExp(`^(${m.mutation})+`);
 
                 if (word.match(regexp)) {
-                    const obj = { inflectionName, fix, irregularMutation: m };
+                    const obj = {
+                        inflectionName,
+                        fix,
+                        type: 'irregularMutation',
+                        mutation: m,
+                    };
                     inflections.push(obj);
                 }
             });
@@ -35,7 +43,12 @@ function getInflection(word) {
                 if (fix === 'prefix') regexp = new RegExp(`^(${m})+`);
 
                 if (word.match(regexp)) {
-                    const obj = { inflectionName, fix, regularMutation: { mutation: m } };
+                    const obj = {
+                        inflectionName,
+                        fix,
+                        type: 'regularMutation',
+                        mutation: m,
+                    };
                     inflections.push(obj);
                 }
             });
