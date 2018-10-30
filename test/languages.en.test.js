@@ -131,6 +131,36 @@ describe('The English language...', () => {
                 expect(inflections).to.be.an('object');
                 expect(unInflected).to.equal('year');
             });
+            it('can find an irregularly inflected noun', () => {
+                const word = Nouns.findWord('cities');
+
+                expect(word).to.be.an('object');
+                expect(word).to.have.property('partOfSpeech');
+                expect(word.partOfSpeech).to.equal('noun');
+            });
+            it('puts inflection info on irregularly inflected nouns', () => {
+                const word = Nouns.findWord('cities');
+
+                expect(word).to.have.property('inflection');
+                expect(word).to.have.property('inflectedWord');
+                expect(word.inflectedWord).to.equal('cities');
+            });
+
+            it('can find an a regularly inflected noun', () => {
+                const word = Nouns.findWord('years');
+
+                expect(word).to.be.an('object');
+                expect(word).to.have.property('partOfSpeech');
+                expect(word.partOfSpeech).to.equal('noun');
+            });
+
+            it('puts inflection info on regularly inflected nouns', () => {
+                const word = Nouns.findWord('years');
+
+                expect(word).to.have.property('inflection');
+                expect(word).to.have.property('inflectedWord');
+                expect(word.inflectedWord).to.equal('years');
+            });
         });
 
         describe('the verb dictionary...', () => {

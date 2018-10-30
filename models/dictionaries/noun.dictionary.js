@@ -69,12 +69,16 @@ function removeInflection(word, inflection) {
  * @returns {Object} Noun if successful, Word if unsuccessful
  */
 function findNoun(word) {
-    const search = word;
+    let search = word;
+    const inflection = this.guessInflection(word);
+    if (inflection) {
+        search = this.removeInflection(word, inflection);
+    }
     const defaultFilter = obj => search.toLowerCase().startsWith(obj.noun.toLowerCase());
 
     const list = this.list.filter(defaultFilter);
 
-    const typedList = list.map(nounObj => new Noun(nounObj.noun, nounObj.type, nounObj.subType));
+    const typedList = list.map(nounObj => new Noun(nounObj.noun, nounObj.type, nounObj.subType, inflection));
 
     return typedList.length === 0 ? new Word(search) : typedList[0];
 }

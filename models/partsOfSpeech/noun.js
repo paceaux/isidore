@@ -35,6 +35,29 @@ const types = [
     },
 ];
 
+function getInflectedWord(word, { mutateOn, mutation, fix }) {
+    if (!mutation) return word;
+    let inflectedWord = word;
+
+    if (mutateOn) {
+        inflectedWord = word.replace(mutateOn, mutation);
+    } else {
+        switch (fix) {
+        case 'suffix':
+            inflectedWord = word + mutation;
+            break;
+        case 'prefix':
+            inflectedWord = mutation + word;
+            break;
+        case 'infix':
+            // wtf am I going to do for infix?
+            break;
+        default:
+            break;
+        }
+    }
+    return inflectedWord;
+}
 /** Noun: person, place, thing, or idea
  * @param  {string} word original word
  * @param  {string} type entity-class, enumerative, sense, ownership
@@ -43,13 +66,17 @@ const types = [
  * @member types array.
  * @member subType string. most nouns have a subType
  */
-function Noun(word, type, subType) {
+function Noun(word, type, subType, inflection) {
     this.partOfSpeech = 'noun';
     this.word = word;
     this.type = type;
     this.subType = subType;
+    this.inflection = inflection;
 
-    return this.word;
+    if (inflection) {
+        this.inflectedWord = getInflectedWord(this.word, inflection);
+    }
+    return this.inflectedWord || this.word;
 }
 
 Noun.prototype.types = types;
