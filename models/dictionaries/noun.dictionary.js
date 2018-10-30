@@ -78,7 +78,11 @@ function findNoun(word) {
 
     const list = this.list.filter(defaultFilter);
 
-    const typedList = list.map(nounObj => new Noun(nounObj.noun, nounObj.type, nounObj.subType, inflection));
+    const typedList = list.map(nounObj => new Noun(
+        nounObj.noun,
+        nounObj.type,
+        nounObj.subType,
+        inflection ));
 
     return typedList.length === 0 ? new Word(search) : typedList[0];
 }
