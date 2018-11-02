@@ -10,7 +10,7 @@ const transitiveVerbsList = [
 ];
 
 const intransitiveVerbsList = [
-    'move', 'start', 'change', 'close', 'open', 'stop', 'do', 'set', 'run', 'live', 'wash', 'write',
+    'move', 'start', 'change', 'close', 'open', 'stop', 'do', 'set', 'run', 'live', 'wash', 'write', 'drive',
 ];
 
 const transitiveVerbs = transitiveVerbsList.map(commonNoun => ({

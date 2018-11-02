@@ -110,9 +110,8 @@ function getWordList(textArray, language) {
  * @member {array} types the possible types that a sentence could have
  * @method getSentenceType guesses the type of sentence based on punctuation
  */
-function Sentence(text, type, language = 'En') {
+function Sentence({ text, type, language = 'En' } = {}) {
     this.text = text;
-    this.type = type;
     this.language = language;
 
     this.rawWordList = getRawWordList(this.text);
