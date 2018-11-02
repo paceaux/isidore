@@ -82,7 +82,8 @@ function findNoun(word) {
         nounObj.noun,
         nounObj.type,
         nounObj.subType,
-        inflection ));
+        inflection,
+    ));
 
     return typedList.length === 0 ? new Word(search) : typedList[0];
 }
