@@ -51,7 +51,7 @@ function getEnhancedInflections(inflections) {
  * @param  {String} word word to search for
  * @returns {Object} inflection of a word: {inflectionName, fix, type, mutation}
  */
-function getInflection(word) {
+function getInflections(word) {
     if (!this.inflections) return {};
 
     const inflections = [];
@@ -101,6 +101,12 @@ function getInflection(word) {
         }
     });
 
+    return inflections;
+}
+
+function getInflection(word) {
+    if (!this.inflections) return {};
+    const inflections = this.guessInflections(word);
     return inflections[0];
 }
 
@@ -148,6 +154,7 @@ function NounDictionary(list, language, inflections) {
     });
     this.language = language;
     this.inflections = getEnhancedInflections(inflections);
+    this.guessInflections = getInflections;
     this.guessInflection = getInflection;
     this.removeInflection = removeInflection;
     this.findWord = findNoun;
