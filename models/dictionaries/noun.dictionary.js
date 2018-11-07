@@ -59,43 +59,25 @@ function getInflections(word) {
     Object.keys(this.inflections).forEach(inflectionName => {
         const { fix, regularMutations, irregularMutations } = this.inflections[inflectionName];
 
+        const objectForMatch = {
+            inflectionName,
+            fix,
+        };
         /* irregular mutations first, if something is irregular may  also be regular
          (at least in English, because most all english words end in s when possessive or plural)
          */
         if (irregularMutations) {
             irregularMutations.forEach(m => {
-                let regexp = new RegExp('\\d');
-
-                if (fix === 'suffix') regexp = new RegExp(`(${m.mutation})+\\b`);
-                if (fix === 'prefix') regexp = new RegExp(`^(${m.mutation})+`);
-
-                if (word.match(regexp)) {
-                    const obj = {
-                        inflectionName,
-                        fix,
-                        type: 'irregularMutation',
-                        ...m,
-                    };
-                    inflections.push(obj);
+                if (word.match(m.regexp)) {
+                    inflections.push(Object.assign({ type: 'irregularMutation', ...m }, objectForMatch));
                 }
             });
         }
 
-        if (inflections.length === 0 && regularMutations) {
+        if (regularMutations) {
             regularMutations.forEach(m => {
-                let regexp = new RegExp('\\d');
-
-                if (fix === 'suffix') regexp = new RegExp(`(${m})+\\b`);
-                if (fix === 'prefix') regexp = new RegExp(`^(${m})+`);
-
-                if (word.match(regexp)) {
-                    const obj = {
-                        inflectionName,
-                        fix,
-                        type: 'regularMutation',
-                        mutation: m,
-                    };
-                    inflections.push(obj);
+                if (word.match(m.regexp)) {
+                    inflections.push(Object.assign({ type: 'regularMutation', ...m }, objectForMatch));
                 }
             });
         }
@@ -104,9 +86,9 @@ function getInflections(word) {
     return inflections;
 }
 
-function getInflection(word) {
+function guessInflection(word) {
     if (!this.inflections) return {};
-    const inflections = this.guessInflections(word);
+    const inflections = this.getInflections(word);
     return inflections[0];
 }
 
@@ -154,8 +136,8 @@ function NounDictionary(list, language, inflections) {
     });
     this.language = language;
     this.inflections = getEnhancedInflections(inflections);
-    this.guessInflections = getInflections;
-    this.guessInflection = getInflection;
+    this.getInflections = getInflections;
+    this.guessInflection = guessInflection;
     this.removeInflection = removeInflection;
     this.findWord = findNoun;
 }
