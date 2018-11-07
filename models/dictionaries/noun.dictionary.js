@@ -1,6 +1,52 @@
 import Noun from '../partsOfSpeech/noun';
 import Word from '../word';
 
+/** Generates a regular expression
+ * @param  {string} mutation
+ * @param  {string} fix prefix, suffix, infix
+ * @returns {RegExp} Regular expression for identifying a mutation
+ */
+function getMutationRegex(mutation, fix) {
+    let regexp = new RegExp('\\d');
+
+    if (fix === 'suffix') regexp = new RegExp(`(${mutation})+\\b`);
+    if (fix === 'prefix') regexp = new RegExp(`^(${mutation})+`);
+
+    return regexp;
+}
+/** Sets irregular and regular mutations to both be arrays of objects with regexes
+ * @param  {object} inflections object containing individual inflections
+ * @returns {object} Clone of inflections with regular and irregular being objects with regexes
+ */
+function getEnhancedInflections(inflections) {
+    const clone = JSON.parse(JSON.stringify(inflections));
+    const inflectionNames = Object.keys(inflections);
+
+    inflectionNames.forEach(name => {
+        const inflection = inflections[name];
+        const { fix, regularMutations, irregularMutations } = inflection;
+
+        if (irregularMutations) {
+            const newIrregularMutations = inflection.irregularMutations.map(irregularMutation => {
+                const regexp = getMutationRegex(irregularMutation.mutation, fix);
+
+                return Object.assign({ regexp }, irregularMutation);
+            });
+            clone[name].irregularMutations = newIrregularMutations;
+        }
+
+        if (regularMutations) {
+            const newRegularMutations = regularMutations.map(regularMutation => {
+                const regexp = getMutationRegex(regularMutation, fix);
+
+                return Object.assign({ mutation: regularMutation, regexp }, {});
+            });
+            clone[name].regularMutations = newRegularMutations;
+        }
+    });
+    return clone;
+}
+
 /**
  * @param  {String} word word to search for
  * @returns {Object} inflection of a word: {inflectionName, fix, type, mutation}
@@ -101,7 +147,7 @@ function NounDictionary(list, language, inflections) {
         return 0;
     });
     this.language = language;
-    this.inflections = inflections;
+    this.inflections = getEnhancedInflections(inflections);
     this.guessInflection = getInflection;
     this.removeInflection = removeInflection;
     this.findWord = findNoun;
