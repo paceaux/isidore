@@ -216,15 +216,20 @@ describe('The English language...', () => {
                 expect(inflection).to.be.an('object');
                 expect(inflection.inflectionName).to.equal('pluralpossessive');
             });
+            it('can uninflect inflection of a regular plural possessive noun', () => {
+                const inflection = Nouns.guessInflection("years'");
+                const uninflection = Nouns.removeInflection("years'", inflection);
+
+                expect(inflection).to.be.an('object');
+                expect(inflection.inflectionName).to.equal('pluralpossessive');
+                expect(uninflection).to.equal('year');
+            });
             it('will not get thrown off by double-s', () => {
                 const inflection = Nouns.guessInflection('happiness');
 
                 expect(inflection).to.equal(undefined);
             });
-            it('can get inflections', () => {
-                const inflections = Nouns.getInflections("year's");
-                expect(inflections).to.be.an('array');
-            });
+
         });
     });
 });
