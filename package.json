@@ -14,6 +14,7 @@
     "dev": "rollup -c -w",
     "lint": "eslint models/** src/**  test/**  dicts/**",
     "test": "mocha test/**",
+    "debug": "npm run pretest && mocha test/debug.test.js",
     "pretest": "npm run build"
   },
   "files": [
@@ -29,12 +30,12 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.6.1",
+    "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0",
-    "rollup": "^0.66.5",
-    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup": "^0.66.6",
+    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0"
   }
 }
