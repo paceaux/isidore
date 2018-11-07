@@ -197,17 +197,21 @@ describe('The English language...', () => {
                 expect(inflection).to.equal(undefined);
             });
 
-            it('can guess existing inflection of a regular noun', () => {
+            it('can guess existing inflection of a regular possessive noun', () => {
                 const inflection = Nouns.guessInflection("year's");
 
                 expect(inflection).to.be.an('object');
                 expect(inflection.inflectionName).to.equal('possessive');
             });
+            it('can guess existing inflection of a regular plural possessive noun', () => {
+                const inflection = Nouns.guessInflection("years'");
+
+                expect(inflection).to.be.an('object');
+                expect(inflection.inflectionName).to.equal('pluralpossessive');
+            });
             it('can get inflections', () => {
                 const inflections = Nouns.getInflections("year's");
                 expect(inflections).to.be.an('array');
-
-                console.log('inflections', inflections);
             });
         });
     });

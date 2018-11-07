@@ -101,7 +101,13 @@ const inflections = {
     possessive: {
         fix: 'suffix', // infix, prefix, suffix
         regularMutations: [
-            '\'s', 's\'',
+            '\\b\'s',
+        ],
+    },
+    pluralpossessive: {
+        fix: 'suffix',
+        regularMutations: [
+            's\'',
         ],
     },
 };

@@ -9,7 +9,7 @@ import Word from '../word';
 function getMutationRegex(mutation, fix) {
     let regexp = new RegExp('\\d');
 
-    if (fix === 'suffix') regexp = new RegExp(`(${mutation})+\\b`);
+    if (fix === 'suffix') regexp = new RegExp(`(${mutation})+`);
     if (fix === 'prefix') regexp = new RegExp(`^(${mutation})+`);
 
     return regexp;
