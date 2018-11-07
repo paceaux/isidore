@@ -85,7 +85,7 @@ const inflections = {
     plural: {
         fix: 'suffix', // infix, prefix, suffix
         regularMutations: [
-            's',
+            '(?<!s)s\b',
         ],
         irregularMutations: [
             {
@@ -101,7 +101,7 @@ const inflections = {
     possessive: {
         fix: 'suffix', // infix, prefix, suffix
         regularMutations: [
-            '\\b\'s',
+            '\b\'s',
         ],
     },
     pluralpossessive: {

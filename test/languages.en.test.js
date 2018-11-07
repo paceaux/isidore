@@ -209,6 +209,12 @@ describe('The English language...', () => {
                 expect(inflection).to.be.an('object');
                 expect(inflection.inflectionName).to.equal('pluralpossessive');
             });
+            it('will not get thrown off by double-s', () => {
+                const inflection = Nouns.guessInflection('happiness');
+
+                console.log(inflection);
+                expect(inflection).to.equal(undefined);
+            });
             it('can get inflections', () => {
                 const inflections = Nouns.getInflections("year's");
                 expect(inflections).to.be.an('array');
