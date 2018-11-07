@@ -89,7 +89,13 @@ function getInflections(word) {
 function guessInflection(word) {
     if (!this.inflections) return {};
     const inflections = this.getInflections(word);
-    return inflections[0];
+
+    // if there's more that one inflection that's in the result, get the longer inflection
+    // this accounts for the fact that s and 's both get returned
+    // obviously buggy and English-specific
+    const sortedInflections = inflections
+        .sort((infA, infB) => infB.mutation.length - infA.mutation.length);
+    return sortedInflections[0];
 }
 
 function removeInflection(word, inflection) {
