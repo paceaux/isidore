@@ -111,8 +111,8 @@ describe('The English language...', () => {
             expect(inflections).to.have.property('possessive');
         });
 
-        describe('has a plural inflection', () => {
-            it('has has a fix, and mutations, for plural inflections', () => {
+        describe('has a plural inflections', () => {
+            it('has has a fix, and mutation, for plural inflections', () => {
                 const { inflections } = Nouns;
                 const { plural } = inflections;
 
@@ -121,34 +121,34 @@ describe('The English language...', () => {
                 expect(plural).to.have.property('irregularMutations');
             });
 
-            it('singular words do not show inflections', () => {
-                const inflections = Nouns.guessInflection('city');
+            it('singular words do not show inflection', () => {
+                const inflection = Nouns.guessInflection('city');
 
-                expect(inflections).to.equal(undefined);
+                expect(inflection).to.equal(undefined);
             });
 
-            it('can get existing infections of an irregular noun', () => {
-                const inflections = Nouns.guessInflection('cities');
+            it('can get existing inflection of an irregular noun', () => {
+                const inflection = Nouns.guessInflection('cities');
 
-                expect(inflections).to.be.an('object');
+                expect(inflection).to.be.an('object');
             });
-            it('can get existing infections of a regular noun', () => {
-                const inflections = Nouns.guessInflection('years');
+            it('can get existing inflection of a regular noun', () => {
+                const inflection = Nouns.guessInflection('years');
 
-                expect(inflections).to.be.an('object');
+                expect(inflection).to.be.an('object');
             });
-            it('can remove plural inflections of an irregular noun', () => {
-                const inflections = Nouns.guessInflection('cities');
-                const unInflected = Nouns.removeInflection('cities', inflections);
+            it('can remove plural inflection of an irregular noun', () => {
+                const inflection = Nouns.guessInflection('cities');
+                const unInflected = Nouns.removeInflection('cities', inflection);
 
-                expect(inflections).to.be.an('object');
+                expect(inflection).to.be.an('object');
                 expect(unInflected).to.equal('city');
             });
-            it('can remove plural inflections of regular noun', () => {
-                const inflections = Nouns.guessInflection('years');
-                const unInflected = Nouns.removeInflection('years', inflections);
+            it('can remove plural inflection of regular noun', () => {
+                const inflection = Nouns.guessInflection('years');
+                const unInflected = Nouns.removeInflection('years', inflection);
 
-                expect(inflections).to.be.an('object');
+                expect(inflection).to.be.an('object');
                 expect(unInflected).to.equal('year');
             });
             it('can find an irregularly inflected plural noun', () => {
@@ -191,18 +191,23 @@ describe('The English language...', () => {
                 expect(possessive).to.have.property('fix');
                 expect(possessive).to.have.property('regularMutations');
             });
-            it('non-possessive words do not show inflections', () => {
-                const inflections = Nouns.guessInflection('city');
+            it('non-possessive words do not show inflection', () => {
+                const inflection = Nouns.guessInflection('city');
 
-                expect(inflections).to.equal(undefined);
+                expect(inflection).to.equal(undefined);
             });
 
-            it('can get existing infections of a regular noun', () => {
-                const inflections = Nouns.guessInflection("year's");
+            it('can guess existing inflection of a regular noun', () => {
+                const inflection = Nouns.guessInflection("year's");
 
-                console.log(inflections);
-                expect(inflections).to.be.an('object');
-                expect(inflections.inflectionName).to.equal('possessive');
+                expect(inflection).to.be.an('object');
+                expect(inflection.inflectionName).to.equal('possessive');
+            });
+            it('can get inflections', () => {
+                const inflections = Nouns.getInflections("year's");
+                expect(inflections).to.be.an('array');
+
+                console.log('inflections', inflections);
             });
         });
     });
