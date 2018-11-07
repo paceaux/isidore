@@ -9,7 +9,7 @@ import Word from '../word';
 function getMutationRegex(mutation, fix) {
     let regexp = new RegExp('\\d');
 
-    if (fix === 'suffix') regexp = new RegExp(mutation);
+    if (fix === 'suffix') regexp = new RegExp(`${mutation}`);
     if (fix === 'prefix') regexp = new RegExp(`^(${mutation})`);
 
     return regexp;
@@ -28,7 +28,8 @@ function getEnhancedInflections(inflections) {
 
         if (irregularMutations) {
             const newIrregularMutations = inflection.irregularMutations.map(irregularMutation => {
-                const regexp = getMutationRegex(irregularMutation.mutation, fix);
+                const regexString = irregularMutation.marker || irregularMutation.mutation;
+                const regexp = getMutationRegex(regexString, fix);
 
                 return Object.assign({ regexp }, irregularMutation);
             });
@@ -37,9 +38,11 @@ function getEnhancedInflections(inflections) {
 
         if (regularMutations) {
             const newRegularMutations = regularMutations.map(regularMutation => {
-                const regexp = getMutationRegex(regularMutation, fix);
+                const regexString = regularMutation.marker || regularMutation.mutation;
 
-                return Object.assign({ mutation: regularMutation, regexp }, {});
+                const regexp = getMutationRegex(regexString, fix);
+
+                return Object.assign({ regexp }, regularMutation);
             });
             clone[name].regularMutations = newRegularMutations;
         }
@@ -101,7 +104,7 @@ function guessInflection(word) {
 function removeInflection(word, inflection) {
     const mutateOn = inflection.type === 'irregularMutation' ? inflection.mutateOn : '';
 
-    return word.replace(inflection.mutation, mutateOn);
+    return word.replace(inflection.regexp, mutateOn);
 }
 
 /**

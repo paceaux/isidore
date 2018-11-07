@@ -137,8 +137,15 @@ describe('The English language...', () => {
 
                 expect(inflection).to.be.an('object');
             });
+            it('can identify cities as irregular', () => {
+                const inflection = Nouns.guessInflection('cities');
+
+                expect(inflection).to.be.an('object');
+                expect(inflection.type).to.equal('irregularMutation');
+            });
             it('can remove plural inflection of an irregular noun', () => {
                 const inflection = Nouns.guessInflection('cities');
+
                 const unInflected = Nouns.removeInflection('cities', inflection);
 
                 expect(inflection).to.be.an('object');
@@ -212,7 +219,6 @@ describe('The English language...', () => {
             it('will not get thrown off by double-s', () => {
                 const inflection = Nouns.guessInflection('happiness');
 
-                console.log(inflection);
                 expect(inflection).to.equal(undefined);
             });
             it('can get inflections', () => {
