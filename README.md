@@ -50,3 +50,15 @@ The sentence is where the parsing magic starts.
 
     /* wordList is now an array of words */
 
+### Dictionaries
+
+`NounDictionary` class
+| Member | Type | Description |
+|-------| -----| -------------|
+| `list`| array | Nouns with types and wordCategories|
+| `language` | string | two-letter abbreviation of language|
+| `inflections` | object | inflections that can be applied to all nouns |
+| `findWord(word)` | method | Searches for word in dictionary (returns `Noun` if successful) |
+| `getInflections(word)` | method |  word (`string`), returns all possible inflections for the word |
+| `guessInflection(word)` | method | (`string`), returns a single inflection (`object`) |
+| `removeInflection(word, inflection)` | method | word(`string`), inflection (`object`). returns `string` |
