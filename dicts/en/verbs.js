@@ -5,7 +5,7 @@ import VerbDictionary from '../../models/dictionaries/verb.dictionary';
 
 const transitiveVerbsList = [
     'give', 'bring', 'buy', 'cost', 'give', 'get', 'leave', 'lend', 'make',
-    'offer', 'owe', 'pass', 'pay', 'promise', 'read', 'refuse', 'send', 'show',
+    'offer', 'owe', 'pass', 'pay', 'play', 'promise', 'read', 'refuse', 'send', 'show',
     'make', 'sing', 'sell', 'take', 'take', 'show', 'wish', 'help',
 ];
 
@@ -29,7 +29,16 @@ const intransitiveVerbs = intransitiveVerbsList.map(commonNoun => ({
     },
 }));
 
+const conjugations = {
+    tenses: {
+        past: {},
+        pastParticiple: {},
+        present: {},
+        presentParticiple: {},
+    },
+};
+
 export default new VerbDictionary([
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En');
+], 'En', conjugations);
