@@ -232,4 +232,53 @@ describe('The English language...', () => {
 
         });
     });
+
+    describe('can handle conjugations on verbs', () => {
+        const { Verbs } = En.grammarDictionaries;
+
+        it('has conjugations', () => {
+            const { conjugations } = Verbs;
+            expect(conjugations).to.be.an('object');
+        });
+
+        it('has tenses in the conjugations', () => {
+            const { conjugations } = Verbs;
+
+            expect(conjugations.tenses).to.be.an('object');
+        });
+
+        it('has tenses in the conjugations', () => {
+            const { conjugations } = Verbs;
+
+            expect(conjugations.tenses).to.be.an('object');
+            expect(conjugations).to.have.property('past');
+            expect(conjugations).to.have.property('pastParticiple');
+            expect(conjugations).to.have.property('present');
+            expect(conjugations).to.have.property('presentParticiple');
+        });
+
+        it('can get the conjugations of "plays" ', () => {
+            const conjugations = Verbs.getConjugations('plays');
+
+            expect(conjugations).to.be.an('array');
+        });
+
+        it('has tense and pronoun when it guesses a conjugation', () => {
+            const conjugation = Verbs.guessConjugation('plays');
+
+            expect(conjugation).to.be.an('object');
+            expect(conjugation).to.have.property('tense');
+            expect(conjugation).to.have.property('pronoun');
+        });
+        it('can guess that "plays" gets a present simple tense and 3rd person pronoun', () => {
+            const conjugation = Verbs.guessConjugation('plays');
+
+            expect(conjugation).to.be.an('object');
+            expect(conjugation.tense).to.equal('presentSimple');
+            expect(conjugation.pronoun).to.be.an('object');
+            expect(conjugation.pronoun).to.have.property('quantity');
+            expect(conjugation.pronoun.quantity).to.equal('singular');
+            expect(conjugation.pronoun.person).to.equal(3);
+        });
+    });
 });
