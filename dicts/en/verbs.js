@@ -29,16 +29,43 @@ const intransitiveVerbs = intransitiveVerbsList.map(commonNoun => ({
     },
 }));
 
-const conjugations = {
-    tenses: {
-        past: {},
-        pastParticiple: {},
-        present: {},
-        presentParticiple: {},
+const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
+
+const verbTenses = ['past', 'present', 'future'];
+
+const verbMoods = ['indicative', 'imperative', 'subjunctive'];
+
+
+
+
+
+const moods = {
+    indicative: {
+        present: {
+            simple: 'goes',
+            continuous: 'going',
+            perfect: 'have gone',
+            perfectContinuous: 'have been going',
+        },
+        past: {
+            simple: 'went',
+            continuous: 'was going',
+            perfect: 'had gone',
+            perfectContinuous: 'had been going',
+        },
+        future: {
+            simple: 'will go',
+            continuous: 'will be going',
+            perfect: 'will have gone',
+            perfectContinuous: 'will have been going',
+        },
     },
+    imperative: {},
+    subjunctive: {},
 };
+
 
 export default new VerbDictionary([
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En', conjugations);
+], 'En', moods);
