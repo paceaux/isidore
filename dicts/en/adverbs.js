@@ -267,6 +267,14 @@ export default new AdverbDictionary([
         type: 'frequency',
     },
     {
+        adverb: 'no',
+        type: 'negation',
+    },
+    {
+        adverb: 'not',
+        type: 'negation',
+    },
+    {
         adverb: 'now',
         type: 'time',
     },
