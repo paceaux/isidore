@@ -9,14 +9,14 @@ const { VerbTenses, VerbTense } = isidore;
 
 describe('The verb tense...', () => {
     it('...is an object with a name', () => {
-        const verbTense = new VerbTense('indicative', 'present', 'simple');
+        const verbTense = new VerbTense({ mood: 'indicative', tense: 'present', aspect: 'simple' });
 
         expect(verbTense).to.be.an('object');
         expect(verbTense).to.have.property('name');
         expect(verbTense.name).to.equal('indicative:present:simple');
     });
     it('...can have its name changed automagically if a property changes', () => {
-        const verbTense = new VerbTense('indicative', 'present', 'simple');
+        const verbTense = new VerbTense({ mood: 'indicative', tense: 'present', aspect: 'simple' });
 
         expect(verbTense).to.be.an('object');
         expect(verbTense).to.have.property('name');
@@ -25,9 +25,17 @@ describe('The verb tense...', () => {
 
         expect(verbTense.name).to.equal('indicative:past:perfect');
     });
+
+    it('...will be infinitive if nothing else is there', () => {
+        const verbTense = new VerbTense();
+        const { mood, tense, aspect } = verbTense;
+        expect(mood).to.equal('infinitive');
+        expect(tense).to.equal('');
+        expect(aspect).to.equal('');
+    });
 });
 
-describe('Verb Tenses', () => {
+describe.skip('Verb Tenses', () => {
     const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
     const verbTenses = ['past', 'present', 'future'];
     const verbMoods = ['indicative', 'imperative', 'subjunctive'];
@@ -39,44 +47,26 @@ describe('Verb Tenses', () => {
         expect(langTenses.verbMap).to.be.a('map');
     });
 
-    it('gets moods like indicative, imperative, subjunctive', () => {
-        const langTenses = new VerbTenses(verbMoods, verbTenses, verbAspects);
-        const { verbMap } = langTenses;
-
-        expect(verbMap).to.be.a('map');
-        expect(verbMap.get('indicative')).to.be.a('map');
-        expect(verbMap.get('imperative')).to.be.a('map');
-        expect(verbMap.get('subjunctive')).to.be.a('map');
-    });
-    it(' gets tenses like past, present, future from indicative', () => {
+    it('has indicative:past:simple, and subjunctive:future:perfectContinuous in the map', () => {
         const langTenses = new VerbTenses(verbMoods, verbTenses, verbAspects);
 
-        const { verbMap } = langTenses;
-        const indicative = verbMap.get('indicative');
-
-        expect(indicative.get('past')).to.be.a('map');
-        expect(indicative.get('present')).to.be.a('map');
-        expect(indicative.get('future')).to.be.a('map');
+        expect(langTenses.verbMap.has('indicative:past:simple')).to.equal(true);
+        expect(langTenses.verbMap.has('subjunctive:future:perfectContinuous')).to.equal(true);
     });
 
-    it('gets the simple, continuous,perfect, perfectContinuous,  from the present indicative ', () => {
+    it('has a verb tree', () => {
         const langTenses = new VerbTenses(verbMoods, verbTenses, verbAspects);
+        const { verbTree } = langTenses;
 
-        const { verbMap } = langTenses;
-        const indicative = verbMap.get('indicative');
-        const present = indicative.get('present');
-
-        expect(present.get('simple')).to.be.an('object');
-        expect(present.get('continuous')).to.be.an('object');
-        expect(present.get('perfect')).to.be.an('object');
-        expect(present.get('perfectContinuous')).to.be.an('object');
+        expect(verbTree).to.be.an('object');
     });
-    it('can get a flattened map of available tenses', () => {
-        const langTenses = new VerbTenses(verbMoods, verbTenses, verbAspects);
-        const { flatMap } = langTenses;
-        console.log(langTenses);
 
-        expect(flatMap).to.be.a('map');
-        expect(flatMap.size).to.equal(verbAspects.length * verbTenses.length * verbMoods.length);
+    it('can get a tense out of the verb tree', () => {
+        const langTenses = new VerbTenses(verbMoods, verbTenses, verbAspects);
+        const { verbTree } = langTenses;
+        const { indicative } = verbTree;
+        const { future } = indicative;
+        const { perfect } = future;
+        expect(perfect).to.be.an('object');
     });
 });
