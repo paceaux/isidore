@@ -1,4 +1,4 @@
-import VerbTense from './verbtense';
+import VerbConjugation from './verbtense';
 import getVerbConjugationName from '../helpers/models.verbtenses';
 
 function getTenseMap(moods, tenses, aspects) {
@@ -6,12 +6,24 @@ function getTenseMap(moods, tenses, aspects) {
 
     if (!moods && !tenses && !aspects) return map;
     moods.forEach(mood => {
-        // infinitve, imperative, gerund
-        if (tenses.length === 0) map.set(getVerbConjugationName(mood), new VerbTense({ mood }));
+        if (tenses.length === 0) {
+            map.set(
+                getVerbConjugationName(mood),
+                new VerbConjugation({ mood }),
+            );
+        }
         tenses.forEach(tense => {
-            if (aspects.length === 0) map.set(getVerbConjugationName(mood, tense));
+            if (aspects.length === 0) {
+                map.set(
+                    getVerbConjugationName(mood),
+                    new VerbConjugation({ mood, tense }),
+                );
+            }
             aspects.forEach(aspect => {
-                map.set(getVerbConjugationName(mood, tense, aspect), new VerbTense(mood, tense, aspect));
+                map.set(
+                    getVerbConjugationName(mood, tense, aspect),
+                    new VerbConjugation({ mood, tense, aspect })
+                );
             });
         });
     });
@@ -28,20 +40,34 @@ function getTenseTreeFromMap(map) {
         if (!obj[mood]) obj[mood] = {};
         if (!obj[mood][tense]) obj[mood][tense] = {};
 
-        obj[mood][tense][aspect] = val;
+        if (tense && aspect) obj[mood][tense][aspect] = val;
+        if (!tense && !aspect) obj[mood] = val;
     });
 
     return obj;
 }
+/** VerbConjugations: a data structure for storing inflection information on a verb or set of verbs
+ * @param  {array} moods 'indicative', 'subjunctive'
+ * @param  {array} tenses=[] 'past', 'present', 'future'
+ * @param  {array} aspects=[] 'simple', 'continuous', 'perfect', 'perfectContinuous'
+ * @param  {boolean} isRegular=true
+ */
+function VerbConjugations(moods, tenses = [], aspects = [], isRegular = true) {
+    const infinitive = new VerbConjugation();
+    const imperative = new VerbConjugation({ mood: 'imperative' });
 
-function VerbConjugations(moods, tenses = [], aspects = []) {
     this.moodNames = moods;
     this.tenseNames = tenses;
     this.aspectNames = aspects;
+    this.isRegular = isRegular;
+    this.infinitive = infinitive;
+    this.imperative = imperative;
+
 
     Object.defineProperty(this, 'verbMap', {
         get() {
-            return getTenseMap(this.moodNames, this.tenseNames, this.aspectNames);
+            const tenseMap = getTenseMap(this.moodNames, this.tenseNames, this.aspectNames);
+            return new Map([...tenseMap, ['infinitive', infinitive], ['imperative', imperative]]);
         },
         enumerable: true,
     });
