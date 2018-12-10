@@ -1,3 +1,7 @@
+function getVerbTenseName(mood, tense, aspect) {
+    return `${mood}:${tense}:${aspect}`;
+}
+
 
 function VerbTense(mood, tense, aspect) {
     this.mood = mood;
@@ -6,11 +10,10 @@ function VerbTense(mood, tense, aspect) {
 
     Object.defineProperty(this, 'name', {
         get() {
-            return `${this.mood}:${this.tense}:${this.aspect}`;
+            return getVerbTenseName(this.mood, this.tense, this.aspect);
         },
         enumerable: true,
     });
-    return this;
 }
 
 export default VerbTense;
