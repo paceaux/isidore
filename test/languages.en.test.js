@@ -241,13 +241,13 @@ describe('The English language...', () => {
             expect(conjugations).to.be.an('object');
         });
 
-        it('has tenses in the conjugations', () => {
+        it.skip('has tenses in the conjugations', () => {
             const { conjugations } = Verbs;
 
             expect(conjugations.tenses).to.be.an('object');
         });
 
-        it('has tenses in the conjugations', () => {
+        it.skip('has tenses in the conjugations', () => {
             const { conjugations } = Verbs;
 
             expect(conjugations.tenses).to.be.an('object');
@@ -257,20 +257,20 @@ describe('The English language...', () => {
             expect(conjugations).to.have.property('presentParticiple');
         });
 
-        it('can get the conjugations of "plays" ', () => {
+        it.skip('can get the conjugations of "plays" ', () => {
             const conjugations = Verbs.getConjugations('plays');
 
             expect(conjugations).to.be.an('array');
         });
 
-        it('has tense and pronoun when it guesses a conjugation', () => {
+        it.skip('has tense and pronoun when it guesses a conjugation', () => {
             const conjugation = Verbs.guessConjugation('plays');
 
             expect(conjugation).to.be.an('object');
             expect(conjugation).to.have.property('tense');
             expect(conjugation).to.have.property('pronoun');
         });
-        it('can guess that "plays" gets a present simple tense and 3rd person pronoun', () => {
+        it.skip('can guess that "plays" gets a present simple tense and 3rd person pronoun', () => {
             const conjugation = Verbs.guessConjugation('plays');
 
             expect(conjugation).to.be.an('object');

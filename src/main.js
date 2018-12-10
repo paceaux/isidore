@@ -1,9 +1,9 @@
 import PartsOfSpeech from '../models/partsOfSpeech/index';
 import Sentence from '../models/sentence';
 import Languages from '../dicts/index';
-import VerbTenses from '../models/verbtenses';
-import VerbTense from '../models/verbtense';
+import VerbConjugations from '../models/verbtenses';
+import VerbConjugation from '../models/verbtense';
 
 export default {
-    PartsOfSpeech, Sentence, Languages, VerbTenses, VerbTense,
+    PartsOfSpeech, Sentence, Languages, VerbConjugations, VerbConjugation,
 };
