@@ -1,12 +1,9 @@
-function getVerbTenseName(mood, tense = '', aspect = '') {
-    return `${mood}:${tense}:${aspect}`;
-}
-
+import getVerbTenseName from '../helpers/models.verbtenses';
 
 function VerbTense({ mood = 'infinitive', tense = '', aspect = '' } = {}) {
     this.mood = mood;
-    this.tense = tense;
-    this.aspect = aspect;
+    if (tense) this.tense = tense;
+    if (aspect) this.aspect = aspect;
 
     Object.defineProperty(this, 'name', {
         get() {
@@ -15,5 +12,6 @@ function VerbTense({ mood = 'infinitive', tense = '', aspect = '' } = {}) {
         enumerable: true,
     });
 }
+
 
 export default VerbTense;
