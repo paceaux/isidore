@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * Classifications of a pronoun
  */
@@ -72,9 +73,9 @@ function Pronoun(word, type, referent, gender, person, quantity) {
     this.type = type;
     this.person = person;
     this.quantity = quantity;
-
-    return this.word;
 }
+
+Pronoun.prototype = Object.create(Word.prototype);
 Pronoun.prototype.quantities = quantities;
 Pronoun.prototype.referents = referents;
 Pronoun.prototype.genders = genders;

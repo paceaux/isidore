@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * https://en.oxforddictionaries.com/grammar/types-of-noun
  * https://en.wikipedia.org/wiki/Noun#Classification
@@ -76,9 +77,9 @@ function Noun(word, type, subType, inflection) {
     if (inflection) {
         this.inflectedWord = getInflectedWord(this.word, inflection);
     }
-    return this.inflectedWord || this.word;
 }
 
+Noun.prototype = Object.create(Word.prototype);
 Noun.prototype.types = types;
 
 export default Noun;

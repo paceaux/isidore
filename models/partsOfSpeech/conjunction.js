@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * Classifications of a conjunction
  */
@@ -35,7 +36,7 @@ function Conjunction(word, type) {
 
     return this.word;
 }
-
+Conjunction.prototype = Object.create(Word.prototype);
 Conjunction.prototype.types = types;
 
 export default Conjunction;

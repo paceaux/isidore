@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * http://www.studyandexam.com/adverb2.html
  * http://www.grammar.cl/Basic/Adverbs_Frequency.htm
@@ -42,6 +43,7 @@ function Adverb(word, type) {
     return this.word;
 }
 
+Adverb.prototype = Object.create(Word.prototype);
 Adverb.prototype.types = types;
 
 export default Adverb;

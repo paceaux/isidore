@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * https://www.thefreedictionary.com/Categories-of-Prepositions.htm
  */
@@ -43,10 +44,9 @@ function Preposition(word, type) {
     if (type) {
         this.type = type;
     }
-
-    return this.word;
 }
 
+Preposition.prototype = Object.create(Word.prototype);
 Preposition.prototype.types = types;
 
 export default Preposition;

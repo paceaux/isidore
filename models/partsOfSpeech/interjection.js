@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * https://en.wikipedia.org/wiki/Interjection
  */
@@ -41,7 +42,7 @@ function Interjection(word, type, wordCategory) {
 
     return this.word;
 }
-
+Interjection.prototype = Object.create(Word.prototype);
 Interjection.prototype.types = types;
 Interjection.prototype.wordCategories = wordCategories;
 
