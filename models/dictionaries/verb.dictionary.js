@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Verb from '../partsOfSpeech/verb';
 import Word from '../word';
 
@@ -23,8 +24,8 @@ function findVerb(word) {
 function VerbDictionary(list, language) {
     this.list = list;
     this.language = language;
-
-    this.findWord = findVerb;
 }
 
+VerbDictionary.prototype = Object.create(Dictionary.prototype);
+VerbDictionary.prototype.findWord = findVerb;
 export default VerbDictionary;

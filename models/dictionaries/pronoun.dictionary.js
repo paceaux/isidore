@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Pronoun from '../partsOfSpeech/pronoun';
 import Word from '../word';
 
@@ -29,8 +30,8 @@ function findPronoun(word) {
 function PronounDictionary(list, language) {
     this.list = list;
     this.language = language;
-
-    this.findWord = findPronoun;
 }
 
+PronounDictionary.prototype = Object.create(Dictionary.prototype);
+PronounDictionary.prototype.findWord = findPronoun;
 export default PronounDictionary;

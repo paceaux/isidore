@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Adjective from '../partsOfSpeech/adjective';
 import Word from '../word';
 
@@ -23,14 +24,15 @@ function findAdjective(word) {
  * @method {findWord} searches for a word in the dictionary and returns an Adjective or a Word
  */
 function AdjectiveDictionary(list, language) {
-    this.list = list.sort((a, b) => {
+    const sortedList = list.sort((a, b) => {
         if (a.adjective < b.adjective) return -1;
         if (a.adjective > b.adjective) return 1;
         return 0;
     });
+    this.list = sortedList;
     this.language = language;
-
-    this.findWord = findAdjective;
 }
 
+AdjectiveDictionary.prototype = Object.create(Dictionary.prototype);
+AdjectiveDictionary.prototype.findWord = findAdjective;
 export default AdjectiveDictionary;

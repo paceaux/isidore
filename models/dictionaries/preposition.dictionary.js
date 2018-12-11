@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Preposition from '../partsOfSpeech/preposition';
 import Word from '../word';
 
@@ -21,14 +22,16 @@ function findPreposition(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Preposition or a Word
  */
 function PrepositionDictionary(list, language) {
-    this.list = list.sort((a, b) => {
+    const sortedList = list.sort((a, b) => {
         if (a.preposition < b.preposition) return -1;
         if (a.preposition > b.preposition) return 1;
         return 0;
     });
+    this.list = sortedList;
     this.language = language;
-
-    this.findWord = findPreposition;
 }
+
+PrepositionDictionary.prototype = Object.create(Dictionary.prototype);
+PrepositionDictionary.prototype.findWord = findPreposition;
 
 export default PrepositionDictionary;
