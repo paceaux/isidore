@@ -102,7 +102,7 @@ describe('Searching individual dictionaries...', () => {
 });
 
 describe('Still searching in individual dictionaries...', () => {
-    it('returns a string if it cannot find a noun in the noun dict', () => {
+    it('returns a Word if it cannot find a noun in the noun dict', () => {
         const { Nouns } = En.grammarDictionaries;
         const word = Nouns.findWord('foo');
 
@@ -110,7 +110,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find a verb in the verb dict', () => {
+    it('returns a Word if it cannot find a verb in the verb dict', () => {
         const { Verbs } = En.grammarDictionaries;
         const word = Verbs.findWord('foo');
 
@@ -118,7 +118,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find an adjective in the adjective dict', () => {
+    it('returns a Word if it cannot find an adjective in the adjective dict', () => {
         const { Adjectives } = En.grammarDictionaries;
         const word = Adjectives.findWord('foo');
 
@@ -126,7 +126,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find an adverb in the adverb dict', () => {
+    it('returns a Word if it cannot find an adverb in the adverb dict', () => {
         const { Adverbs } = En.grammarDictionaries;
         const word = Adverbs.findWord('foo');
 
@@ -134,7 +134,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find a conjunction in the conjunction dict', () => {
+    it('returns a Word if it cannot find a conjunction in the conjunction dict', () => {
         const { Conjunctions } = En.grammarDictionaries;
         const word = Conjunctions.findWord('foo');
 
@@ -142,7 +142,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find a preposition in the preposition dict', () => {
+    it('returns a Word if it cannot find a preposition in the preposition dict', () => {
         const { Prepositions } = En.grammarDictionaries;
         const word = Prepositions.findWord('foo');
 
@@ -150,7 +150,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find a pronoun in the pronoun dict', () => {
+    it('returns a Word if it cannot find a pronoun in the pronoun dict', () => {
         const { Pronouns } = En.grammarDictionaries;
         const word = Pronouns.findWord('foo');
 
@@ -158,7 +158,7 @@ describe('Still searching in individual dictionaries...', () => {
         expect(word).to.have.property('partOfSpeech');
         expect(word.partOfSpeech).to.equal(undefined);
     });
-    it('returns a string if it cannot find an interjection in the interjection dict', () => {
+    it('returns a Word if it cannot find an interjection in the interjection dict', () => {
         const { Interjections } = En.grammarDictionaries;
         const word = Interjections.findWord('foo');
 
