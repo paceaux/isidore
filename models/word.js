@@ -5,10 +5,13 @@
  * @member types the types that this word can have
  */
 function Word(word) {
-    this.partOfSpeech = undefined;
     this.word = word;
-    this.type = undefined;
-    this.types = undefined;
 }
+
+Word.prototype = {
+    type: undefined,
+    types: [],
+    partOfSpeech: undefined,
+};
 
 export default Word;
