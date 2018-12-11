@@ -5,20 +5,21 @@ import Word from './word';
  * @returns {Object} Word if successful
  */
 function findWord(word) {
-    const list = this.list.filter(obj => word.toLowerCase() === obj.word.toLowerCase());
+    const { partOfSpeech } = this;
+    const list = this.list.filter(obj => word.toLowerCase() === obj[partOfSpeech].toLowerCase());
 
-    const typedList = list.map(wordObj => new Word(wordObj.word));
+    const typedList = list.map(wordObj => new this.GrammarModel(wordObj[partOfSpeech], wordObj.type));
 
-    return typedList[0];
+    return typedList.length > 0 ? typedList[0] : new Word(word);
 }
 
 function Dictionary(list, language) {
-
     this.language = language;
 }
 
 Dictionary.prototype = {
     language: undefined,
+    GrammarModel: Word,
     partOfSpeech: 'word',
     findWord,
 };
