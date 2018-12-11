@@ -144,6 +144,8 @@ function NounDictionary(list, language, inflections) {
         if (a.noun > b.noun) return 1;
         return 0;
     });
+    this.GrammarModel = Noun;
+    this.partOfSpeech = 'preposition';
     this.list = sortedList;
     this.language = language;
     this.inflections = getEnhancedInflections(inflections);

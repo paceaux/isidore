@@ -22,6 +22,8 @@ function findVerb(word) {
  * @method {findWord} searches for a word in the dictionary and returns Verb or Word
  */
 function VerbDictionary(list, language) {
+    this.GrammarModel = Verb;
+    this.partOfSpeech = 'verb';
     this.list = list;
     this.language = language;
 }

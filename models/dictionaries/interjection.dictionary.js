@@ -29,12 +29,12 @@ function InterjectionDictionary(list, language) {
         if (a.interjection > b.interjection) return 1;
         return 0;
     });
+    this.GrammarModel = Interjection;
+    this.partOfSpeech = 'interjection';
     this.list = sortedList;
     this.language = language;
-
-    this.findWord = findInterjection;
 }
 
 InterjectionDictionary.prototype = Object.create(Dictionary.prototype);
-
+InterjectionDictionary.prototype.findWord = findInterjection;
 export default InterjectionDictionary;

@@ -28,6 +28,8 @@ function findPronoun(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Pronoun or a Word
  */
 function PronounDictionary(list, language) {
+    this.GrammarModel = Pronoun;
+    this.partOfSpeech = 'pronoun';
     this.list = list;
     this.language = language;
 }
