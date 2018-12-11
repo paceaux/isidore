@@ -53,32 +53,23 @@ function getTenseTreeFromMap(map) {
  * @param  {boolean} isRegular=true
  */
 function VerbConjugations(moods, tenses = [], aspects = [], isRegular = true) {
-    const infinitive = new VerbConjugation();
-    const imperative = new VerbConjugation({ mood: 'imperative' });
-
     this.moodNames = moods;
     this.tenseNames = tenses;
     this.aspectNames = aspects;
     this.isRegular = isRegular;
-    this.infinitive = infinitive;
-    this.imperative = imperative;
-
-
-    Object.defineProperty(this, 'verbMap', {
-        get() {
-            const tenseMap = getTenseMap(this.moodNames, this.tenseNames, this.aspectNames);
-            return new Map([...tenseMap, ['infinitive', infinitive], ['imperative', imperative]]);
-        },
-        enumerable: true,
-    });
-
-    Object.defineProperty(this, 'verbTree', {
-        get() {
-            return getTenseTreeFromMap(this.verbMap);
-        },
-        enumerable: true,
-    });
 }
+
+VerbConjugations.prototype = {
+    infinitive: new VerbConjugation(),
+    imperative: new VerbConjugation({ mood: 'imperative' }),
+    get verbMap() {
+        const tenseMap = getTenseMap(this.moodNames, this.tenseNames, this.aspectNames);
+        return new Map([...tenseMap, ['infinitive', this.infinitive], ['imperative', this.imperative]]);
+    },
+    get verbTree() {
+        return getTenseTreeFromMap(this.verbMap);
+    },
+};
 
 
 export default VerbConjugations;
