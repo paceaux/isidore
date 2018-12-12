@@ -51,7 +51,7 @@ function getEnhancedInflections(inflections) {
     return clone;
 }
 
-/**
+/** Gets all possible inflections of the word
  * @param  {String} word word to search for
  * @returns {Object} inflection of a word: {inflectionName, fix, type, mutation}
  */
@@ -89,7 +89,10 @@ function getInflections(word) {
 
     return inflections;
 }
-
+/** makes an educated guess how the word is inflected
+ * @param  {string} word
+ * @returns {array} list of possible inflections
+ */
 function guessInflection(word) {
     if (!this.inflections) return {};
     const inflections = this.getInflections(word);
@@ -101,7 +104,11 @@ function guessInflection(word) {
         .sort((infA, infB) => infB.mutation.length - infA.mutation.length);
     return sortedInflections[0];
 }
-
+/** returns a word to root form (without inflections)
+ * @param  {string} word
+ * @param  {object} inflection the inflection to be removed
+ * @returns {string}
+ */
 function removeInflection(word, inflection) {
     const mutateOn = inflection.type === 'irregularMutation' ? inflection.mutateOn : '';
 
@@ -136,7 +143,11 @@ function findNoun(word) {
  * @param  {String} language two-letter abbreviation of language
  * @member {list} Array of typed Nouns
  * @member {language} String language for the dictionary
+ * @member {inflections} Object inflections that can be applied to all nouns
  * @method {findWord} searches for a word in the dictionary and returns a Noun or a Word
+ * @method {getInflections} 1 arg: word (string), returns all possible inflections for the word
+ * @method {guessInflection} 1 arg: word (string), returns a single inflection (object)
+ * @method {removeInflection} 2 args, word(string), inflection (object). returns string
  */
 function NounDictionary(list, language, inflections) {
     const sortedList = list.sort((a, b) => {
