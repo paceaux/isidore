@@ -5,7 +5,7 @@ import VerbDictionary from '../../models/dictionaries/verb.dictionary';
 
 const transitiveVerbsList = [
     'give', 'bring', 'buy', 'cost', 'give', 'get', 'leave', 'lend', 'make',
-    'offer', 'owe', 'pass', 'pay', 'promise', 'read', 'refuse', 'send', 'show',
+    'offer', 'owe', 'pass', 'pay', 'play', 'promise', 'read', 'refuse', 'send', 'show',
     'make', 'sing', 'sell', 'take', 'take', 'show', 'wish', 'help',
 ];
 
@@ -29,7 +29,43 @@ const intransitiveVerbs = intransitiveVerbsList.map(commonNoun => ({
     },
 }));
 
+const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
+
+const verbTenses = ['past', 'present', 'future'];
+
+const verbMoods = ['indicative', 'imperative', 'subjunctive'];
+
+
+
+
+
+const moods = {
+    indicative: {
+        present: {
+            simple: 'goes',
+            continuous: 'going',
+            perfect: 'have gone',
+            perfectContinuous: 'have been going',
+        },
+        past: {
+            simple: 'went',
+            continuous: 'was going',
+            perfect: 'had gone',
+            perfectContinuous: 'had been going',
+        },
+        future: {
+            simple: 'will go',
+            continuous: 'will be going',
+            perfect: 'will have gone',
+            perfectContinuous: 'will have been going',
+        },
+    },
+    imperative: {},
+    subjunctive: {},
+};
+
+
 export default new VerbDictionary([
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En');
+], 'En', moods);
