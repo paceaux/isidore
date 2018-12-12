@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Verb from '../partsOfSpeech/verb';
 import Word from '../word';
 
@@ -44,14 +45,20 @@ function findVerb(word) {
  * @method {findWord} searches for a word in the dictionary and returns Verb or Word
  */
 function VerbDictionary(list, language, conjugations) {
-    this.list = list;
-    this.language = language;
-    this.conjugations = conjugations;
 
+    this.conjugations = conjugations;
     this.getConjugations = getConjugations;
     this.guessConjugation = guessConjugation;
     this.removeConjugation = removeConjugation;
-    this.findWord = findVerb;
+    this.language = language;
+
+    this.GrammarModel = Verb;
+    this.partOfSpeech = 'verb';
+    this.list = list;
+    this.language = language;
 }
+
+VerbDictionary.prototype = Object.create(Dictionary.prototype);
+VerbDictionary.prototype.findWord = findVerb;
 
 export default VerbDictionary;

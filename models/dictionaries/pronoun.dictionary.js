@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Pronoun from '../partsOfSpeech/pronoun';
 import Word from '../word';
 
@@ -27,10 +28,12 @@ function findPronoun(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Pronoun or a Word
  */
 function PronounDictionary(list, language) {
+    this.GrammarModel = Pronoun;
+    this.partOfSpeech = 'pronoun';
     this.list = list;
     this.language = language;
-
-    this.findWord = findPronoun;
 }
 
+PronounDictionary.prototype = Object.create(Dictionary.prototype);
+PronounDictionary.prototype.findWord = findPronoun;
 export default PronounDictionary;

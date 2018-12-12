@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Conjunction from '../partsOfSpeech/conjunction';
 import Word from '../word';
 
@@ -21,10 +22,13 @@ function findConjunction(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Conjunction or a Word
  */
 function ConjunctionDictionary(list, language) {
+    this.GrammarModel = Conjunction;
+    this.partOfSpeech = 'conjunction';
     this.list = list;
     this.language = language;
-
-    this.findWord = findConjunction;
 }
+
+ConjunctionDictionary.prototype = Object.create(Dictionary.prototype);
+ConjunctionDictionary.prototype.findWord = findConjunction;
 
 export default ConjunctionDictionary;

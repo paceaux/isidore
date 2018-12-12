@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Interjection from '../partsOfSpeech/interjection';
 import Word from '../word';
 
@@ -23,14 +24,17 @@ function findInterjection(word) {
  * @method {findWord} searches for a word in the dictionary and returns an Interjection or a Word
  */
 function InterjectionDictionary(list, language) {
-    this.list = list.sort((a, b) => {
+    const sortedList = list.sort((a, b) => {
         if (a.interjection < b.interjection) return -1;
         if (a.interjection > b.interjection) return 1;
         return 0;
     });
+    this.GrammarModel = Interjection;
+    this.partOfSpeech = 'interjection';
+    this.list = sortedList;
     this.language = language;
-
-    this.findWord = findInterjection;
 }
 
+InterjectionDictionary.prototype = Object.create(Dictionary.prototype);
+InterjectionDictionary.prototype.findWord = findInterjection;
 export default InterjectionDictionary;

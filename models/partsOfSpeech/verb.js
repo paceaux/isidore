@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * https://www.uvu.edu/writingcenter/docs/handouts/grammar/typesofverbs.pdf
  * https://en.wikipedia.org/wiki/Verb
@@ -41,6 +42,7 @@ function Verb(word, type) {
     }
 }
 
+Verb.prototype = Object.create(Word.prototype);
 Verb.prototype.types = types;
 
 export default Verb;

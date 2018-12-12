@@ -1,3 +1,4 @@
+import Dictionary from '../dictionary';
 import Noun from '../partsOfSpeech/noun';
 import Word from '../word';
 
@@ -138,17 +139,22 @@ function findNoun(word) {
  * @method {findWord} searches for a word in the dictionary and returns a Noun or a Word
  */
 function NounDictionary(list, language, inflections) {
-    this.list = list.sort((a, b) => {
+    const sortedList = list.sort((a, b) => {
         if (a.noun < b.noun) return -1;
         if (a.noun > b.noun) return 1;
         return 0;
     });
+    this.GrammarModel = Noun;
+    this.partOfSpeech = 'preposition';
+    this.list = sortedList;
     this.language = language;
     this.inflections = getEnhancedInflections(inflections);
-    this.getInflections = getInflections;
-    this.guessInflection = guessInflection;
-    this.removeInflection = removeInflection;
-    this.findWord = findNoun;
 }
+
+NounDictionary.prototype = Object.create(Dictionary.prototype);
+NounDictionary.prototype.findWord = findNoun;
+NounDictionary.prototype.getInflections = getInflections;
+NounDictionary.prototype.guessInflection = guessInflection;
+NounDictionary.prototype.removeInflection = removeInflection;
 
 export default NounDictionary;

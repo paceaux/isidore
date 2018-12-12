@@ -1,3 +1,4 @@
+import Word from '../word';
 /**
  * https://www.fluentu.com/blog/english/english-adjectives/
  * http://www.learnesl.net/10-kinds-of-adjective-in-english/
@@ -66,10 +67,9 @@ function Adjective(word, type, degree) {
     this.word = word;
     this.type = type;
     this.degree = degree;
-
-    return this.word;
 }
 
+Adjective.prototype = Object.create(Word.prototype);
 Adjective.prototype.types = types;
 Adjective.prototype.degrees = degrees;
 
