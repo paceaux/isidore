@@ -22,7 +22,7 @@ function getTenseMap(moods, tenses, aspects) {
             aspects.forEach(aspect => {
                 map.set(
                     getVerbConjugationName(mood, tense, aspect),
-                    new VerbConjugation({ mood, tense, aspect })
+                    new VerbConjugation({ mood, tense, aspect }),
                 );
             });
         });

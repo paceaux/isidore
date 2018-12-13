@@ -2,14 +2,6 @@ import Dictionary from '../dictionary';
 import Verb from '../partsOfSpeech/verb';
 import Word from '../word';
 
-/** Gets all possible conjugations for a verb
- * @param  {string} word
- * @returns {array}
- */
-function getConjugations(word) {
-
-}
-
 /** Guesses which conjugation a verb is using
  * @param  {string} word
  * @returns {object} conjugation for the word
@@ -45,9 +37,7 @@ function findVerb(word) {
  * @method {findWord} searches for a word in the dictionary and returns Verb or Word
  */
 function VerbDictionary(list, language, conjugations) {
-
     this.conjugations = conjugations;
-    this.getConjugations = getConjugations;
     this.guessConjugation = guessConjugation;
     this.removeConjugation = removeConjugation;
     this.language = language;

@@ -229,7 +229,6 @@ describe('The English language...', () => {
 
                 expect(inflection).to.equal(undefined);
             });
-
         });
     });
 

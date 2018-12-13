@@ -51,10 +51,10 @@ describe('Verb Tenses...', () => {
 
     it('...can generate a verbConjugations map from additional moods, tenses, aspects', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
-
+        const verbMapSize = verbMoods.length * verbAspects.length * verbTenses.length + 2;
         expect(langTenses).to.be.an('object');
         expect(langTenses.verbMap).to.be.a('map');
-        expect(langTenses.verbMap.size).to.equal(verbMoods.length * verbAspects.length * verbTenses.length + 2);
+        expect(langTenses.verbMap.size).to.equal(verbMapSize);
     });
 
     it('...has indicative:past:simple, and subjunctive:future:perfectContinuous in the map', () => {
