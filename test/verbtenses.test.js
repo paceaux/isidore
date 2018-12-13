@@ -108,8 +108,18 @@ describe('Adding inflections to Verb Tenses...', () => {
     });
     it('...can put an inflection on verbTenses', () => {
         const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+        const sInflection = { mutation: 's', quantity: 'singular', person: 3 };
 
         langTenses.addInflection('indicative:past:simple', edInflection);
+        langTenses.addInflection('indicative:present:simple', sInflection);
+
         expect(langTenses.verbMap.get('indicative:past:simple').inflections.has('ed')).to.equal(true);
+        expect(langTenses.verbMap.get('indicative:present:simple').inflections.has('s')).to.equal(true);
+    });
+    it('...can find an inflection', () => {
+        const edTense = langTenses.findInflection('ed');
+
+        expect(edTense.name).to.equal('indicative:past:simple');
+        console.log(edTense);
     });
 });

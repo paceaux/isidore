@@ -79,6 +79,16 @@ VerbConjugations.prototype = {
                 .addInflection(inflection);
         }
     },
+    findInflection(mutation) {
+        let result;
+
+        this.verbMap.forEach((val, key) => {
+            if (val.inflections.has(mutation)) {
+                result = this.verbMap.get(key);
+            }
+        });
+        return result;
+    },
 };
 
 export default VerbConjugations;
