@@ -4,15 +4,17 @@
 import VerbDictionary from '../../models/dictionaries/verb.dictionary';
 import verbConjugations from './verbs.inflections';
 
+// die is intransitive
 // https://www.linguasorb.com/english/verbs/regular-verbs/
-const regularVerbsList = ['accept', 'add', 'agree', 'allow', 'appear', 'argue', 'arrive', 'ask', 'base', 'believe', 'call', 'carry', 'cause', 'change', 'close', 'consider', 'continue', 'cover', 'create', 'decide', 'describe', 'determine', 'develop', 'die', 'drop', 'end', 'enter', 'expect', 'explain', 'face', 'fail', 'fill', 'focus', 'follow', 'happen', 'help', 'hope', 'identify', 'include', 'increase', 'indicate', 'involve', 'join', 'kill', 'lay', 'like', 'listen', 'live', 'look', 'love', 'move', 'need', 'note', 'occur', 'offer', 'open', 'pass', 'pick', 'place', 'plan', 'play', 'point', 'prepare', 'produce', 'protect', 'provide', 'pull', 'push', 'raise', 'reach', 'realize', 'receive', 'recognize', 'reduce', 'remain', 'remember', 'report', 'represent', 'require', 'return', 'save', 'seem', 'serve', 'share', 'start', 'stay', 'stop', 'suggest', 'support', 'talk', 'thank', 'try', 'turn', 'use', 'wait', 'walk', 'want', 'watch', 'wonder', 'work'];
+const regularVerbsList = ['accept', 'add', 'agree', 'allow', 'appear', 'argue', 'arrive', 'ask', 'base', 'believe', 'call', 'carry', 'cause', 'change', 'close', 'consider', 'continue', 'cover', 'create', 'decide', 'describe', 'determine', 'develop', 'die', 'drop', 'end', 'enter', 'expect', 'explain', 'face', 'fail', 'fill', 'focus', 'follow', 'happen', 'help', 'hope', 'identify', 'include', 'increase', 'indicate', 'involve', 'join', 'kill', 'lay', 'like', 'listen', 'live', 'look', 'love', 'move', 'need', 'note', 'occur', 'offer', 'open', 'owe', 'pass', 'pick', 'place', 'plan', 'play', 'point', 'prepare', 'produce', 'promise', 'protect', 'provide', 'pull', 'push', 'raise', 'reach', 'refuse', 'realize', 'receive', 'recognize', 'reduce', 'remain', 'remember', 'report', 'represent', 'require', 'return', 'save', 'seem', 'serve', 'share', 'show', 'start', 'stay', 'stop', 'suggest', 'support', 'talk', 'thank', 'try', 'turn', 'use', 'wait', 'walk', 'want', 'watch', 'wish', 'wonder', 'work'];
 
+// irregular transitive verbs
 const transitiveVerbsList = [
-    'bring', 'buy', 'cost', 'get', 'give', 'leave', 'lend', 'make', 'owe', 'pay', 'promise', 'read', 'refuse', 'sell', 'send', 'show', 'sing', 'take', 'wish',
+    'bring', 'buy', 'cost', 'get', 'give', 'leave', 'lend', 'make', 'pay', 'read', 'sell', 'send', 'sing', 'take',
 ];
 // live, start,stop ===  is a regular verb
 const intransitiveVerbsList = [
-    'do', 'drive', 'live', 'run', 'set', 'start', 'stop', 'wash', 'write',
+    'clap', 'do', 'drive', 'fall', 'frown', 'grow', 'laugh', 'live', 'occur', 'run', 'rise', 'set', 'sink', 'sit', 'smile', 'sleep', 'start', 'stand', 'stop', 'swim', 'wash', 'wind', 'write',
 ];
 
 
