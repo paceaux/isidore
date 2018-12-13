@@ -2,6 +2,7 @@
  * https://en.oxforddictionaries.com/grammar/transitive-and-intransitive-verbs
  */
 import VerbDictionary from '../../models/dictionaries/verb.dictionary';
+import verbConjugations from './verbs.inflections';
 
 const transitiveVerbsList = [
     'give', 'bring', 'buy', 'cost', 'give', 'get', 'leave', 'lend', 'make',
@@ -28,16 +29,6 @@ const intransitiveVerbs = intransitiveVerbsList.map(commonNoun => ({
         arguments: 1,
     },
 }));
-
-const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
-
-const verbTenses = ['past', 'present', 'future'];
-
-const verbMoods = ['indicative', 'imperative', 'subjunctive'];
-
-
-
-
 
 const moods = {
     indicative: {
@@ -68,4 +59,4 @@ const moods = {
 export default new VerbDictionary([
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En', moods);
+], 'En', verbConjugations);

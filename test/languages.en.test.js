@@ -236,17 +236,28 @@ describe('The English language...', () => {
     describe('can handle conjugations on verbs', () => {
         const { Verbs } = En.grammarDictionaries;
 
-        it('has conjugations', () => {
-            const { conjugations } = Verbs;
-            expect(conjugations).to.be.an('object');
-        });
-
-        it('has moods, tenses, aspects in the conjugations', () => {
+        describe('conjugation information on the Verbs...', () => {
             const { conjugations } = Verbs;
 
-            expect(conjugations.moodNames).to.be.an('array');
-            expect(conjugations.tenseNames).to.be.an('array');
-            expect(conjugations.aspectNames).to.be.an('array');
+            it('...includes the conjugations property on Verbs', () => {
+                expect(conjugations).to.be.an('object');
+            });
+
+            it('...has English\'s moods, tenses, and aspects  in the conjugations', () => {
+                expect(conjugations.moodNames).to.be.an('array');
+                expect(conjugations.tenseNames).to.be.an('array');
+                expect(conjugations.aspectNames).to.be.an('array');
+            });
+
+            it('...has English\'s two inflections ', () => {
+                const edTense = conjugations.findInflection('ed');
+                const sTense = conjugations.findInflection('s');
+
+                expect(edTense).to.be.an('object');
+                expect(sTense).to.be.an('object');
+                expect(edTense.name).to.equal('indicative:past:simple');
+                expect(sTense.name).to.equal('indicative:present:simple');
+            });
         });
 
         it.skip('has tenses in the conjugations', () => {

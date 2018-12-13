@@ -120,6 +120,5 @@ describe('Adding inflections to Verb Tenses...', () => {
         const edTense = langTenses.findInflection('ed');
 
         expect(edTense.name).to.equal('indicative:past:simple');
-        console.log(edTense);
     });
 });
