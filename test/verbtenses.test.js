@@ -35,12 +35,12 @@ describe('The verb tense...', () => {
     });
 });
 
-describe('Verb Tenses', () => {
+describe('Verb Tenses...', () => {
     const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
     const verbTenses = ['past', 'present', 'future'];
     const verbMoods = ['indicative', 'subjunctive'];
 
-    it('will have an infinitive and an imperative conjugation built in', () => {
+    it('...have an infinitive and an imperative conjugation built in', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
 
         expect(langTenses.infinitive).to.be.an('object');
@@ -49,7 +49,7 @@ describe('Verb Tenses', () => {
         expect(langTenses.imperative.name).to.equal('imperative');
     });
 
-    it('can generate a verbConjugations map from additional moods, tenses, aspects', () => {
+    it('...can generate a verbConjugations map from additional moods, tenses, aspects', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
 
         expect(langTenses).to.be.an('object');
@@ -57,21 +57,21 @@ describe('Verb Tenses', () => {
         expect(langTenses.verbMap.size).to.equal(verbMoods.length * verbAspects.length * verbTenses.length + 2);
     });
 
-    it('has indicative:past:simple, and subjunctive:future:perfectContinuous in the map', () => {
+    it('...has indicative:past:simple, and subjunctive:future:perfectContinuous in the map', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
 
         expect(langTenses.verbMap.has('indicative:past:simple')).to.equal(true);
         expect(langTenses.verbMap.has('subjunctive:future:perfectContinuous')).to.equal(true);
     });
 
-    it('has a verb tree', () => {
+    it('...has a verb tree', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
         const { verbTree } = langTenses;
 
         expect(verbTree).to.be.an('object');
     });
 
-    it('can get a tense out of the verb tree', () => {
+    it('...can get a tense out of the verb tree', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
         const { verbTree } = langTenses;
         const { indicative } = verbTree;
@@ -79,10 +79,37 @@ describe('Verb Tenses', () => {
         const { perfect } = future;
         expect(perfect).to.be.an('object');
     });
-    it('can get imperative out of the tree', () => {
+    it('...can get imperative out of the tree', () => {
         const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
         const { verbTree } = langTenses;
         const { imperative } = verbTree;
         expect(imperative).to.be.an('object');
+    });
+});
+describe('Adding inflections to Verb Tenses...', () => {
+    const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
+    const verbTenses = ['past', 'present', 'future'];
+    const verbMoods = ['indicative', 'subjunctive'];
+
+    const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+
+    it('...is possible because there is an inflections property', () => {
+        const ips = langTenses.verbMap.get('indicative:past:simple');
+        expect(ips).to.have.property('inflections');
+        expect(ips).to.be.an('object');
+    });
+
+
+    it('...can put an inflection on a verbTense', () => {
+        const ips = langTenses.verbMap.get('indicative:past:simple');
+        const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+        ips.addInflection(edInflection);
+        expect(ips.inflections.has('ed')).to.equal(true);
+    });
+    it('...can put an inflection on verbTenses', () => {
+        const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+
+        langTenses.addInflection('indicative:past:simple', edInflection);
+        expect(langTenses.verbMap.get('indicative:past:simple').inflections.has('ed')).to.equal(true);
     });
 });

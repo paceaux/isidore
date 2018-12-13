@@ -16,11 +16,20 @@ function VerbConjugation({
     if (tense) this.tense = tense;
     if (aspect) this.aspect = aspect;
     this.fix = fix;
+    this.inflections = new Map();
 }
 
 VerbConjugation.prototype = {
     get name() {
         return getVerbConjugationName(this.mood, this.tense, this.aspect);
+    },
+    addInflection({
+        mutation,
+        gender = 'neutral',
+        quantity,
+        person,
+    } = {}) {
+        this.inflections.set(mutation, { gender, quantity, person });
     },
 };
 

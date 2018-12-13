@@ -241,10 +241,12 @@ describe('The English language...', () => {
             expect(conjugations).to.be.an('object');
         });
 
-        it.skip('has tenses in the conjugations', () => {
+        it('has moods, tenses, aspects in the conjugations', () => {
             const { conjugations } = Verbs;
 
-            expect(conjugations.tenses).to.be.an('object');
+            expect(conjugations.moodNames).to.be.an('array');
+            expect(conjugations.tenseNames).to.be.an('array');
+            expect(conjugations.aspectNames).to.be.an('array');
         });
 
         it.skip('has tenses in the conjugations', () => {
