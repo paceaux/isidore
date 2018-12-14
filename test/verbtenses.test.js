@@ -168,9 +168,15 @@ describe('adding auxiliaries to verb tenses...', () => {
     });
 
     it('...can put an auxiliary on verbTenses', () => {
+        const ifs = langTenses.verbMap.get('indicative:future:simple');
+        const will = { auxiliary: 'will', quantity: 'singular+plural', person: '1+2+3' };
 
+        ifs.addAuxiliary(will);
+        expect(ifs.auxiliaries.has('will')).to.equal(true);
     });
     it('...can find an auxiliary', () => {
+        const willTense = langTenses.findAuxiliary('will');
 
+        expect(willTense.name).to.equal('indicative:future:simple');
     });
 });

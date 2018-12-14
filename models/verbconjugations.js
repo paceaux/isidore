@@ -79,6 +79,14 @@ VerbConjugations.prototype = {
                 .addInflection(inflection);
         }
     },
+    addAuxiliary(tenseName, auxiliary) {
+        if (this.verbMap.has(tenseName)) {
+            this
+                .verbMap
+                .get(tenseName)
+                .addAuxiliary(auxiliary);
+        }
+    },
     get inflections() {
         const result = new Map();
 
@@ -89,11 +97,31 @@ VerbConjugations.prototype = {
         });
         return result;
     },
+    get auxiliaries() {
+        const result = new Map();
+
+        this.verbMap.forEach((val, key) => {
+            if (val.auxiliaries.size > 0) {
+                result.set(key, val);
+            }
+        });
+        return result;
+    },
     findInflection(mutation) {
         let result;
 
         this.verbMap.forEach((val, key) => {
             if (val.inflections.has(mutation)) {
+                result = this.verbMap.get(key);
+            }
+        });
+        return result;
+    },
+    findAuxiliary(auxiliary) {
+        let result;
+
+        this.verbMap.forEach((val, key) => {
+            if (val.auxiliaries.has(auxiliary)) {
                 result = this.verbMap.get(key);
             }
         });
