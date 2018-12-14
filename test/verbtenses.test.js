@@ -33,6 +33,31 @@ describe('The verb tense...', () => {
         expect(tense).to.equal(undefined);
         expect(aspect).to.equal(undefined);
     });
+    it('...can have an inflection added', () => {
+        const verbConjugation = new VerbConjugation({ mood: 'indicative', tense: 'present', aspect: 'simple' });
+        const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+        verbConjugation.addInflection(edInflection);
+
+        expect(verbConjugation.inflections.has('ed')).to.equal(true);
+    });
+    it('...can have an auxiliary added', () => {
+        const verbConjugation = new VerbConjugation({ mood: 'indicative', tense: 'present', aspect: 'perfect' });
+        const have = { auxiliary: 'have', quantity: 'singular', person: 1 };
+        verbConjugation.addAuxiliary(have);
+
+        expect(verbConjugation.auxiliaries.has('have')).to.equal(true);
+    });
+    it('...can have auxiliary and inflection', () => {
+        const verbConjugation = new VerbConjugation({ mood: 'indicative', tense: 'present', aspect: 'perfect' });
+        const have = { auxiliary: 'have', quantity: 'singular', person: 1 };
+        const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+
+        verbConjugation.addInflection(edInflection);
+        verbConjugation.addAuxiliary(have);
+
+        expect(verbConjugation.inflections.has('ed')).to.equal(true);
+        expect(verbConjugation.auxiliaries.has('have')).to.equal(true);
+    });
 });
 
 describe('Verb Tenses...', () => {
@@ -120,5 +145,32 @@ describe('Adding inflections to Verb Tenses...', () => {
         const edTense = langTenses.findInflection('ed');
 
         expect(edTense.name).to.equal('indicative:past:simple');
+    });
+});
+describe('adding auxiliaries to verb tenses...', () => {
+    const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];
+    const verbTenses = ['past', 'present', 'future'];
+    const verbMoods = ['indicative', 'subjunctive'];
+
+    const langTenses = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+
+    it('...is possible because there is an auxiliaries property', () => {
+        const ips = langTenses.verbMap.get('indicative:present:perfect');
+        expect(ips).to.have.property('auxiliaries');
+        expect(ips).to.be.an('object');
+    });
+
+    it('...can put an auxiliary on a verbTense', () => {
+        const ipp = langTenses.verbMap.get('indicative:present:perfect');
+        const have = { auxiliary: 'have', quantity: 'singular', person: 1 };
+        ipp.addAuxiliary(have);
+        expect(ipp.auxiliaries.has('have')).to.equal(true);
+    });
+
+    it('...can put an auxiliary on verbTenses', () => {
+
+    });
+    it('...can find an auxiliary', () => {
+
     });
 });

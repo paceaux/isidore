@@ -17,6 +17,7 @@ function VerbConjugation({
     if (aspect) this.aspect = aspect;
     this.fix = fix;
     this.inflections = new Map();
+    this.auxiliaries = new Map();
 }
 
 VerbConjugation.prototype = {
@@ -29,7 +30,17 @@ VerbConjugation.prototype = {
         quantity,
         person,
     } = {}) {
-        this.inflections.set(mutation, { gender, quantity, person });
+        const pronounData = { gender, quantity, person };
+        this.inflections.set(mutation, pronounData);
+    },
+    addAuxiliary({
+        auxiliary,
+        gender = 'neutral',
+        quantity,
+        person,
+    } = {}) {
+        const pronounData = { gender, quantity, person };
+        this.auxiliaries.set(auxiliary, pronounData);
     },
 };
 
