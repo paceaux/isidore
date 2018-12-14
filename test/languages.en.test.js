@@ -257,8 +257,20 @@ describe('The English language...', () => {
                 expect(edTense.name).to.equal('indicative:past:simple');
                 expect(sTense.name).to.equal('indicative:present:simple');
             });
-            it('...can get all of English\'s inflections', ()=> {
+            it('...has English\'s presentContinuous ', () => {
+                const ing = conjugations.findInflection('ing');
+                const are = conjugations.findAuxiliary('are');
+
+                expect(ing).to.be.an('object');
+                expect(are).to.be.an('object');
+                expect(ing.name).to.equal('indicative:present:continuous');
+                expect(are.name).to.equal('indicative:present:continuous');
+            });
+            it('...can get all of English\'s inflections', () => {
                 expect(conjugations.inflections).to.be.a('map');
+            });
+            it('...can get all of English\'s auxiliaries', () => {
+                expect(conjugations.auxiliaries).to.be.a('map');
             });
         });
 
