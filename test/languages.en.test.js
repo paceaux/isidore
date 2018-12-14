@@ -257,6 +257,9 @@ describe('The English language...', () => {
                 expect(edTense.name).to.equal('indicative:past:simple');
                 expect(sTense.name).to.equal('indicative:present:simple');
             });
+            it('...can get all of English\'s inflections', ()=> {
+                expect(conjugations.inflections).to.be.a('map');
+            });
         });
 
         it.skip('has tenses in the conjugations', () => {
