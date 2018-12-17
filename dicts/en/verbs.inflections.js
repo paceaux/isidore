@@ -10,6 +10,7 @@ const verbConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects
 
 // then, create inflections:
 const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+const iedInflection = { mutation: 'ied', quantity: 'singular+plural', person: '1+2+3' };
 const sInflection = { mutation: 's', quantity: 'singular', person: 3 };
 const esInflection = { mutation: 'es', quantity: 'singular', person: 3 };
 const presContInflection = { mutation: 'ing', quantity: 'singular+plural', person: '1+2+3' };
@@ -18,6 +19,7 @@ const presContinuous2 = { auxiliary: 'are', quantity: 'singular+plural', person:
 const presContinuous3 = { auxiliary: 'is', quantity: 'singular', person: 3 };
 // add the inflections to the conjugations
 verbConjugations.addInflection('indicative:past:simple', edInflection);
+verbConjugations.addInflection('indicative:past:simple', iedInflection);
 verbConjugations.addInflection('indicative:present:simple', sInflection);
 verbConjugations.addInflection('indicative:present:simple', esInflection);
 verbConjugations.addInflection('indicative:present:continuous', presContInflection);
