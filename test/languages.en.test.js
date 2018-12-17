@@ -306,7 +306,6 @@ describe('The English language...', () => {
             });
         });
         describe('finding conjugated verbs', () => {
-
             it('can find plays', () => {
                 const verb = Verbs.findWord('plays');
 

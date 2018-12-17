@@ -166,7 +166,6 @@ describe('Adding inflections to Verb Tenses...', () => {
         expect(edTense.name).to.equal('indicative:past:simple');
     });
     it('...can find a conjugation by inflection', () => {
-
         const plays = langTenses.findConjugationByInflection('plays');
 
         expect(plays).to.be.an('object');

@@ -14,7 +14,7 @@ function getInflectionRegex(fix, mutation) {
 
     return regex;
 }
-/** generates a map of moods, tenses, and aspects. 
+/** generates a map of moods, tenses, and aspects.
  * @param  {array} moods
  * @param  {array} tenses
  * @param  {array} aspects
@@ -77,7 +77,7 @@ function getTenseTreeFromMap(map) {
  * @member addAuxiliary method. Adds auxiliary to conjugations. requires tenseName, auxiliary
  * @member inflections {map} . all of the inflections loaded into the verb conjugations
  * @member auxiliaries {map} . all of the auxiliaries loaded into the verb conjugations
- * @member findConjugationByInflection method. Finds a conjugation on an already conjugated verb. Returns a VerbConjugation
+ * @member findConjugationByInflection method. Finds a VerbConjugation on already conjugated verb
  */
 function VerbConjugations(moods, tenses = [], aspects = [], isRegular = true) {
     this.infinitive = new VerbConjugation();
