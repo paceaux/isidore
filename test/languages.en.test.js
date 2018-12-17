@@ -310,53 +310,36 @@ describe('The English language...', () => {
             it('can find plays', () => {
                 const verb = Verbs.findWord('plays');
 
-                expect(verb).to.be.an('object');
-                expect(verb).to.have.property('tense');
+                expect(verb.word).to.equal('play');
                 expect(verb.tense).to.equal('present');
-                expect(verb).to.have.property('pronounData');
-                expect(verb.pronounData).to.have.property('quantity');
                 expect(verb.pronounData.quantity).to.equal('singular');
             });
             it('can find played', () => {
                 const verb = Verbs.findWord('played');
 
-                expect(verb).to.be.an('object');
-                expect(verb).to.have.property('tense');
+                expect(verb.word).to.equal('play');
                 expect(verb.tense).to.equal('past');
-                expect(verb).to.have.property('pronounData');
-                expect(verb.pronounData).to.have.property('quantity');
                 expect(verb.pronounData.quantity).to.contain('singular');
             });
             it('can find smiled', () => {
                 const verb = Verbs.findWord('smiled');
 
-                expect(verb).to.be.an('object');
-                expect(verb).to.have.property('tense');
+                expect(verb.word).to.equal('smile');
                 expect(verb.tense).to.equal('past');
-                expect(verb).to.have.property('pronounData');
-                expect(verb.pronounData).to.have.property('quantity');
-                expect(verb.pronounData.quantity).to.contain('singular');
-            });
-            it('can find died', () => {
-                const verb = Verbs.findWord('died');
-
-                console.log(verb);
-                expect(verb).to.be.an('object');
-                expect(verb).to.have.property('tense');
-                expect(verb.tense).to.equal('past');
-                expect(verb).to.have.property('pronounData');
-                expect(verb.pronounData).to.have.property('quantity');
                 expect(verb.pronounData.quantity).to.contain('singular');
             });
             it('can find tried', () => {
                 const verb = Verbs.findWord('tried');
 
-                console.log(verb);
-                expect(verb).to.be.an('object');
-                expect(verb).to.have.property('tense');
+                expect(verb.word).to.equal('try');
                 expect(verb.tense).to.equal('past');
-                expect(verb).to.have.property('pronounData');
-                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.contain('singular');
+            });
+            it('can find tries', () => {
+                const verb = Verbs.findWord('tries');
+
+                console.log(verb);
+                expect(verb.tense).to.equal('present');
                 expect(verb.pronounData.quantity).to.contain('singular');
             });
         });

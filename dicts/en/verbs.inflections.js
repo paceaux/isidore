@@ -13,6 +13,7 @@ const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2
 const iedInflection = { mutation: 'ied', quantity: 'singular+plural', person: '1+2+3' };
 const sInflection = { mutation: 's', quantity: 'singular', person: 3 };
 const esInflection = { mutation: 'es', quantity: 'singular', person: 3 };
+const iesInflection = { mutation: 'ies', quantity: 'singular', person: 3 };
 const presContInflection = { mutation: 'ing', quantity: 'singular+plural', person: '1+2+3' };
 const presContinuous1 = { auxiliary: 'am', quantity: 'singular', person: 1 };
 const presContinuous2 = { auxiliary: 'are', quantity: 'singular+plural', person: '1+2+3' };
@@ -22,6 +23,7 @@ verbConjugations.addInflection('indicative:past:simple', edInflection);
 verbConjugations.addInflection('indicative:past:simple', iedInflection);
 verbConjugations.addInflection('indicative:present:simple', sInflection);
 verbConjugations.addInflection('indicative:present:simple', esInflection);
+verbConjugations.addInflection('indicative:present:simple', iesInflection);
 verbConjugations.addInflection('indicative:present:continuous', presContInflection);
 verbConjugations.addAuxiliary('indicative:present:continuous', presContinuous1);
 verbConjugations.addAuxiliary('indicative:present:continuous', presContinuous2);
