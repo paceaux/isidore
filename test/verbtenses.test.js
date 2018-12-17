@@ -58,6 +58,25 @@ describe('The verb tense...', () => {
         expect(verbConjugation.inflections.has('ed')).to.equal(true);
         expect(verbConjugation.auxiliaries.has('have')).to.equal(true);
     });
+    it('...can findVerbData on an inflection', () => {
+        const verbConjugation = new VerbConjugation({ mood: 'indicative', tense: 'present', aspect: 'perfect' });
+        const have = { auxiliary: 'have', quantity: 'singular+plural', person: '1+2+3' };
+        const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
+        const sInflection = { mutation: 's', quantity: 'singular', person: 3 };
+        const esInflection = { mutation: 'es', quantity: 'singular', person: 3 };
+
+
+        verbConjugation.addInflection(edInflection);
+        verbConjugation.addInflection(sInflection);
+        verbConjugation.addInflection(esInflection);
+        verbConjugation.addAuxiliary(have);
+
+
+        expect(verbConjugation.findVerbData('es')).to.be.an('object');
+        expect(verbConjugation.findVerbData('have', 'auxiliaries')).to.be.an('object');
+        expect(verbConjugation.findVerbData('es').person).to.equal(3);
+        expect(verbConjugation.findVerbData('have', 'auxiliaries').person).to.equal('1+2+3');
+    });
 });
 
 describe('Verb Tenses...', () => {

@@ -42,6 +42,15 @@ VerbConjugation.prototype = {
         const pronounData = { gender, quantity, person };
         this.auxiliaries.set(auxiliary, pronounData);
     },
+    findVerbData(searchValue, searchMapName = 'inflections') {
+        let result;
+        const searchMap = this[searchMapName];
+
+        if (searchMap && searchMap.has(searchValue)) {
+            result = searchMap.get(searchValue);
+        }
+        return result;
+    },
 };
 
 
