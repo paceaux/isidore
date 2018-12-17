@@ -31,9 +31,16 @@ const types = [
  * @member types array.
  * @member valence number. the number of arguments this verb takes
  */
-function Verb(word, type) {
+function Verb(word, type, conjugation) {
     this.partOfSpeech = 'verb';
     this.word = word;
+    if (conjugation) {
+        this.tense = conjugation.tenseName;
+        this.mood = conjugation.mood;
+        this.aspect = conjugation.aspect;
+        this.tense = conjugation.tense;
+        this.pronounData = conjugation.findVerbData(conjugation.inflectedOn);
+    }
 
     if (type) {
         const typeObj = types.find(t => t.type === type);

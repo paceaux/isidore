@@ -274,34 +274,91 @@ describe('The English language...', () => {
             });
         });
 
-        it('can get the conjugation of "plays" ', () => {
-            const { conjugations } = Verbs;
-            const plays = conjugations.findConjugationByInflection('plays');
+        describe('finding conjugations...', () => {
+            it('can get the conjugation of "plays" ', () => {
+                const { conjugations } = Verbs;
+                const plays = conjugations.findConjugationByInflection('plays');
 
-            expect(plays).to.be.an('object');
-            expect(plays).to.be.have.property('inflectedOn');
-            expect(plays.inflectedOn).to.equal('s');
+                expect(plays).to.be.an('object');
+                expect(plays).to.be.have.property('inflectedOn');
+                expect(plays.inflectedOn).to.equal('s');
+            });
+
+            it('can get the conjugation of "played" ', () => {
+                const { conjugations } = Verbs;
+                const plays = conjugations.findConjugationByInflection('played');
+
+                expect(plays).to.be.an('object');
+                expect(plays).to.be.have.property('inflectedOn');
+                expect(plays.inflectedOn).to.equal('ed');
+            });
+
+            it('can derive pronoun when it guesses on played', () => {
+                const { conjugations } = Verbs;
+                const played = conjugations.findConjugationByInflection('played');
+                const { inflectedOn } = played;
+                const verbData = played.findVerbData(inflectedOn);
+
+                expect(inflectedOn).to.be.a('string');
+                expect(verbData).to.be.an('object');
+                expect(verbData).to.have.property('person');
+                expect(verbData.person).to.contain('1');
+            });
         });
+        describe('finding conjugated verbs', () => {
 
-        it('can get the conjugation of "played" ', () => {
-            const { conjugations } = Verbs;
-            const plays = conjugations.findConjugationByInflection('played');
+            it('can find plays', () => {
+                const verb = Verbs.findWord('plays');
 
-            expect(plays).to.be.an('object');
-            expect(plays).to.be.have.property('inflectedOn');
-            expect(plays.inflectedOn).to.equal('ed');
-        });
+                expect(verb).to.be.an('object');
+                expect(verb).to.have.property('tense');
+                expect(verb.tense).to.equal('present');
+                expect(verb).to.have.property('pronounData');
+                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.equal('singular');
+            });
+            it('can find played', () => {
+                const verb = Verbs.findWord('played');
 
-        it('can derive pronoun when it guesses on played', () => {
-            const { conjugations } = Verbs;
-            const played = conjugations.findConjugationByInflection('played');
-            const { inflectedOn } = played;
-            const verbData = played.findVerbData(inflectedOn);
+                expect(verb).to.be.an('object');
+                expect(verb).to.have.property('tense');
+                expect(verb.tense).to.equal('past');
+                expect(verb).to.have.property('pronounData');
+                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.contain('singular');
+            });
+            it('can find smiled', () => {
+                const verb = Verbs.findWord('smiled');
 
-            expect(inflectedOn).to.be.a('string');
-            expect(verbData).to.be.an('object');
-            expect(verbData).to.have.property('person');
-            expect(verbData.person).to.contain('1');
+                expect(verb).to.be.an('object');
+                expect(verb).to.have.property('tense');
+                expect(verb.tense).to.equal('past');
+                expect(verb).to.have.property('pronounData');
+                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.contain('singular');
+            });
+            it('can find died', () => {
+                const verb = Verbs.findWord('died');
+
+                console.log(verb);
+                expect(verb).to.be.an('object');
+                expect(verb).to.have.property('tense');
+                expect(verb.tense).to.equal('past');
+                expect(verb).to.have.property('pronounData');
+                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.contain('singular');
+            });
+            it('can find tried', () => {
+                const verb = Verbs.findWord('tried');
+
+                console.log(verb);
+                expect(verb).to.be.an('object');
+                expect(verb).to.have.property('tense');
+                expect(verb.tense).to.equal('past');
+                expect(verb).to.have.property('pronounData');
+                expect(verb.pronounData).to.have.property('quantity');
+                expect(verb.pronounData.quantity).to.contain('singular');
+            });
         });
     });
 });

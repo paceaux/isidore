@@ -2,28 +2,39 @@ import Dictionary from '../dictionary';
 import Verb from '../partsOfSpeech/verb';
 import Word from '../word';
 
-/** Guesses which conjugation a verb is using
+/** Guesses which conjugation a verb is using.
+ * Note: this will get lots of undefined for English
  * @param  {string} word
  * @returns {object} conjugation for the word
  */
-function guessConjugation(word) {
+function guessConjugation(word, conjugations = this.conjugations) {
+    const result = conjugations.findConjugationByInflection(word);
 
+    return result;
 }
-/** returns a word to  its root form
- * @param  {} word
+
+/** Attempts to find the root form of a verb
+ * @param  {string} word verb to search for
+ * @param {conjugation} conjugation object returned from guessConjugation
  * @returns {string}
  */
-function removeConjugation(word) {
-
+function getRootVerb(word, conjugation) {
+    return word.replace(conjugation.inflectedOn, '');
 }
+
 /**
  * @param  {String} word word to search for
  * @returns {Object} Verb if successful, Word if unsuccessful
  */
 function findVerb(word) {
-    const list = this.list.filter(obj => word.toLowerCase().indexOf(obj.verb.toLowerCase()) !== -1);
+    const conjugation = guessConjugation(word, this.conjugations);
+    const root = conjugation ? getRootVerb(word, conjugation).toLowerCase() : word.toLowerCase();
+    const nWith = conjugation && conjugation.fix === 'prefix' ? 'endsWith' : 'startsWith';
+    const list = this.list.filter(obj => obj.verb[nWith](root));
 
-    const typedList = list.map(verbObj => new Verb(verbObj.verb, verbObj.type));
+    // todo: decide if we really need to go over the list again and set types
+    // todo: why not have a "findVerbs"
+    const typedList = list.map(verbObj => new Verb(verbObj.verb, verbObj.type, conjugation));
 
     return typedList.length === 0 ? new Word(word) : typedList[0];
 }
@@ -38,8 +49,6 @@ function findVerb(word) {
  */
 function VerbDictionary(list, language, conjugations) {
     this.conjugations = conjugations;
-    this.guessConjugation = guessConjugation;
-    this.removeConjugation = removeConjugation;
     this.language = language;
 
     this.GrammarModel = Verb;
@@ -50,5 +59,7 @@ function VerbDictionary(list, language, conjugations) {
 
 VerbDictionary.prototype = Object.create(Dictionary.prototype);
 VerbDictionary.prototype.findWord = findVerb;
+VerbDictionary.prototype.guessConjugation = guessConjugation;
+VerbDictionary.prototype.removeConjugation = getRootVerb;
 
 export default VerbDictionary;
