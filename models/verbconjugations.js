@@ -150,7 +150,9 @@ VerbConjugations.prototype = {
             inflections.forEach((verbData, mutation) => {
                 const regex = getInflectionRegex(fix, mutation);
                 if (word.search(regex) !== -1) {
-                    result = Object.assign({ inflectedOn: mutation }, conjugation);
+                    const blank = new VerbConjugation();
+                    result = Object.assign(blank, conjugation);
+                    result.inflectedOn = mutation;
                 }
             });
         });
