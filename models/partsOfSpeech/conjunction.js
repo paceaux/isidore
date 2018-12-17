@@ -21,7 +21,7 @@ const types = [
  * @member word string. raw word
  * @member type string. coordinating, subordinating, correlating
  * @member types array.
- * @member nextWord string. if the conjunction is a correlating, there's two words, this is the second
+ * @member nextWord string. if the conjunction is a correlating, this is the second
  */
 function Conjunction(word, type) {
     this.partOfSpeech = 'conjunction';

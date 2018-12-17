@@ -8,7 +8,8 @@ function findWord(word) {
     const { partOfSpeech } = this;
     const list = this.list.filter(obj => word.toLowerCase() === obj[partOfSpeech].toLowerCase());
 
-    const typedList = list.map(wordObj => new this.GrammarModel(wordObj[partOfSpeech], wordObj.type));
+    const typedList = list.map(wordObj => new this
+        .GrammarModel(wordObj[partOfSpeech], wordObj.type));
 
     return typedList.length > 0 ? typedList[0] : new Word(word);
 }

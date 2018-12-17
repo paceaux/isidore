@@ -15,6 +15,7 @@ function findPronoun(word) {
         pronounObj.referent,
         pronounObj.gender,
         pronounObj.person,
+        // eslint-disable-next-line function-paren-newline
         pronounObj.quantity));
 
     return typedList.length === 0 ? new Word(word) : typedList[0];

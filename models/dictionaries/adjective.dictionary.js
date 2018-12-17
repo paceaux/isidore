@@ -12,6 +12,7 @@ function findAdjective(word) {
     const typedList = list.map(intObj => new Adjective(
         intObj.adjective,
         intObj.type,
+        // eslint-disable-next-line function-paren-newline
         intObj.wordCategory));
 
     return typedList.length === 0 ? new Word(word) : typedList[0];
