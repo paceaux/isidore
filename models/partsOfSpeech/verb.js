@@ -26,6 +26,7 @@ const types = [
 /** Verb: an action
  * @param  {string} word original word
  * @param  {string} type avalent, transitive, intransitive, ditransitive
+ * @param  {VerbConjugation} conjugation
  * @member word word raw word
  * @member type string. avalent, transitive, intransitive, ditransitive
  * @member types array.

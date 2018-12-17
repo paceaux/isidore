@@ -5,6 +5,10 @@ import getVerbConjugationName from '../helpers/models.verbtenses';
  * @param  {string} tense=' ' past, present, future
  * @param  {string} aspect=' ' simple, continous, perfect, perfectContinuous
  * @param  {string} fix='suffix' prefix, infix, suffix
+ * @member name string mood:tense:name
+ * @member addInflection method, accepts object with {mutation, gender, quantity, person}
+ * @member addAuxiliary method, accepts object with {auxiliary, gender, quantity, person}
+ * @member findVerbData method, accepts an inflection as an argument, returns pronoun data
  */
 function VerbConjugation({
     mood = 'infinitive',

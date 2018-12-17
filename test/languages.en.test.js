@@ -338,7 +338,6 @@ describe('The English language...', () => {
             it('can find tries', () => {
                 const verb = Verbs.findWord('tries');
 
-                console.log(verb);
                 expect(verb.tense).to.equal('present');
                 expect(verb.pronounData.quantity).to.contain('singular');
             });

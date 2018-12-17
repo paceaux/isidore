@@ -14,7 +14,12 @@ function getInflectionRegex(fix, mutation) {
 
     return regex;
 }
-
+/** generates a map of moods, tenses, and aspects. 
+ * @param  {array} moods
+ * @param  {array} tenses
+ * @param  {array} aspects
+ * @returns Map
+ */
 function getTenseMap(moods, tenses, aspects) {
     const map = new Map();
 
@@ -44,7 +49,10 @@ function getTenseMap(moods, tenses, aspects) {
 
     return map;
 }
-
+/** Generates a nested object from a map, where mood: { tense : aspect : { }}
+ * @param  {map} map
+ * @returns object
+ */
 function getTenseTreeFromMap(map) {
     const obj = {};
 
@@ -64,7 +72,12 @@ function getTenseTreeFromMap(map) {
  * @param  {array} moods 'indicative', 'subjunctive'
  * @param  {array} tenses=[] 'past', 'present', 'future'
  * @param  {array} aspects=[] 'simple', 'continuous', 'perfect', 'perfectContinuous'
- * @param  {boolean} isRegular=true
+ * @param  {boolean} isRegular=true indicates if this set of conjuations is for regular verbs
+ * @member addInflection method. Adds inflection to conjugations. requires tenseName and inflection
+ * @member addAuxiliary method. Adds auxiliary to conjugations. requires tenseName, auxiliary
+ * @member inflections {map} . all of the inflections loaded into the verb conjugations
+ * @member auxiliaries {map} . all of the auxiliaries loaded into the verb conjugations
+ * @member findConjugationByInflection method. Finds a conjugation on an already conjugated verb. Returns a VerbConjugation
  */
 function VerbConjugations(moods, tenses = [], aspects = [], isRegular = true) {
     this.infinitive = new VerbConjugation();
