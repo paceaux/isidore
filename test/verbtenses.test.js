@@ -165,6 +165,23 @@ describe('Adding inflections to Verb Tenses...', () => {
 
         expect(edTense.name).to.equal('indicative:past:simple');
     });
+    it('...can find a conjugation by inflection', () => {
+
+        const plays = langTenses.findConjugationByInflection('plays');
+
+        expect(plays).to.be.an('object');
+        expect(plays).to.have.property('inflectedOn');
+        expect(plays.inflectedOn).to.equal('s');
+    });
+    it('...can find es even if there is s by inflection', () => {
+        const esInflection = { mutation: 'es', quantity: 'singular', person: 3 };
+        langTenses.addInflection('indicative:present:simple', esInflection);
+        const plays = langTenses.findConjugationByInflection('chooses');
+
+        expect(plays).to.be.an('object');
+        expect(plays).to.have.property('inflectedOn');
+        expect(plays.inflectedOn).to.equal('es');
+    });
 });
 describe('adding auxiliaries to verb tenses...', () => {
     const verbAspects = ['simple', 'continuous', 'perfect', 'perfectContinuous'];

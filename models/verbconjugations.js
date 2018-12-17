@@ -1,6 +1,20 @@
 import VerbConjugation from './verbconjugation';
 import getVerbConjugationName from '../helpers/models.verbtenses';
 
+/** produces a regular expression that searches at beginning, middle, or end of word
+ * @param  {string} fix prefix | suffix | infix
+ * @param  {string} mutation mutation to look for
+ * @returns RegExp
+ */
+function getInflectionRegex(fix, mutation) {
+    let regex = new RegExp(`(${mutation})`, 'i');
+
+    if (fix === 'suffix') regex = new RegExp(`(${mutation})$`, 'i');
+    if (fix === 'prefix') regex = new RegExp(`^(${mutation})`, 'i');
+
+    return regex;
+}
+
 function getTenseMap(moods, tenses, aspects) {
     const map = new Map();
 
@@ -124,6 +138,21 @@ VerbConjugations.prototype = {
             if (val.auxiliaries.has(auxiliary)) {
                 result = this.verbMap.get(key);
             }
+        });
+        return result;
+    },
+    findConjugationByInflection(word) {
+        let result;
+
+        this.verbMap.forEach(conjugation => {
+            const { fix, inflections } = conjugation;
+
+            inflections.forEach((verbData, mutation) => {
+                const regex = getInflectionRegex(fix, mutation);
+                if (word.search(regex) !== -1) {
+                    result = Object.assign({ inflectedOn: mutation }, conjugation);
+                }
+            });
         });
         return result;
     },
