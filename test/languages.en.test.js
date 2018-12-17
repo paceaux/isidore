@@ -274,38 +274,34 @@ describe('The English language...', () => {
             });
         });
 
-        it.skip('has tenses in the conjugations', () => {
+        it('can get the conjugation of "plays" ', () => {
             const { conjugations } = Verbs;
+            const plays = conjugations.findConjugationByInflection('plays');
 
-            expect(conjugations.tenses).to.be.an('object');
-            expect(conjugations).to.have.property('past');
-            expect(conjugations).to.have.property('pastParticiple');
-            expect(conjugations).to.have.property('present');
-            expect(conjugations).to.have.property('presentParticiple');
+            expect(plays).to.be.an('object');
+            expect(plays).to.be.have.property('inflectedOn');
+            expect(plays.inflectedOn).to.equal('s');
         });
 
-        it.skip('can get the conjugations of "plays" ', () => {
-            const conjugations = Verbs.getConjugations('plays');
+        it('can get the conjugation of "played" ', () => {
+            const { conjugations } = Verbs;
+            const plays = conjugations.findConjugationByInflection('played');
 
-            expect(conjugations).to.be.an('array');
+            expect(plays).to.be.an('object');
+            expect(plays).to.be.have.property('inflectedOn');
+            expect(plays.inflectedOn).to.equal('ed');
         });
 
-        it.skip('has tense and pronoun when it guesses a conjugation', () => {
-            const conjugation = Verbs.guessConjugation('plays');
+        it('can derive pronoun when it guesses on played', () => {
+            const { conjugations } = Verbs;
+            const played = conjugations.findConjugationByInflection('played');
+            const { inflectedOn } = played;
+            const verbData = played.findVerbData(inflectedOn);
 
-            expect(conjugation).to.be.an('object');
-            expect(conjugation).to.have.property('tense');
-            expect(conjugation).to.have.property('pronoun');
-        });
-        it.skip('can guess that "plays" gets a present simple tense and 3rd person pronoun', () => {
-            const conjugation = Verbs.guessConjugation('plays');
-
-            expect(conjugation).to.be.an('object');
-            expect(conjugation.tense).to.equal('presentSimple');
-            expect(conjugation.pronoun).to.be.an('object');
-            expect(conjugation.pronoun).to.have.property('quantity');
-            expect(conjugation.pronoun.quantity).to.equal('singular');
-            expect(conjugation.pronoun.person).to.equal(3);
+            expect(inflectedOn).to.be.a('string');
+            expect(verbData).to.be.an('object');
+            expect(verbData).to.have.property('person');
+            expect(verbData.person).to.contain('1');
         });
     });
 });
