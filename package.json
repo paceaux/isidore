@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/paceaux/isidore.git"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Isidore.js: A grammar utility for the internet",
   "main": "dist/isidore.cjs.js",
   "module": "dist/isidore.esm.js",
