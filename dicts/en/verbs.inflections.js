@@ -49,4 +49,4 @@ const went = { mutation: 'went', quantity: 'singular+plural', person: '1+2+3' };
 toGoConjugations.addInflection('indicative:past:simple', went);
 
 
-export { regularVerbConjugations, toBeConjugations };
+export { regularVerbConjugations, toBeConjugations, toGoConjugations };
