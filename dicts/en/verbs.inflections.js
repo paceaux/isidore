@@ -42,4 +42,11 @@ toBeConjugations.addInflection('indicative:present:simple', is);
 toBeConjugations.addInflection('indicative:past:simple', was);
 toBeConjugations.addInflection('indicative:past:simple', were);
 
+/* To go */
+const toGoConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+const went = { mutation: 'went', quantity: 'singular+plural', person: '1+2+3' };
+
+toGoConjugations.addInflection('indicative:past:simple', went);
+
+
 export { regularVerbConjugations, toBeConjugations };
