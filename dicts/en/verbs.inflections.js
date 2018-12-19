@@ -28,4 +28,18 @@ regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContin
 regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContinuous2);
 regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContinuous3);
 
-export { regularVerbConjugations };
+/* To Be */
+const toBeConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+const am = { mutation: 'am', quantity: 'singular', person: 1 };
+const are = { mutation: 'are', quantity: 'singular+plural', person: '1+2+3' };
+const is = { mutation: 'is', quantity: 'singular', person: 3 };
+const was = { mutation: 'was', quantity: 'singular', person: '1+3' };
+const were = { mutation: 'were', quantity: 'singular+plural', person: '1+2+3' };
+
+toBeConjugations.addInflection('indicative:present:simple', am);
+toBeConjugations.addInflection('indicative:present:simple', are);
+toBeConjugations.addInflection('indicative:present:simple', is);
+toBeConjugations.addInflection('indicative:past:simple', was);
+toBeConjugations.addInflection('indicative:past:simple', were);
+
+export { regularVerbConjugations, toBeConjugations };
