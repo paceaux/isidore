@@ -2,7 +2,7 @@
  * https://en.oxforddictionaries.com/grammar/transitive-and-intransitive-verbs
  */
 import VerbDictionary from '../../models/dictionaries/verb.dictionary';
-import verbConjugations from './verbs.inflections';
+import { regularVerbConjugations } from './verbs.inflections';
 
 // die is intransitive
 // https://www.linguasorb.com/english/verbs/regular-verbs/
@@ -47,4 +47,4 @@ export default new VerbDictionary([
     ...regularVerbs,
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En', verbConjugations);
+], 'En', regularVerbConjugations);

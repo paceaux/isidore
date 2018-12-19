@@ -6,8 +6,7 @@ const verbTenses = ['past', 'present', 'future'];
 const verbMoods = ['indicative', 'subjunctive'];
 
 // next, create verbConjugations model:
-const verbConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
-
+const regularVerbConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
 // then, create inflections:
 const edInflection = { mutation: 'ed', quantity: 'singular+plural', person: '1+2+3' };
 const iedInflection = { mutation: 'ied', quantity: 'singular+plural', person: '1+2+3' };
@@ -19,14 +18,14 @@ const presContinuous1 = { auxiliary: 'am', quantity: 'singular', person: 1 };
 const presContinuous2 = { auxiliary: 'are', quantity: 'singular+plural', person: '1+2+3' };
 const presContinuous3 = { auxiliary: 'is', quantity: 'singular', person: 3 };
 // add the inflections to the conjugations
-verbConjugations.addInflection('indicative:past:simple', edInflection);
-verbConjugations.addInflection('indicative:past:simple', iedInflection);
-verbConjugations.addInflection('indicative:present:simple', sInflection);
-verbConjugations.addInflection('indicative:present:simple', esInflection);
-verbConjugations.addInflection('indicative:present:simple', iesInflection);
-verbConjugations.addInflection('indicative:present:continuous', presContInflection);
-verbConjugations.addAuxiliary('indicative:present:continuous', presContinuous1);
-verbConjugations.addAuxiliary('indicative:present:continuous', presContinuous2);
-verbConjugations.addAuxiliary('indicative:present:continuous', presContinuous3);
+regularVerbConjugations.addInflection('indicative:past:simple', edInflection);
+regularVerbConjugations.addInflection('indicative:past:simple', iedInflection);
+regularVerbConjugations.addInflection('indicative:present:simple', sInflection);
+regularVerbConjugations.addInflection('indicative:present:simple', esInflection);
+regularVerbConjugations.addInflection('indicative:present:simple', iesInflection);
+regularVerbConjugations.addInflection('indicative:present:continuous', presContInflection);
+regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContinuous1);
+regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContinuous2);
+regularVerbConjugations.addAuxiliary('indicative:present:continuous', presContinuous3);
 
-export default verbConjugations;
+export { regularVerbConjugations };
