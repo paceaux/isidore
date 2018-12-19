@@ -54,6 +54,13 @@ const said = { mutation: 'said', quantity: 'singular+plural', person: '1+2+3' };
 
 toSayConjugations.addInflection('indicative:past:simple', said);
 
+/* To give */
+const toGiveConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+const gave = { mutation: 'gave', quantity: 'singular+plural', person: '1+2+3' };
+
+toGiveConjugations.addInflection('indicative:past:simple', gave);
+
 export {
     regularVerbConjugations, toBeConjugations, toGoConjugations, toSayConjugations,
+    toGiveConjugations,
 };
