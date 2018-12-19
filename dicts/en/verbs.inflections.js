@@ -48,5 +48,12 @@ const went = { mutation: 'went', quantity: 'singular+plural', person: '1+2+3' };
 
 toGoConjugations.addInflection('indicative:past:simple', went);
 
+/* To say */
+const toSayConjugations = new VerbConjugations(verbMoods, verbTenses, verbAspects);
+const said = { mutation: 'said', quantity: 'singular+plural', person: '1+2+3' };
 
-export { regularVerbConjugations, toBeConjugations, toGoConjugations };
+toSayConjugations.addInflection('indicative:past:simple', said);
+
+export {
+    regularVerbConjugations, toBeConjugations, toGoConjugations, toSayConjugations,
+};
