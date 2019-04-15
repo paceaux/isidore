@@ -13,7 +13,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint models/** src/**  test/**  dicts/** -f table",
-    "test": "mocha test/**/*.js",
+    "test": "npm run lint && mocha test/**/*.js",
     "debug": "npm run pretest && mocha test/debug.test.js",
     "pretest": "npm run build"
   },
