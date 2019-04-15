@@ -12,10 +12,12 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "lint": "eslint models/*.js src/*.js  test/*.js  dicts/*.js",
-    "test": "npm run lint && mocha test/*.js",
-    "debug": "npm run pretest && mocha test/debug.test.js",
-    "pretest": "npm run build"
+    "lint": "eslint models/** src/**  test/**  dicts/** -f table",
+    "test": "npm run lint && mocha test/**/*.js",
+    "predebug": "npm run pretest",
+    "debug": "mocha test/debug.test.js",
+    "pretest": "npm run build",
+    "prepublish": "safe-publish-latest && npm run build"
   },
   "keywords": [
     "grammar",
@@ -33,6 +35,7 @@
     "mocha": "^5.2.0",
     "rollup": "^0.66.6",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "safe-publish-latest": "^1.1.2"
   }
 }
