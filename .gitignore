@@ -74,6 +74,8 @@ typings/
 
 #lock files
 package-lock.json
+yarn.lock
+npm-shrinkwrap.json
 
 #built stuff
 dist
