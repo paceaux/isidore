@@ -72,6 +72,9 @@ typings/
 # Serverless directories
 .serverless
 
+#lock files
+package-lock.json
+
 #built stuff
 dist
 
