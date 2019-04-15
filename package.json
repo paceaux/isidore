@@ -17,9 +17,6 @@
     "debug": "npm run pretest && mocha test/debug.test.js",
     "pretest": "npm run build"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "grammar",
     "nlp",
