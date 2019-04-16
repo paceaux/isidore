@@ -2,6 +2,9 @@
 Takes a sentence and identifies the grammatical elements within
 This is still in a super experimental stage.
 
+[![dev dependency status][1]][2]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 ## API
 
 ### `PartsOfSpeech`
@@ -137,3 +140,9 @@ The sentence is where the parsing magic starts.
     }
         */
 
+[1]: https://david-dm.org/paceaux/isidore/dev-status.svg
+[2]: https://david-dm.org/paceaux/isidore#info=devDependencies
+[license-image]: http://img.shields.io/npm/l/isidore.svg
+[license-url]: LICENSE
+[downloads-image]: http://img.shields.io/npm/dm/isidore.svg
+[downloads-url]: http://npm-stat.com/charts.html?package=isidore
