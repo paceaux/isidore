@@ -12,8 +12,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "lint": "eslint models/** src/**  test/**  dicts/**",
-    "test": "mocha test/**",
+    "lint": "eslint models/*.js src/*.js  test/*.js  dicts/*.js",
+    "test": "mocha test/*.js",
     "debug": "npm run pretest && mocha test/debug.test.js",
     "pretest": "npm run build"
   },
