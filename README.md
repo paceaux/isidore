@@ -1,6 +1,8 @@
 # Isidore: A grammar utility for the internet
-Takes a sentence and identifies the grammatical elements within
-This is still in a super experimental stage.
+An experimental, potentially multilingual, highly configurable part-of-speech tagger. 
+
+This is still somewhat experimental.. Verb identification, in particular, is still limited.  Please monitor the [issuer tracker](https://github.com/paceaux/isidore/issues) for progress on feature development. 
+
 
 [![dev dependency status][1]][2]
 [![License][license-image]][license-url]
