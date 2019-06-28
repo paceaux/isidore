@@ -15,7 +15,7 @@ const LANGUAGE_DICTIONARIES = new Map([
     ['en-zw', 'En'],
 ]);
 
-const LANGUAGE_CODES = new Map([
+const LANGUAGE_NAMES = new Map([
     ['en', 'English'],
     ['en-BZ', 'English (Belize)'],
     ['en-AU', 'English (Australia)'],
@@ -33,4 +33,4 @@ const LANGUAGE_CODES = new Map([
 ]);
 
 // eslint-disable-next-line import/prefer-default-export
-export { LANGUAGE_DICTIONARIES, LANGUAGE_CODES };
+export { LANGUAGE_DICTIONARIES, LANGUAGE_NAMES };
