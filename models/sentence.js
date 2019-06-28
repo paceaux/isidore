@@ -1,4 +1,5 @@
 import Dictionaries from '../dicts/index';
+import { LANGUAGE_DICTIONARIES } from '../constants';
 
 const types = [
     {
@@ -113,12 +114,13 @@ function getWordList(textArray, language) {
  * @member {array} types the possible types that a sentence could have
  * @method getSentenceType guesses the type of sentence based on punctuation
  */
-function Sentence({ text, type, language = 'En' } = {}) {
+function Sentence({ text, type, language = 'en' } = {}) {
     this.text = text;
     this.language = language;
+    this.dictionary = LANGUAGE_DICTIONARIES.get(language.toLowerCase());
 
     this.rawWordList = getRawWordList(this.text);
-    this.wordList = getWordList(this.rawWordList, this.language);
+    this.wordList = getWordList(this.rawWordList, this.dictionary);
 
     if (!type) {
         this.type = guessSentenceTypeByPunctuation(text) || 'declarative';
