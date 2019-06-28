@@ -34,7 +34,10 @@ function guessSentenceTypeByPunctuation(text) {
         return markersPresent.length > 0;
     });
 
-    return typeList[typeList.length - 1].type;
+    const typeFromList = typeList[typeList.length - 1];
+    const sentenceType = typeFromList ? typeFromList.type : '';
+
+    return sentenceType;
 }
 
 /**
@@ -118,7 +121,7 @@ function Sentence({ text, type, language = 'En' } = {}) {
     this.wordList = getWordList(this.rawWordList, this.language);
 
     if (!type) {
-        this.type = guessSentenceTypeByPunctuation(text);
+        this.type = guessSentenceTypeByPunctuation(text) || 'declarative';
     }
 
     return this.text;

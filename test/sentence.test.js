@@ -47,5 +47,11 @@ describe('The Sentence model...', () => {
             expect(sentence2.type).to.equal('exclamatory+interrogative');
             expect(sentence3.type).to.equal('exclamatory+interrogative');
         });
+        it('assumes declarative if there\'s no punctuation', () => {
+            const sentence1 = new Sentence({ text: 'We give food to them' });
+
+
+            expect(sentence1.type).to.equal('declarative');
+        });
     });
 });
