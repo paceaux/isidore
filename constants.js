@@ -17,19 +17,19 @@ const LANGUAGE_DICTIONARIES = new Map([
 
 const LANGUAGE_NAMES = new Map([
     ['en', 'English'],
-    ['en-BZ', 'English (Belize)'],
-    ['en-AU', 'English (Australia)'],
-    ['en-CA', 'English (Canada)'],
-    ['en-CB', 'English (Caribbean)'],
-    ['en-GB', 'English (United Kingdom)'],
-    ['en-IE', 'English (Ireland)'],
-    ['en-JM', 'English (Jamaica)'],
-    ['en-NZ', 'English (New Zealand)'],
-    ['en-PH', 'English (Republic of the Philippines)'],
-    ['en-TT', 'English (Trinidad and Tobago)'],
-    ['en-US', 'English (United States)'],
-    ['en-ZA', 'English (South Africa)'],
-    ['en-ZW', 'English (Zimbabwe)'],
+    ['en-bz', 'English (Belize)'],
+    ['en-au', 'English (Australia)'],
+    ['en-ca', 'English (Canada)'],
+    ['en-cb', 'English (Caribbean)'],
+    ['en-gb', 'English (United Kingdom)'],
+    ['en-ie', 'English (Ireland)'],
+    ['en-jm', 'English (Jamaica)'],
+    ['en-nz', 'English (New Zealand)'],
+    ['en-ph', 'English (Republic of the Philippines)'],
+    ['en-t', 'English (Trinidad and Tobago)'],
+    ['en-us', 'English (United States)'],
+    ['en-za', 'English (South Africa)'],
+    ['en-zw', 'English (Zimbabwe)'],
 ]);
 
 // eslint-disable-next-line import/prefer-default-export
