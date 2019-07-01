@@ -31,6 +31,7 @@ describe('A sentence\'s language...', () => {
         expect(sentence).to.haveOwnProperty('type');
         expect(sentence).to.haveOwnProperty('text');
         expect(sentence).to.haveOwnProperty('language');
+        expect(sentence.language).to.equal('en');
     });
     it('can be set as EN', () => {
         const sentence = new Sentence({ text: 'This is a sentence.', language: 'EN' });
@@ -38,6 +39,7 @@ describe('A sentence\'s language...', () => {
         expect(sentence).to.haveOwnProperty('type');
         expect(sentence).to.haveOwnProperty('text');
         expect(sentence).to.haveOwnProperty('language');
+        expect(sentence.language).to.equal('en');
     });
     it('can be set as En', () => {
         const sentence = new Sentence({ text: 'This is a sentence.', language: 'EN' });
@@ -45,12 +47,14 @@ describe('A sentence\'s language...', () => {
         expect(sentence).to.haveOwnProperty('type');
         expect(sentence).to.haveOwnProperty('text');
         expect(sentence).to.haveOwnProperty('language');
+        expect(sentence.language).to.equal('en');
     });
     it('can be set as en-us', () => {
-        const sentence = new Sentence({ text: 'This is a sentence.', language: 'EN' });
+        const sentence = new Sentence({ text: 'This is a sentence.', language: 'en-us' });
 
         expect(sentence).to.haveOwnProperty('type');
         expect(sentence).to.haveOwnProperty('text');
         expect(sentence).to.haveOwnProperty('language');
+        expect(sentence.language).to.equal('en-us');
     });
 });
