@@ -5,10 +5,22 @@ const isidore = require('..');
 
 const { Languages, Sentence } = isidore;
 
-
 describe('There are Languages', () => {
     it('There is an English dictionary', () => {
         expect(Languages).to.have.property('En');
+    });
+    it('the English language has a full name ', () => {
+        expect(Languages.En).to.have.property('languageName');
+        expect(Languages.En.languageName).to.equal('English');
+        console.log(Languages.En);
+    });
+});
+
+describe('making a language...', () => {
+    it('can get a proper language name on national varieties', () => {
+        const EnglishLang = Languages.En;
+        EnglishLang.language = 'en-ie';
+        expect(EnglishLang.languageName).to.equal('English (Ireland)');
     });
 });
 
