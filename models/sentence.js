@@ -105,9 +105,10 @@ function getWordList(textArray, language) {
 /**
  * @param  {string} text a single sentence that contains terminating punctuation
  * @param  {string} type type of sentence (will be guessed if not provided)
- * @param  {} language='En' two-letter abbreviation for the language the sentence is in
+ * @param  {string} language='en'  ISO-639-1 language code with optional national variety
  * @member {string} text the original text of the sentence
- * @member {string} language the language of the sentence (Default is English)
+ * @member {string} language  ISO-639-1 language code with optional national variety
+ * @member {string} dictionary the dictionary that the sentence has used. Default is 'En'
  * @member {type} string the type of sentence (declarative, interrogative, imperative, exclamatory)
  * @member {array} rawWordList only the words in the sentence
  * @member {array} wordList each word in the sentence classified as either a part of speech or word
@@ -116,8 +117,8 @@ function getWordList(textArray, language) {
  */
 function Sentence({ text, type, language = 'en' } = {}) {
     this.text = text;
-    this.language = language;
-    this.dictionary = LANGUAGE_DICTIONARIES.get(language.toLowerCase());
+    this.language = language.toLowerCase();
+    this.dictionary = LANGUAGE_DICTIONARIES.get(this.language.toLowerCase());
 
     this.rawWordList = getRawWordList(this.text);
     this.wordList = getWordList(this.rawWordList, this.dictionary);
