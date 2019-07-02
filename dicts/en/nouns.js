@@ -3,6 +3,7 @@
  * http://www.englishbanana.com/worksheets/big-grammar-book-2-100-common-uncountable-nouns-in-english/
  */
 import NounDictionary from '../../models/dictionaries/noun.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 const commonNounList = [
     'time', 'year', 'people', 'way', 'day', 'man', 'thing', 'woman', 'life',
@@ -124,4 +125,4 @@ export default new NounDictionary([
     ...commonNouns,
     ...countableNouns,
     ...uncountableNouns,
-], 'En', inflections);
+], LANGUAGE_DICTIONARIES.get('en'), inflections);

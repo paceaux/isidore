@@ -3,6 +3,7 @@
 * https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
  */
 import PrepositionDictionary from '../../models/dictionaries/preposition.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 export default new PrepositionDictionary([
     {
@@ -167,4 +168,4 @@ export default new PrepositionDictionary([
         preposition: 'near',
         type: 'place',
     },
-], 'En');
+], LANGUAGE_DICTIONARIES.get('en'));

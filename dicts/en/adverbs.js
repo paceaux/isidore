@@ -4,6 +4,7 @@
  * https://dictionary.cambridge.org/us/grammar/british-grammar/about-adjectives-and-adverbs/adverbs-types
  */
 import AdverbDictionary from '../../models/dictionaries/adverb.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 export default new AdverbDictionary([
     {
@@ -466,4 +467,4 @@ export default new AdverbDictionary([
         adverb: 'yearly',
         type: 'frequency',
     },
-], 'En');
+], LANGUAGE_DICTIONARIES.get('en'));

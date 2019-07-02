@@ -5,6 +5,7 @@
 */
 
 import PronounDictionary from '../../models/dictionaries/pronoun.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 const subjectPronounList = [
     {
@@ -357,4 +358,4 @@ export default new PronounDictionary([
     ...objectPronounList,
     ...determinerPronounList,
     ...possessivePronounList,
-    ...reflexivePronounList], 'En');
+    ...reflexivePronounList], LANGUAGE_DICTIONARIES.get('en'));

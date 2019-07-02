@@ -2,6 +2,7 @@
  * http://www.yourdictionary.com/index.php/pdf/articles/156.listof-interjections.pdf
  */
 import InterjectionDictionary from '../../models/dictionaries/interjection.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 export default new InterjectionDictionary([
     {
@@ -189,4 +190,4 @@ export default new InterjectionDictionary([
         type: 'emotive',
         wordCategory: 'primary',
     },
-], 'En');
+], LANGUAGE_DICTIONARIES.get('en'));

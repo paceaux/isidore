@@ -3,6 +3,7 @@
 * https://www.english-grammar-revolution.com/list-of-conjunctions.html
  */
 import ConjunctionDictionary from '../../models/dictionaries/conjunction.dictionary';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 export default new ConjunctionDictionary([
     {
@@ -177,4 +178,4 @@ export default new ConjunctionDictionary([
         conjunction: ['whether', 'or'],
         type: 'correlating',
     },
-], 'En');
+], LANGUAGE_DICTIONARIES.get('en'));

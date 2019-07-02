@@ -3,6 +3,7 @@
  */
 import VerbDictionary from '../../models/dictionaries/verb.dictionary';
 import { regularVerbConjugations } from './verbs.inflections';
+import { LANGUAGE_DICTIONARIES } from '../../constants';
 
 // die is intransitive
 // https://www.linguasorb.com/english/verbs/regular-verbs/
@@ -47,4 +48,4 @@ export default new VerbDictionary([
     ...regularVerbs,
     ...transitiveVerbs,
     ...intransitiveVerbs,
-], 'En', regularVerbConjugations);
+], LANGUAGE_DICTIONARIES.get('en'), regularVerbConjugations);
